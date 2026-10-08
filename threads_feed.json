@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "generated_at": null,
+  "source": {
+    "project": "telegram-market-intelligence",
+    "window_hours": 24,
+    "public_feed": true
+  },
+  "market_overview": [],
+  "core_issues": [],
+  "noteworthy_issues": [],
+  "research_notes": [],
+  "top_tickers": [],
+  "top_themes": []
+}
