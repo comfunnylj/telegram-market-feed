@@ -118,3 +118,10 @@ Threads provider만 사용한다.
 - 이미지 생성에 실패하면 텍스트만 자동 게시하지 말고 게시를 중단한다.
 - Metricool 게시 실패 시 같은 게시물을 무한 재시도하지 않는다.
 - 데이터가 직전 게시와 사실상 동일하고 새로 쓸 내용이 부족하면 억지로 중복 글을 만들지 말고 해당 회차는 건너뛴다.
+
+
+## Threads 발행 전 필수 검증 (2026-10-09 장애 대응)
+- Metricool 공식 Threads 가이드 기준 게시물 **한 개당 500자 이내**, 해시태그는 **한 개 이하**. 장문 시장 브리핑은 본문을 줄이지 말고 500자 이하 단위의 `descendants` 연속 게시물로 분할한다. 첫 게시물에 지수와 이미지를 배치한다.
+- 이미지 게시 API는 Meta 서버가 `image_url`을 직접 다운로드하여 미디어 컨테이너를 만든다. 업로드 완료/PENDING은 발행 성공이 아니다. 공개 HTTPS 이미지 URL의 외부 접근 가능성 및 JPEG/PNG 규격을 점검한다.
+- Metricool 발행 후 `PUBLISHED` 및 `publicUrl`까지 확인해야 성공. `ERROR`의 `detailedStatus`를 기록하고, `Media container not created by unknown cause`이면 무조건 이미지 재압축만 반복하지 말고 Meta 미디어 다운로드/컨테이너 생성 문제를 조사한다.
+- 같은 날짜의 동일 본문 게시물이 이미 PUBLISHED이면 중복 게시 금지. 재시도 시 게시물의 실제 상태를 먼저 조회한다.
