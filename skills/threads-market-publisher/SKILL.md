@@ -105,10 +105,10 @@ Metricool 브랜드:
 - timezone: Asia/Seoul
 
 게시물은 autoPublish=true로 예약한다.
-이미지 파일을 mediaFiles로 첨부한다. 로컬 `/mnt/data/...` 경로가 아니라 생성된 이미지의 실제 ChatGPT 첨부파일 ID(`file_...`)를 전달한다.
+이미지 파일을 `mediaFiles`로 첨부한다. 실행 환경의 파일 업로드 방식에 맞춰 실제 값을 전달한다. **Codex Work에서 현재 Metricool 도구는 `mediaFiles`의 절대 로컬 파일 경로를 자동 업로드한다.** 생성 이미지가 로컬에 있으면 그 실제 경로를 전달한다. ChatGPT 첨부파일 ID를 직접 지원하는 환경에서만 반환된 실제 `file_...` ID를 사용한다. ID를 로컬 파일처럼 해석하며 `No such file or directory`가 발생하면 같은 ID를 재시도하지 말고 검수된 실제 이미지 경로로 업로드한다. ID가 없다는 이유만으로 로컬 이미지가 있는 게시를 중단하지 않는다. 임의 ID나 존재하지 않는 경로를 만들지 않는다.
 - Metricool `createScheduledPost` 호출 시 최상위 인자는 `date`, `blogId`, `info`, `mediaFiles`를 사용한다. **`data` 인자를 보내지 않는다.**
 - `info`는 객체가 아닌 **JSON 문자열(JSON.stringify 결과)**이어야 한다. 필수 구성: `autoPublish:true`, `draft:false`, `media:[]`, `providers:[{"network":"threads"}]`, `publicationDate:{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":"Asia/Seoul"}`, `text`, `threadsData:{}`.
-- 예: `createScheduledPost({date:"2026-10-09T10:30:00+09:00",blogId:"7283153",info:JSON.stringify({autoPublish:true,draft:false,media:[],providers:[{network:"threads"}],publicationDate:{dateTime:"2026-10-09T10:30:00",timezone:"Asia/Seoul"},text:body,threadsData:{}}),mediaFiles:[actualGeneratedImageFileId]})` (예시 날짜는 실제 실행 시 미래 시각으로 교체).
+- 예: `createScheduledPost({date:"2026-10-09T10:30:00+09:00",blogId:"7283153",info:JSON.stringify({autoPublish:true,draft:false,media:[],providers:[{network:"threads"}],publicationDate:{dateTime:"2026-10-09T10:30:00",timezone:"Asia/Seoul"},text:body,threadsData:{}}),mediaFiles:[actualImagePathOrSupportedFileId]})` (예시 날짜는 실제 실행 시 미래 시각으로 교체).
 - 성공 응답에서 게시물 `id`, `plannerUrl`, `autoPublish:true`, Threads 제공자 `PENDING`, 그리고 **비어 있지 않은 `media` URL**을 확인한다. 응답 확인 전에는 예약 성공으로 보고하지 않는다.
 Threads provider만 사용한다.
 게시 예정 시각이 이미 지났다면 가능한 가장 가까운 미래 시각으로 잡되 사용자에게 별도 확인을 요구하지 않는다.
