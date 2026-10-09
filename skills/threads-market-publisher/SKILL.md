@@ -105,7 +105,11 @@ Metricool 브랜드:
 - timezone: Asia/Seoul
 
 게시물은 autoPublish=true로 예약한다.
-이미지 파일을 mediaFiles로 첨부한다.
+이미지 파일을 mediaFiles로 첨부한다. 로컬 `/mnt/data/...` 경로가 아니라 생성된 이미지의 실제 ChatGPT 첨부파일 ID(`file_...`)를 전달한다.
+- Metricool `createScheduledPost` 호출 시 최상위 인자는 `date`, `blogId`, `info`, `mediaFiles`를 사용한다. **`data` 인자를 보내지 않는다.**
+- `info`는 객체가 아닌 **JSON 문자열(JSON.stringify 결과)**이어야 한다. 필수 구성: `autoPublish:true`, `draft:false`, `media:[]`, `providers:[{"network":"threads"}]`, `publicationDate:{"dateTime":"YYYY-MM-DDTHH:mm:ss","timezone":"Asia/Seoul"}`, `text`, `threadsData:{}`.
+- 예: `createScheduledPost({date:"2026-10-09T10:30:00+09:00",blogId:"7283153",info:JSON.stringify({autoPublish:true,draft:false,media:[],providers:[{network:"threads"}],publicationDate:{dateTime:"2026-10-09T10:30:00",timezone:"Asia/Seoul"},text:body,threadsData:{}}),mediaFiles:[actualGeneratedImageFileId]})` (예시 날짜는 실제 실행 시 미래 시각으로 교체).
+- 성공 응답에서 게시물 `id`, `plannerUrl`, `autoPublish:true`, Threads 제공자 `PENDING`, 그리고 **비어 있지 않은 `media` URL**을 확인한다. 응답 확인 전에는 예약 성공으로 보고하지 않는다.
 Threads provider만 사용한다.
 게시 예정 시각이 이미 지났다면 가능한 가장 가까운 미래 시각으로 잡되 사용자에게 별도 확인을 요구하지 않는다.
 
