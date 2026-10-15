@@ -1,0 +1,11 @@
+{
+  "protocol": 1,
+  "bridge_id": "sp-oracle-genie-carrot-v1",
+  "enabled": false,
+  "activated_at": null,
+  "topics": {
+    "morning": "미국주식",
+    "evening": "국내주식",
+    "energy": "원자재"
+  }
+}
