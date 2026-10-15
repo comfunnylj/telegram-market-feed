@@ -1,0 +1,5 @@
+{
+  "protocol": 1,
+  "probe_id": "oracle-migration-probe-20261015",
+  "mode": "read_only_no_publish"
+}
