@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "poll_seconds": 180,
+  "tasks": [
+    {
+      "id": "morning",
+      "name": "Threads 아침 브리핑",
+      "enabled": true,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "미국주식",
+      "outbox": "morning.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
+    },
+    {
+      "id": "evening",
+      "name": "Threads 저녁 브리핑",
+      "enabled": true,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "국내주식",
+      "outbox": "evening.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
+    },
+    {
+      "id": "energy",
+      "name": "에너지 시장 모니터",
+      "enabled": true,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "원자재",
+      "outbox": "energy.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
+    }
+  ]
+}
