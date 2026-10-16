@@ -40,6 +40,19 @@
       "max_posts": 500,
       "max_utf16": 450,
       "late_grace_seconds": 300
+    },
+    {
+      "id": "shopping",
+      "name": "Threads 쇼핑 콘텐츠",
+      "enabled": false,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "캠핑",
+      "outbox": "shopping.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
     }
   ]
 }
