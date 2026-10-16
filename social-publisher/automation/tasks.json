@@ -44,7 +44,7 @@
     {
       "id": "shopping",
       "name": "Threads 쇼핑 콘텐츠",
-      "enabled": false,
+      "enabled": true,
       "network": "threads",
       "account": "genie_carrot",
       "topic": "캠핑",
