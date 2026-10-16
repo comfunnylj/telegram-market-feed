@@ -1,5 +1,30 @@
 {
   "protocol": 1,
   "source": "energy",
-  "jobs": []
+  "jobs": [
+    {
+      "dedup_key": "energy:12659163f5927617033826ea7e67c8d206fb51f5eba9a035c84d4d7f2c765966",
+      "created_at": "2026-10-16T09:45:28.337+09:00",
+      "not_before": "2026-10-16T09:50:28.337+09:00",
+      "expires_at": "2026-10-16T09:55:28.337+09:00",
+      "topic": "원자재",
+      "text": "10/16, 에너지 시장 한눈에\n\n1. 미국 가솔린 재고 증가·중간유분 감소\n2. IEA, 경유 2천만 배럴 넘는 물량 조기 방출 추진\n3. TotalEnergies 3분기 정제마진 지표 $33.2/bbl\n4. Taranto 연료 없는 주유소, 절반 넘어\n5. 스위스 항공유 비축 인출 허용\n6. 일본 연료유 보조금 상향\n7. 미국 9월 프로판 수출 사상 최대\n\n10/15 기준 국제유가야. 모두 미국달러/배럴이야.\n\nWTI 97.97 (선물, 2026-10-15)\n브렌트유 105.92 (선물, 2026-10-15)\n두바이유 107.01 (직전 관측 대비 −2.08달러, 현물 평가·추정값, 2026-10-15)\n\n한국석유공사 오피넷의 일별 미화 표를 썼어. 선물 계약월·정산 여부는 표에 없어서 WTI·브렌트 변동은 생략했어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n미국 10/9 종료주 가솔린 재고는 2억826만2천 배럴로 351만8천 배럴 늘었어. 반면 중간유분은 1억261만1천 배럴로 252만7천 배럴 줄었어. EIA가 10/15 발표한 주간 추정치야.\n\n정유 가동률은 92.7→93.5%로 올랐지만 중간유분 생산은 줄었고, 수출도 감소했어.\n\n해석: 가솔린 재고 회복을 제품 시장 전체의 여유로 읽긴 어려워. 경유와 가솔린의 수급을 나눠 봐야 해.\nhttps://www.eia.gov/dnav/pet/pet_sum_sndw_dcus_nus_w.htm\n\nIEA는 10/15 성명에서 비축유 잔여분 약 1억 배럴의 방출을 서두르기로 했어. 그중 경유 2천만 배럴 초과분은 조속히 방출할 구체 계획이 있다고 밝혔어.\n\n새로 1억 배럴을 추가한다는 뜻은 아니야. 기존 공동행동의 남은 물량을 가속하는 결정이야.\n\n해석: 경유 공급의 완충재가 될 수 있지만 국가별 출고 시점과 규격은 아직 구체화되지 않았어.\nhttps://www.iea.org/news/iea-governing-board-statement-on-energy-markets-and-security\n\nTotalEnergies의 3분기 유럽 정제마진 지표 ERM은 $33.2/bbl로 전분기 $13.5/bbl에서 뛰었어. 회사는 정유 처리량도 전분기보다 10% 늘었다고 밝혔어.\n\n잠정·미감사 업데이트이고, ERM은 실제 실현 순마진이 아니야.\n\n해석: 높은 제품 마진이 처리량 확대 유인을 줬지만, 설비 구성과 지표가 다른 회사 수치를 그대로 비교하면 안 돼.\nhttps://www.businesswire.com/news/home/20261014248263/en/Trading-Statement\n\n이탈리아 Taranto에서는 봉쇄의 여파가 커졌어. Eni가 10/15 밝힌 연료 없는 Enilive 주유소는 약 300개 중 절반 이상이야. 전일의 50개 이상에서 늘었어.\n\n정유소는 정상 조업 중이야. 기술용 가스 부족으로 계획 정지가 필요할 수 있다는 경고와 실제 정지를 구분해야 해.\n\n해석: 지금 확인된 변화는 생산손실보다 지역 출하·배송 차질의 확대야.\nhttps://www.reuters.com/business/energy/eni-flags-shutdown-risk-southern-italy-refinery-due-steelworkers-protest-2026-10-15/\n\n스위스는 취리히 공항 공급난에 대응해 10/15~11/1 최대 3만m³의 항공유 의무비축 인출을 허용했어. 실제 전량 출고가 아니라 허용 한도야.\n\n독일발 철도 배송 지연에 라인강 저수위로 옮겨온 화물까지 겹쳤어.\n\n해석: 유럽 항공유는 총재고뿐 아니라 내륙 운송 병목도 봐야 해. 물량이 있어도 필요한 공항에 제때 못 닿는 문제야.\nhttps://www.reuters.com/business/energy/zurich-airport-faces-fuel-shortage-swiss-government-approves-reserve-withdrawals-2026-10-15/\n\n일본은 10/15 이후 가솔린·경유·등유·중유 보조금을 43.0엔/L, 항공유를 34.4엔/L로 공지했어. 직전 10/8 적용분보다 각각 0.6엔/L, 0.5엔/L 늘었어.\n\n해석: 일본 내 가격 충격을 완충하는 정책이지 국제 제품가격이 내려갔다는 뜻은 아니야. 납사는 지원대상 목록에 없어.\nhttps://nenryo-teigakuhikisage.go.jp/\n\n늦게 확인한 10/14 공개 자료도 있어. S&P에 따르면 9월 미국 프로판 수출은 220만 b/d로 사상 최대였어. 휴스턴→일본 VLGC 운임은 8월 52.19→9월 57.45 US cents/gal로 올랐어.\n\n해석: 미국산 LPG의 대체 공급과 운임 부담이 함께 커졌어. 같은 시점의 납사·LPG 가격과 비용이 없으니 원료 전환 수익성을 계산하진 않았어.\nhttps://www.spglobal.com/energy/en/news-research/latest-news/shipping/101426-us-propane-exports-hit-record-high-on-surging-european-asian-demand",
+      "parts": [
+        "10/16, 에너지 시장 한눈에\n\n1. 미국 가솔린 재고 증가·중간유분 감소\n2. IEA, 경유 2천만 배럴 넘는 물량 조기 방출 추진\n3. TotalEnergies 3분기 정제마진 지표 $33.2/bbl\n4. Taranto 연료 없는 주유소, 절반 넘어\n5. 스위스 항공유 비축 인출 허용\n6. 일본 연료유 보조금 상향\n7. 미국 9월 프로판 수출 사상 최대\n\n",
+        "10/15 기준 국제유가야. 모두 미국달러/배럴이야.\n\nWTI 97.97 (선물, 2026-10-15)\n브렌트유 105.92 (선물, 2026-10-15)\n두바이유 107.01 (직전 관측 대비 −2.08달러, 현물 평가·추정값, 2026-10-15)\n\n한국석유공사 오피넷의 일별 미화 표를 썼어. 선물 계약월·정산 여부는 표에 없어서 WTI·브렌트 변동은 생략했어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "미국 10/9 종료주 가솔린 재고는 2억826만2천 배럴로 351만8천 배럴 늘었어. 반면 중간유분은 1억261만1천 배럴로 252만7천 배럴 줄었어. EIA가 10/15 발표한 주간 추정치야.\n\n정유 가동률은 92.7→93.5%로 올랐지만 중간유분 생산은 줄었고, 수출도 감소했어.\n\n해석: 가솔린 재고 회복을 제품 시장 전체의 여유로 읽긴 어려워. 경유와 가솔린의 수급을 나눠 봐야 해.\nhttps://www.eia.gov/dnav/pet/pet_sum_sndw_dcus_nus_w.htm\n\n",
+        "IEA는 10/15 성명에서 비축유 잔여분 약 1억 배럴의 방출을 서두르기로 했어. 그중 경유 2천만 배럴 초과분은 조속히 방출할 구체 계획이 있다고 밝혔어.\n\n새로 1억 배럴을 추가한다는 뜻은 아니야. 기존 공동행동의 남은 물량을 가속하는 결정이야.\n\n해석: 경유 공급의 완충재가 될 수 있지만 국가별 출고 시점과 규격은 아직 구체화되지 않았어.\nhttps://www.iea.org/news/iea-governing-board-statement-on-energy-markets-and-security\n\n",
+        "TotalEnergies의 3분기 유럽 정제마진 지표 ERM은 $33.2/bbl로 전분기 $13.5/bbl에서 뛰었어. 회사는 정유 처리량도 전분기보다 10% 늘었다고 밝혔어.\n\n잠정·미감사 업데이트이고, ERM은 실제 실현 순마진이 아니야.\n\n해석: 높은 제품 마진이 처리량 확대 유인을 줬지만, 설비 구성과 지표가 다른 회사 수치를 그대로 비교하면 안 돼.\nhttps://www.businesswire.com/news/home/20261014248263/en/Trading-Statement\n\n",
+        "이탈리아 Taranto에서는 봉쇄의 여파가 커졌어. Eni가 10/15 밝힌 연료 없는 Enilive 주유소는 약 300개 중 절반 이상이야. 전일의 50개 이상에서 늘었어.\n\n정유소는 정상 조업 중이야. 기술용 가스 부족으로 계획 정지가 필요할 수 있다는 경고와 실제 정지를 구분해야 해.\n\n해석: 지금 확인된 변화는 생산손실보다 지역 출하·배송 차질의 확대야.\nhttps://www.reuters.com/business/energy/eni-flags-shutdown-risk-southern-italy-refinery-due-steelworkers-protest-2026-10-15/\n\n",
+        "스위스는 취리히 공항 공급난에 대응해 10/15~11/1 최대 3만m³의 항공유 의무비축 인출을 허용했어. 실제 전량 출고가 아니라 허용 한도야.\n\n독일발 철도 배송 지연에 라인강 저수위로 옮겨온 화물까지 겹쳤어.\n\n해석: 유럽 항공유는 총재고뿐 아니라 내륙 운송 병목도 봐야 해. 물량이 있어도 필요한 공항에 제때 못 닿는 문제야.\nhttps://www.reuters.com/business/energy/zurich-airport-faces-fuel-shortage-swiss-government-approves-reserve-withdrawals-2026-10-15/\n\n",
+        "일본은 10/15 이후 가솔린·경유·등유·중유 보조금을 43.0엔/L, 항공유를 34.4엔/L로 공지했어. 직전 10/8 적용분보다 각각 0.6엔/L, 0.5엔/L 늘었어.\n\n해석: 일본 내 가격 충격을 완충하는 정책이지 국제 제품가격이 내려갔다는 뜻은 아니야. 납사는 지원대상 목록에 없어.\nhttps://nenryo-teigakuhikisage.go.jp/\n\n",
+        "늦게 확인한 10/14 공개 자료도 있어. S&P에 따르면 9월 미국 프로판 수출은 220만 b/d로 사상 최대였어. 휴스턴→일본 VLGC 운임은 8월 52.19→9월 57.45 US cents/gal로 올랐어.\n\n해석: 미국산 LPG의 대체 공급과 운임 부담이 함께 커졌어. 같은 시점의 납사·LPG 가격과 비용이 없으니 원료 전환 수익성을 계산하진 않았어.\nhttps://www.spglobal.com/energy/en/news-research/latest-news/shipping/101426-us-propane-exports-hit-record-high-on-surging-european-asian-demand"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/87ebe12f7f7678d1e137c63819e0e9674b2330cd/social-publisher/media/energy-69099842947499377f92a0c44076145cd8c430ce0f82af205b1cd07451f85271.png",
+        "sha256": "a2fc4fff3240a2430fbc25950f3287c5dcccfa318bdf3abbadb3eb7943a7eb36",
+        "size": 1862876
+      }
+    }
+  ]
 }
