@@ -53,6 +53,19 @@
       "max_posts": 500,
       "max_utf16": 450,
       "late_grace_seconds": 300
+    },
+    {
+      "id": "misc",
+      "name": "Threads 기타 단발 게시",
+      "enabled": false,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "기타",
+      "outbox": "misc.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
     }
   ]
 }
