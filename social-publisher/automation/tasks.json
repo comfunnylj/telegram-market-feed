@@ -66,6 +66,19 @@
       "max_posts": 500,
       "max_utf16": 450,
       "late_grace_seconds": 300
+    },
+    {
+      "id": "realestate",
+      "name": "Threads 부동산 단발 게시",
+      "enabled": false,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "부동산",
+      "outbox": "realestate.json",
+      "image_required": true,
+      "max_posts": 500,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
     }
   ]
 }
