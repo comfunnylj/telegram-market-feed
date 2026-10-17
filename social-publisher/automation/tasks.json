@@ -57,7 +57,7 @@
     {
       "id": "misc",
       "name": "Threads 기타 단발 게시",
-      "enabled": false,
+      "enabled": true,
       "network": "threads",
       "account": "genie_carrot",
       "topic": "기타",
@@ -70,7 +70,7 @@
     {
       "id": "realestate",
       "name": "Threads 부동산 단발 게시",
-      "enabled": false,
+      "enabled": true,
       "network": "threads",
       "account": "genie_carrot",
       "topic": "부동산",
