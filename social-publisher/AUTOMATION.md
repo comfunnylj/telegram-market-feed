@@ -27,7 +27,7 @@ Read the committed file with fetch_file encoding=base64 at that commit, decode i
 
 ## Outbox JSON
 Each source file is a UTF-8 object: {"protocol":1,"source":"<registered task id>","jobs":[...]}.
-Each job has exactly the following delivery fields:
+Each job has the following delivery fields (the optional images array is gated by the 0.4 capability checks below):
 - dedup_key: stable source key above
 - created_at: actual preparation-complete timestamp, ISO 8601 with offset
 - not_before: future publish timestamp, ISO 8601 with offset
@@ -51,7 +51,7 @@ unknown, publishing_unknown, published_unverified, partial_failed, needs_review,
 The source outbox is not a cancellation interface. Cancel only pending jobs through the existing authenticated server client. Never remove an outbox entry as a substitute for cancellation.
 
 ## Registering another task without server code changes
-This engine currently supports the existing Threads account genie_carrot only. Other account/network values are rejected rather than silently routed to this account. Videos, image carousels and extra SNS providers require a separate implementation.
+This engine currently supports the existing Threads account genie_carrot only. Other account/network values are rejected rather than silently routed to this account. Videos and extra SNS providers require a separate implementation. Image carousels require the compatible 0.4 server and the capability checks below; keep single-image envelopes on older servers.
 
 Registry root:
 {"schema_version":1,"poll_seconds":180,"tasks":[task entries]}
@@ -85,3 +85,39 @@ Important semantics:
 - An accepted job's content, topic, image and expiry are an immutable snapshot; later registry changes affect new jobs only. The old accepted key is never re-created.
 - One unavailable source outbox is reported in task_errors without blocking other source imports. Invalid registry schema blocks new intake until fixed; existing accepted jobs continue on their saved snapshot.
 - At most 50 tasks and 100 retained outbox entries per task are accepted by this version. These are validation limits, not a guaranteed workload throughput.
+
+
+# Image carousel extension for Social Publisher 0.4
+
+Read current control, registry, task policy and receipt before sending. Existing source, topic, image-required policy, immutable keys and approval rules continue to apply. Do not change existing accepted envelopes.
+
+## Required capability gate
+
+Before writing a new carousel envelope, read a fresh public receipt from the configured status URL and verify `publisher_version=0.4` (or a later compatible version) and `capabilities.carousel=true`, `capabilities.max_images>=requested image count`, in addition to existing identity, health and enabled checks. Version 0.3 ignores unknown `images` fields, so do not send them to an unverified older server. PC 0.6 also checks this capability over SSH before multiple-image submission.
+
+## Ordered image array
+
+Legacy `image: {...}` and `image: null` remain accepted without change. New envelopes can instead supply `images: [...]`, an ordered array of 0 to 20 objects. `image` must be absent or null when `images` is supplied. Do not provide two nonempty representations.
+
+Each automation image has the same fields as the legacy image: `url`, `sha256`, `size`. Use visually reviewed JPEG/PNG bytes, each at most 8 MiB. Upload and read back every image using the existing immutable GitHub commit URL procedure. Do not invent paths, hashes or commit SHAs. A partial upload or validation failure must not cause an automatic text-only or reduced-image fallback.
+
+When image_required is true, require at least one image. An empty array is valid only for a text-only task. One image uses the existing single-image API; 2–20 images create ordered child containers then one CAROUSEL parent on the first post. Topic and first-part text belong to the parent. Only the parent is published; later parts remain ordinary linked text replies.
+
+Example structural fragment only, not a request to publish:
+
+```json
+{
+  "images": [
+    {"url":"ACTUAL_IMMUTABLE_URL_1","sha256":"ACTUAL_SHA256_1","size":123},
+    {"url":"ACTUAL_IMMUTABLE_URL_2","sha256":"ACTUAL_SHA256_2","size":456}
+  ]
+}
+```
+
+All dates, full text, exact concatenated parts, source-specific dedup_key, expiry and account checks remain unchanged. The array order is part of the immutable approved request. Do not reorder or replace images under an accepted key. Recheck all hashes and byte counts before creating any container. Do not publish child containers individually, retry under fresh IDs after uncertain publishing, or treat receipt image_count as independent proof that Meta rendered every image. Verify the real post when reporting completion.
+
+The public receipt reports capabilities and requested image_count, while detailed child-container IDs and statuses are saved in the private history. It excludes image URLs, bodies and tokens.
+
+Existing briefing-specific requirements to use one 4:5 image remain unchanged until the user requests another content policy.
+
+Primary API reference used: https://www.postman.com/meta/threads/documentation/dht3nzz/threads-api
