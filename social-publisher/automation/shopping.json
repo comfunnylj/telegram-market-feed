@@ -1,5 +1,22 @@
 {
   "protocol": 1,
   "source": "shopping",
-  "jobs": []
+  "jobs": [
+    {
+      "dedup_key": "shopping:gr688-air-pump-2026-10-17",
+      "created_at": "2026-10-17T09:24:18.318+09:00",
+      "not_before": "2026-10-17T09:29:18.318+09:00",
+      "expires_at": "2026-10-17T09:34:18.318+09:00",
+      "topic": "캠핑",
+      "text": "캠핑 가서 에어매트 바람 넣는 거, 은근 귀찮지 않아? 😂\n\n나도 그래서 GR-688 에어펌프를 직접 사서 써봤어.\n\n텐트나 에어매트에 바람 넣을 때 쓰는 제품인데, 써보니까 대체로 만족스러웠어. 캠핑용품은 설명보다 실제로 써봤을 때 괜찮은지가 더 중요하잖아.\n\n거창한 장비라기보단 캠핑 갈 때 하나 챙겨두면 편한 아이템이라는 생각이 들더라.\n\n궁금한 사람은 여기서 확인해 봐 👇\nhttps://link.coupang.com/a/hTkgjQqdki\n\n이 글은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.",
+      "parts": [
+        "캠핑 가서 에어매트 바람 넣는 거, 은근 귀찮지 않아? 😂\n\n나도 그래서 GR-688 에어펌프를 직접 사서 써봤어.\n\n텐트나 에어매트에 바람 넣을 때 쓰는 제품인데, 써보니까 대체로 만족스러웠어. 캠핑용품은 설명보다 실제로 써봤을 때 괜찮은지가 더 중요하잖아.\n\n거창한 장비라기보단 캠핑 갈 때 하나 챙겨두면 편한 아이템이라는 생각이 들더라.\n\n궁금한 사람은 여기서 확인해 봐 👇\nhttps://link.coupang.com/a/hTkgjQqdki\n\n이 글은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다."
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/dd1ec7b79c9a29ef8030a9e5c3796c7b2d28633a/social-publisher/media/shopping-1214e4c2ce8dd69f.jpg",
+        "sha256": "47eb30ddeaff394e87b7654d6d540de79df875d63f01f247be4168241c78ae99",
+        "size": 119108
+      }
+    }
+  ]
 }
