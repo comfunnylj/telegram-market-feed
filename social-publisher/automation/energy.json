@@ -25,6 +25,29 @@
         "sha256": "a2fc4fff3240a2430fbc25950f3287c5dcccfa318bdf3abbadb3eb7943a7eb36",
         "size": 1862876
       }
+    },
+    {
+      "dedup_key": "energy:2a1a58f18ae35e4d5a550f59f2df62bf4bf5565427e83c58e5c6bac50689cc2e",
+      "created_at": "2026-10-17T09:38:03.365+09:00",
+      "not_before": "2026-10-17T09:43:03.365+09:00",
+      "expires_at": "2026-10-17T09:48:03.365+09:00",
+      "topic": "원자재",
+      "text": "10/17, 에너지 시장 한눈에\n\n1. 미국 동향 제품 파이프라인, 전용량 가동\n2. 인도 국영사 경유 판매, 전월 동기보다 26.4% 증가\n3. Taranto 정유소 앞 도로 봉쇄 해제\n4. 인도 에탄올 입찰, 일부 당계 원료 제외\n5. 엑슨모빌 화학 마진 영향은 −6억 달러\n6. 오만만→중국 VLCC 운임, 전주보다 하락\n\n유가는 오피넷에서 직접 확인한 10/16 기준이야. 실시간 가격은 아니야.\n\nWTI 101.41 미국달러/배럴 (선물, 10/16)\n브렌트유 109.86 미국달러/배럴 (선물, 10/16)\n두바이유 106.00 미국달러/배럴 (직전 관측 대비 −1.01달러, 현물 평가·추정값, 10/16)\n\nWTI는 NYMEX, 브렌트는 ICE 선물이야. 계약월·정산 여부가 표에 없어 변동은 생략했어. 두바이는 같은 표의 10/15 관측과 비교했어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n미국은 새 생산보다 물류 변화가 있어. Buckeye는 중서부 가솔린·경유를 북동부로 보내는 Laurel 신규 서비스가 전용량 가동 중이라고 밝혔어.\n\n제시 능력은 최대 80,000 b/d야. 이 숫자를 실제 하루 수송량이나 증산량으로 읽으면 안 돼. 제품별 물량은 달라지고 기존 서향 고객 약정도 유지돼.\n\n해석: 중서부 겨울 가솔린의 판로가 넓어지고 동부의 수입 의존을 일부 낮출 여지가 있어.\nhttps://www.opis.com/resources/energy-market-news-from-opis/exclusive-us-midwest-northeast-product-pipeline-fully-utilized/\n\n인도 국영사 IndianOil·BPCL·HPCL의 10/1~15 잠정 판매는 경유 365만 톤, 가솔린 155만 톤이야. 전월 같은 기간보다 각각 26.4%, 0.9% 늘었어.\n\n해석: 두 제품의 강도가 달라. 민간 주유소에서 국영사로 옮겨온 고객과 축제 전 재고 확보도 있어, 경유 판매 증가율을 인도 전체 최종소비 증가율로 보면 안 돼.\nhttps://www.reuters.com/business/energy/festive-demand-drives-indias-diesel-sales-october-data-shows-2026-10-16/\n\nEni Taranto는 전날과 방향이 바뀌었어. 10/16 정유소 앞 도로 봉쇄가 풀렸고 철강 노동자들의 파업도 일시 중단됐어. Reuters와 ANSA 본문을 대조했어.\n\n해석: 제품 출하 병목이 완화되는 변화야. 정유소는 앞서 정상 운전 중이었으니 ‘재가동’이 아니야. 주유소 재입고 완료나 공항 급유 제한 해제까지 확인된 건 아니고, 정부와의 다음 대화는 10/27이야.\nhttps://www.reuters.com/business/world-at-work/workers-italys-former-ilva-plant-suspend-protest-await-court-ruling-new-talks-2026-10-16/\n\n인도 3사의 다음 공급연도 에탄올 110억 L 입찰에선 사탕수수즙·설탕·시럽·B-heavy 당밀 원료가 제외됐어. 옥수수·쇄미·잉여 쌀은 허용돼.\n\n옥수수 에탄올 조달가격은 71.86→68.86루피/L로 낮아졌어. 낙찰 물량이 아니라 입찰 조건이야.\n\n해석: 가솔린 혼합재의 원료 조달 선택지가 달라져. E20 의무가 취소되거나 석유계 가솔린 수요가 즉시 늘었다는 뜻은 아니야.\nhttps://www.reuters.com/world/india/india-sets-zero-sugar-diversion-ethanol-202627-tender-2026-10-16/\n\n엑슨모빌은 정제품과 화학을 따로 볼 수치도 냈어. SEC 공시에서 3분기 화학 부문의 전분기 대비 마진 변화 이익 효과를 −6억 달러로 추정했어.\n\n전분기 물량을 적용한 시장효과일 뿐 확정 실적이나 납사 크랙은 아니야. 회사도 전체 분기 이익 추정이 아니라고 선을 그었어.\n\n해석: 정제품 마진 강세를 납사·크래커 수익 개선으로 바로 연결하기 어려워. 당일 신규 납사 현물 수치와 한국 크래커 보수 일정은 추가 확인이 필요해.\nhttps://www.sec.gov/Archives/edgar/data/2115436/000211543626000013/f8k3q991101626.htm\n\n오만만→중국 VLCC 운임은 전주 WS841에서 약 WS776으로 낮아졌어. Reuters가 공개 인용한 Baltic 수치야.\n\n해석: 정유 원료 수송비 부담을 일부 낮출 수 있지만 VLCC는 원유선이야. 가솔린·납사 MR/LR 제품선 운임 하락으로 바꿔 읽을 수 없어. 그림자선대 제재 완화도 아직 검토 단계야.\nhttps://www.reuters.com/business/energy/supertanker-rates-fall-record-highs-2026-10-16/",
+      "parts": [
+        "10/17, 에너지 시장 한눈에\n\n1. 미국 동향 제품 파이프라인, 전용량 가동\n2. 인도 국영사 경유 판매, 전월 동기보다 26.4% 증가\n3. Taranto 정유소 앞 도로 봉쇄 해제\n4. 인도 에탄올 입찰, 일부 당계 원료 제외\n5. 엑슨모빌 화학 마진 영향은 −6억 달러\n6. 오만만→중국 VLCC 운임, 전주보다 하락\n\n",
+        "유가는 오피넷에서 직접 확인한 10/16 기준이야. 실시간 가격은 아니야.\n\nWTI 101.41 미국달러/배럴 (선물, 10/16)\n브렌트유 109.86 미국달러/배럴 (선물, 10/16)\n두바이유 106.00 미국달러/배럴 (직전 관측 대비 −1.01달러, 현물 평가·추정값, 10/16)\n\nWTI는 NYMEX, 브렌트는 ICE 선물이야. 계약월·정산 여부가 표에 없어 변동은 생략했어. 두바이는 같은 표의 10/15 관측과 비교했어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "미국은 새 생산보다 물류 변화가 있어. Buckeye는 중서부 가솔린·경유를 북동부로 보내는 Laurel 신규 서비스가 전용량 가동 중이라고 밝혔어.\n\n제시 능력은 최대 80,000 b/d야. 이 숫자를 실제 하루 수송량이나 증산량으로 읽으면 안 돼. 제품별 물량은 달라지고 기존 서향 고객 약정도 유지돼.\n\n해석: 중서부 겨울 가솔린의 판로가 넓어지고 동부의 수입 의존을 일부 낮출 여지가 있어.\nhttps://www.opis.com/resources/energy-market-news-from-opis/exclusive-us-midwest-northeast-product-pipeline-fully-utilized/\n\n",
+        "인도 국영사 IndianOil·BPCL·HPCL의 10/1~15 잠정 판매는 경유 365만 톤, 가솔린 155만 톤이야. 전월 같은 기간보다 각각 26.4%, 0.9% 늘었어.\n\n해석: 두 제품의 강도가 달라. 민간 주유소에서 국영사로 옮겨온 고객과 축제 전 재고 확보도 있어, 경유 판매 증가율을 인도 전체 최종소비 증가율로 보면 안 돼.\nhttps://www.reuters.com/business/energy/festive-demand-drives-indias-diesel-sales-october-data-shows-2026-10-16/\n\n",
+        "Eni Taranto는 전날과 방향이 바뀌었어. 10/16 정유소 앞 도로 봉쇄가 풀렸고 철강 노동자들의 파업도 일시 중단됐어. Reuters와 ANSA 본문을 대조했어.\n\n해석: 제품 출하 병목이 완화되는 변화야. 정유소는 앞서 정상 운전 중이었으니 ‘재가동’이 아니야. 주유소 재입고 완료나 공항 급유 제한 해제까지 확인된 건 아니고, 정부와의 다음 대화는 10/27이야.\nhttps://www.reuters.com/business/world-at-work/workers-italys-former-ilva-plant-suspend-protest-await-court-ruling-new-talks-2026-10-16/\n\n",
+        "인도 3사의 다음 공급연도 에탄올 110억 L 입찰에선 사탕수수즙·설탕·시럽·B-heavy 당밀 원료가 제외됐어. 옥수수·쇄미·잉여 쌀은 허용돼.\n\n옥수수 에탄올 조달가격은 71.86→68.86루피/L로 낮아졌어. 낙찰 물량이 아니라 입찰 조건이야.\n\n해석: 가솔린 혼합재의 원료 조달 선택지가 달라져. E20 의무가 취소되거나 석유계 가솔린 수요가 즉시 늘었다는 뜻은 아니야.\nhttps://www.reuters.com/world/india/india-sets-zero-sugar-diversion-ethanol-202627-tender-2026-10-16/\n\n",
+        "엑슨모빌은 정제품과 화학을 따로 볼 수치도 냈어. SEC 공시에서 3분기 화학 부문의 전분기 대비 마진 변화 이익 효과를 −6억 달러로 추정했어.\n\n전분기 물량을 적용한 시장효과일 뿐 확정 실적이나 납사 크랙은 아니야. 회사도 전체 분기 이익 추정이 아니라고 선을 그었어.\n\n해석: 정제품 마진 강세를 납사·크래커 수익 개선으로 바로 연결하기 어려워. 당일 신규 납사 현물 수치와 한국 크래커 보수 일정은 추가 확인이 필요해.\nhttps://www.sec.gov/Archives/edgar/data/2115436/000211543626000013/f8k3q991101626.htm\n\n",
+        "오만만→중국 VLCC 운임은 전주 WS841에서 약 WS776으로 낮아졌어. Reuters가 공개 인용한 Baltic 수치야.\n\n해석: 정유 원료 수송비 부담을 일부 낮출 수 있지만 VLCC는 원유선이야. 가솔린·납사 MR/LR 제품선 운임 하락으로 바꿔 읽을 수 없어. 그림자선대 제재 완화도 아직 검토 단계야.\nhttps://www.reuters.com/business/energy/supertanker-rates-fall-record-highs-2026-10-16/"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/91ee5b2c75054e0b25b3d1888e94e125a62c0466/social-publisher/media/energy-e3c16e4813c04b13ed5e0cfffd6c895457615eee5f72bfadd14db2de390ec209.png",
+        "sha256": "80d193338e6ee3126ac36c064f34fc55421a84ce41259399c407a43aa227a164",
+        "size": 2043452
+      }
     }
   ]
 }
