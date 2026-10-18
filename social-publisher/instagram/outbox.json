@@ -3,5 +3,26 @@
   "network": "instagram",
   "source": "instagram",
   "account": "genie_carrot",
-  "jobs": []
+  "jobs": [
+    {
+      "dedup_key": "instagram:genie_carrot:20261018-travel-carousel-001",
+      "approved": true,
+      "not_before": "2026-10-18T10:39:39.943Z",
+      "expires_at": "2026-10-18T14:40:39.943Z",
+      "caption": "사진 두 장인데 분위기가 완전히 다르죠? 🌍\n\n하늘 높이 뻗은 거대한 바오바브 나무들.\n\n그리고 초록 이끼로 뒤덮인 석상 위에서 주변을 바라보는 원숭이.\n\n둘 중 한 곳에서 시간을 보낼 수 있다면 어디가 더 끌리세요?\n\n🌳 1번 나무 풍경\n🐒 2번 원숭이\n\n댓글로 골라주세요!\n\n#세계여행 #여행사진 #자연풍경 #여행스타그램",
+      "media_type": "carousel",
+      "media": [
+        {
+          "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/17b565c37208a34b56684934f3332e915b004a60/social-publisher/media/instagram-baobab-12c325c9.jpg",
+          "sha256": "12c325c9213b913212218fc780737782f5e709072e009404dd76bc513e2d6a5f",
+          "size": 1287233
+        },
+        {
+          "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/17b565c37208a34b56684934f3332e915b004a60/social-publisher/media/instagram-monkey-5065fc02.jpg",
+          "sha256": "5065fc02394d8cc44f06c4d262ff643e91e2cc0db20787d66d8d73a5432c616c",
+          "size": 958569
+        }
+      ]
+    }
+  ]
 }
