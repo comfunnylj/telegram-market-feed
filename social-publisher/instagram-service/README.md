@@ -1,6 +1,9 @@
 # Instagram extension for the existing Social Publisher
 
-**State: source-code staging only. It has NOT been deployed to Oracle and has NOT posted to Instagram.**
+**State (2026-10-18): deployed on the existing Oracle VM as the independent
+`instagram-publisher` container. Instagram Login `/me` identity verification,
+GitHub outbox polling, and receipt generation succeeded. No live Instagram
+image/Reel has been posted or end-to-end publish-tested yet.**
 
 This is a separate no-inbound-port Python worker. It reads a dedicated GitHub
 outbox, verifies the exact Instagram account and media hashes, publishes with
@@ -32,9 +35,11 @@ closed-source Oracle worker. These are separate work items.
 2. Meta developer app configured for **Instagram API with Instagram Login**.
    Facebook Page linkage is not required for this login method.
 3. App authorization with `instagram_business_basic` and
-   `instagram_business_content_publish`. Obtain the Instagram User ID, exact
-   account username, and a valid long-lived Instagram access token from the
-   authorized flow. Do not share token values in chats or commits.
+   `instagram_business_content_publish`. Obtain the Instagram User ID **returned
+   by `GET /me` for this exact Instagram Login token**, exact account username,
+   and a valid long-lived Instagram access token from the authorized flow. The
+   numeric ID displayed elsewhere in Meta setup may differ. Do not share token
+   values in chats or commits.
 4. Oracle server Docker/Compose access; keep the running Threads worker untouched.
 5. Media hosted over public HTTPS that Meta can fetch. This service defaults
    to allowing only `raw.githubusercontent.com`. A public GitHub blob URL with
@@ -99,7 +104,7 @@ python3 -m unittest -v test_instagram_publisher.py
 Tests mock all network calls and must pass before deployment. They do not prove
 live Instagram API permissions, encoding compatibility, or publication success.
 
-## Deployment once Oracle SSH and Meta OAuth are available
+## Oracle deployment (verified 2026-10-18)
 
 Do this in a checkout of this repository on the Oracle host, from the directory
 `social-publisher/instagram-service`. Keep the current Threads container live:
@@ -108,12 +113,27 @@ Do this in a checkout of this repository on the Oracle host, from the directory
 cp .env.instagram.example .env.instagram
 chmod 600 .env.instagram
 # Edit .env.instagram locally on Oracle. Never commit or print the token.
-# Fill the exact user ID, username, long-lived access token and graph version.
+# Fill the ID returned by `GET /me`, exact username, access token and graph version.
 # Set IG_ENABLED=true only after the matching GitHub outbox account is configured.
-docker compose --env-file .env.instagram -f compose.instagram.yml up -d --build
-docker compose -f compose.instagram.yml ps
-docker exec instagram-publisher python -c 'import json; print(json.load(open("/data/status.json")))'
+# The current Oracle host has legacy docker-compose 1.25, not the v2 plugin.
+# Use Docker CLI without modifying the existing Threads container:
+sudo docker build -t instagram-publisher:trial .
+sudo docker volume create instagram_publisher_data
+sudo docker run -d --name instagram-publisher --restart unless-stopped \
+  --env-file .env.instagram \
+  --mount type=volume,source=instagram_publisher_data,target=/data \
+  --memory 128m --pids-limit 64 --cap-drop ALL \
+  --security-opt no-new-privileges instagram-publisher:trial
+sudo docker exec instagram-publisher python -c 'from instagram_publisher import Settings,GraphClient; GraphClient(Settings.from_env()).verify_account(); print("INSTAGRAM ACCOUNT VERIFIED")'
+sudo docker exec instagram-publisher python -c 'import json; print(json.load(open("/data/status.json")))'
 ```
+
+An installation with a recent Compose v2 plugin may instead use
+`docker compose --env-file .env.instagram -f compose.instagram.yml up -d --build`.
+**Docker does not reload `.env.instagram` into a running container:** when
+credentials, account ID, or queue URL change, stop/remove only the
+`instagram-publisher` container and recreate it with the same named data volume.
+Never remove the receipt volume as part of a routine update.
 
 The new service is named `instagram-publisher`, uses its **own** Docker volume,
 and has no published port. There is no `docker compose down` instruction and no
