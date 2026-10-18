@@ -1,0 +1,18 @@
+# Run from within this folder: docker compose --env-file .env.instagram -f compose.instagram.yml up -d --build
+# Does NOT stop/recreate/replace the existing social-publisher container.
+services:
+  instagram-publisher:
+    build: .
+    container_name: instagram-publisher
+    restart: unless-stopped
+    env_file: .env.instagram
+    volumes:
+      - instagram_data:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 128m
+    pids_limit: 64
+volumes:
+  instagram_data:

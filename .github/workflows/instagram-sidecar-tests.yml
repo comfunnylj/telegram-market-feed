@@ -1,0 +1,22 @@
+name: Instagram sidecar offline tests
+
+on:
+  pull_request:
+    paths:
+      - 'social-publisher/instagram-service/**'
+      - '.github/workflows/instagram-sidecar-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Python syntax and run mocked publication tests
+        working-directory: social-publisher/instagram-service
+        run: |
+          python3 -m compileall -q instagram_publisher.py test_instagram_publisher.py
+          python3 -m unittest -v test_instagram_publisher.py
