@@ -23,6 +23,21 @@
           "size": 958569
         }
       ]
+    },
+    {
+      "dedup_key": "instagram:genie_carrot:20261018-sangdo15-reel-005df895",
+      "approved": true,
+      "not_before": "2026-10-18T15:38:34.362Z",
+      "expires_at": "2026-10-19T15:38:34.362Z",
+      "caption": "상도동, 드디어 풍경이 바뀝니다. 🌿🏙️\n\n상도15구역은 서울시 통합심의안 기준 3,204세대, 최고 35층의 대단지 재개발로 추진되고 있습니다.\n\n약 4,600평 중앙광장과 약 8km 산책로를 담은 특화설계까지 더해지며 국사봉 곁 새로운 주거타운의 모습이 기대됩니다.\n\n자세한 내용은 블로그에서 확인해보세요.\nhttps://blog.naver.com/comfunny_lj/224445559219\n\n#상도15구역 #상도동재개발 #서울재개발 #동작구재개발 #부동산",
+      "media_type": "reels",
+      "media": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1fS5X_-7tw6NGl--u-i2odtE8vMbwn9Fq&export=download",
+          "sha256": "005df89535f638d884cadadde1818013553922183ca03f869c04b056e6c072c0",
+          "size": 2211875
+        }
+      ]
     }
   ]
 }
