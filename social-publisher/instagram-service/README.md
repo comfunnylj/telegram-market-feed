@@ -48,10 +48,10 @@ Official Meta references:
 
 ## Queue (public GitHub repository)
 
-The new outbox is `social-publisher/instagram/outbox.json`. It is intentionally
-empty with `account=UNCONFIGURED` until the owner supplies the exact Instagram
-username. Set `account` to that username before starting the worker. Never
-add a token to this file.
+The new outbox is `social-publisher/instagram/outbox.json`. The owner confirmed
+that the destination account is `genie_carrot`; it is intentionally **empty**
+until a real post is approved. Before starting the worker, confirm this handle
+still matches the Meta-authenticated Instagram user. Never add a token here.
 
 Job structure, **illustrative only, not submitted**:
 
