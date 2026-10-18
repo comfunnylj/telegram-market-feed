@@ -168,7 +168,9 @@ def validate_job(job: dict, source: str, hosts: frozenset[str]) -> None:
         raise PublisherError("Unsupported media_type")
     for item in media:
         validate_media(item, hosts)
-        extension = urllib.parse.urlsplit(item["url"]).path.lower().rsplit(".", 1)[-1]
+        parsed_url = urllib.parse.urlsplit(item["url"])
+        filename = urllib.parse.parse_qs(parsed_url.query).get("filename", [""])[0]
+        extension = (filename or parsed_url.path).lower().rsplit(".", 1)[-1]
         if kind == "reels" and extension not in ("mp4", "mov"):
             raise PublisherError("Reels must use an MP4/MOV video URL")
         if kind != "reels" and extension not in ("jpg", "jpeg"):
