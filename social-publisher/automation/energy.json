@@ -69,6 +69,27 @@
         "sha256": "4137ad2a1eef36d9273e7f75bd23e296dbeab0421c3e6df8afb478aeca79a61a",
         "size": 2003596
       }
+    },
+    {
+      "dedup_key": "energy:2bd25b0c90245203f0ba12c5bc630d31bfb44adcb1d4226fb0394b6b6f24c4a7",
+      "created_at": "2026-10-19T09:46:28.196+09:00",
+      "not_before": "2026-10-19T09:51:28.196+09:00",
+      "expires_at": "2026-10-19T09:56:28.196+09:00",
+      "topic": "원자재",
+      "text": "10/19, 에너지 시장 한눈에\n\n1. Ampol Lytton 추가 보수로 4분기 제품 생산 전망이 1억 5천만L 낮아졌어.\n2. 튀르키예는 미·러 합의에 따른 경유 일부를 받을 계획이야. 물량은 미공개야.\n3. Vitol은 HSFO 공급 제약과 정유 원료 수요를 지적했어. 10/16 발표를 늦게 확인한 내용이야.\n\n주요 기관 유가 전망·최신 확인본\nEIA(10/6): Brent 현물 2026년 4분기 평균 105달러/배럴, 2027년 평균 84달러 — 중동 공급 제약·재고 감소 전제.\n골드만삭스(10/16): Brent 2026년 12월 가격 90달러/배럴, 2027년 평균 80달러 — 중동 공급 회복 전제, 분쟁 확대는 상방 위험.\n\n실제 유가 | 오피넷 최신 공개값, 2026-10-16 기준\n\nWTI 101.41달러/배럴 (선물)\n브렌트유 109.86달러/배럴 (선물)\n두바이유 106.00달러/배럴 (−1.01달러, 현물 평가·추정값)\n\n두바이 변동은 같은 출처의 10/15 대비야. WTI·Brent는 계약월과 정산 여부가 표에 없어 변동을 생략했어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\nAmpol 공식 공시를 보면 Lytton의 FCCU(유동접촉분해장치)는 추가 보수 뒤 11월 중순 재가동 예상이야. 4분기 가솔린·경유·항공유 합계 생산 전망이 기존보다 약 150ML 줄었어. 회사는 고객 공급 영향은 예상하지 않는다고 밝혔어.\n\n3분기 LRM은 전년 10.64→23.92달러/배럴, 생산은 1,252→1,137ML였어. LRM은 회사의 제품·원유 수입비용 기준 지표로 순이익률과 달라.\n\n해석: 마진 상승과 생산 감소를 함께 봐야 해. 새 수입 입찰이 확정됐다는 뜻은 아니야.\nhttps://wcsecure.weblink.com.au/clients/ampol/headline.aspx?headlineid=21704688\n\n튀르키예 Bayraktar 장관은 10/18 미·러 경유 합의 물량 일부를 도입하겠다고 밝혔어. 기존 합의의 수요처가 구체화된 거야. 배정량·선적일·실제 도착은 아직 미공개야.\n\n해석: 공급 경로 변화의 단서지만 추가 공급량이나 크랙 효과를 숫자로 확정할 근거는 부족해.\nhttps://www.reuters.com/business/energy/turkey-will-get-some-diesel-us-russia-supply-deal-energy-minister-says-2026-10-18/\n\nHSFO는 Vitol의 평가로 구분해서 봐야 해. Gallagher는 호르무즈 흐름이 2월보다 최소 80만톤/월 적고, 북아시아 정유사의 11월 원료 조달 수요가 100만톤을 넘는다고 봤어. 확정 실수송량은 아니야.\n\n해석: 원유 흐름 회복만으로 연료유 수급 완화를 단정하기 어려워.\nhttps://www.reuters.com/business/energy/global-fuel-oil-market-stays-tight-conflicts-hit-mideast-russia-supplies-vitol-2026-10-16/\n\n위 유가 전망은 오늘 새 발표가 아니라 공식 원문으로 다시 확인한 최신 자료야. EIA의 분기평균과 골드만삭스의 특정월 가격은 기준이 다르고, 기관 견해가 확정 가격은 아니야. EIA 입력 마감은 10/1이야.\n\nEIA 원문\nhttps://www.eia.gov/outlooks/steo/archives/oct26.pdf\n\n골드만삭스 원문\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers",
+      "parts": [
+        "10/19, 에너지 시장 한눈에\n\n1. Ampol Lytton 추가 보수로 4분기 제품 생산 전망이 1억 5천만L 낮아졌어.\n2. 튀르키예는 미·러 합의에 따른 경유 일부를 받을 계획이야. 물량은 미공개야.\n3. Vitol은 HSFO 공급 제약과 정유 원료 수요를 지적했어. 10/16 발표를 늦게 확인한 내용이야.\n\n주요 기관 유가 전망·최신 확인본\nEIA(10/6): Brent 현물 2026년 4분기 평균 105달러/배럴, 2027년 평균 84달러 — 중동 공급 제약·재고 감소 전제.\n골드만삭스(10/16): Brent 2026년 12월 가격 90달러/배럴, 2027년 평균 80달러 — 중동 공급 회복 전제, 분쟁 확대는 상방 위험.\n\n",
+        "실제 유가 | 오피넷 최신 공개값, 2026-10-16 기준\n\nWTI 101.41달러/배럴 (선물)\n브렌트유 109.86달러/배럴 (선물)\n두바이유 106.00달러/배럴 (−1.01달러, 현물 평가·추정값)\n\n두바이 변동은 같은 출처의 10/15 대비야. WTI·Brent는 계약월과 정산 여부가 표에 없어 변동을 생략했어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "Ampol 공식 공시를 보면 Lytton의 FCCU(유동접촉분해장치)는 추가 보수 뒤 11월 중순 재가동 예상이야. 4분기 가솔린·경유·항공유 합계 생산 전망이 기존보다 약 150ML 줄었어. 회사는 고객 공급 영향은 예상하지 않는다고 밝혔어.\n\n3분기 LRM은 전년 10.64→23.92달러/배럴, 생산은 1,252→1,137ML였어. LRM은 회사의 제품·원유 수입비용 기준 지표로 순이익률과 달라.\n\n해석: 마진 상승과 생산 감소를 함께 봐야 해. 새 수입 입찰이 확정됐다는 뜻은 아니야.\nhttps://wcsecure.weblink.com.au/clients/ampol/headline.aspx?headlineid=21704688\n\n",
+        "튀르키예 Bayraktar 장관은 10/18 미·러 경유 합의 물량 일부를 도입하겠다고 밝혔어. 기존 합의의 수요처가 구체화된 거야. 배정량·선적일·실제 도착은 아직 미공개야.\n\n해석: 공급 경로 변화의 단서지만 추가 공급량이나 크랙 효과를 숫자로 확정할 근거는 부족해.\nhttps://www.reuters.com/business/energy/turkey-will-get-some-diesel-us-russia-supply-deal-energy-minister-says-2026-10-18/\n\n",
+        "HSFO는 Vitol의 평가로 구분해서 봐야 해. Gallagher는 호르무즈 흐름이 2월보다 최소 80만톤/월 적고, 북아시아 정유사의 11월 원료 조달 수요가 100만톤을 넘는다고 봤어. 확정 실수송량은 아니야.\n\n해석: 원유 흐름 회복만으로 연료유 수급 완화를 단정하기 어려워.\nhttps://www.reuters.com/business/energy/global-fuel-oil-market-stays-tight-conflicts-hit-mideast-russia-supplies-vitol-2026-10-16/\n\n",
+        "위 유가 전망은 오늘 새 발표가 아니라 공식 원문으로 다시 확인한 최신 자료야. EIA의 분기평균과 골드만삭스의 특정월 가격은 기준이 다르고, 기관 견해가 확정 가격은 아니야. EIA 입력 마감은 10/1이야.\n\nEIA 원문\nhttps://www.eia.gov/outlooks/steo/archives/oct26.pdf\n\n골드만삭스 원문\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/4316270d2f9552ffe8dd47fc27031ebcd9a6084f/social-publisher/media/energy-2bd25b0c90245203f0ba12c5bc630d31bfb44adcb1d4226fb0394b6b6f24c4a7.jpg",
+        "sha256": "73a1582a255102d0ad4ed9d5ce9fed635c8f74fac9f0aae64efd6ec6ac5a3be4",
+        "size": 418719
+      }
     }
   ]
 }
