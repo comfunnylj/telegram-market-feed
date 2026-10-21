@@ -1,0 +1,87 @@
+name: Prepare Myeonmok7 verified Threads media
+on:
+  push:
+    paths:
+      - '.github/workflows/prepare-myeonmok7-20261021.yml'
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install fonts and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk >/dev/null
+          python -m pip install -q Pillow
+      - name: Fetch actual official image and create factual cards
+        run: |
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+          from urllib.request import Request, urlopen
+          import hashlib, subprocess, os
+          
+          dst = Path("social-publisher/media")
+          dst.mkdir(parents=True, exist_ok=True)
+          render = dst / "realestate-myeonmok7-20261021-01.png"
+          url = "https://img.seoul.co.kr/img/upload/2026/09/08/SSC_20260908105354.png"
+          req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+          with urlopen(req, timeout=40) as f:
+              data = f.read()
+          render.write_bytes(data)
+          with Image.open(render) as im:
+              im.verify()
+          assert len(data) > 20000, "Rendering is suspiciously small"
+          print("Official rendering", len(data), hashlib.sha256(data).hexdigest())
+          
+          font_paths = ["/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+          "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+          "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
+          path = next((p for p in font_paths if Path(p).exists()), None)
+          assert path, "No legible font available"
+          def font(sz, b=False):
+              return ImageFont.truetype(path, sz)
+          W,H=900,1125
+          bg=(18,32,53); ink=(247,249,251); muted=(182,201,216); accent=(101,206,191)
+          def panel(filename,title,subtitle,rows,note):
+              im=Image.new("RGB",(W,H),bg)
+              d=ImageDraw.Draw(im)
+              d.rectangle((0,0,W,22),fill=accent)
+              d.text((64,78),title,font=font(63),fill=ink)
+              d.text((64,167),subtitle,font=font(31),fill=muted)
+              yy=300
+              for label,val in rows:
+                  d.rounded_rectangle((56,yy,844,yy+167),radius=28,fill=(32,52,76))
+                  d.text((94,yy+29),label,font=font(32),fill=muted)
+                  d.text((94,yy+78),val,font=font(52),fill=ink)
+                  yy+=193
+              d.line((64,1000,836,1000),fill=(88,107,123),width=2)
+              d.text((64,1034),note,font=font(23),fill=muted)
+              im.save(dst/filename,optimize=True)
+              p=dst/filename
+              print(filename,p.stat().st_size,hashlib.sha256(p.read_bytes()).hexdigest())
+          panel("realestate-myeonmok7-20261021-02.png",
+                "면목7구역", "2026.09 통합심의 계획 기준",
+                [("전체 공급계획","1,515세대"),("최고 높이","35층 · 12개동"),("공공주택","290세대")],
+                "중랑구·서울시 공개자료 | 향후 계획 변경 가능")
+          panel("realestate-myeonmok7-20261021-03.png",
+                "사업성 살펴보기","공개 조합원 수 적용 단순 계산",
+                [("공개 조합원 수","646명"),("일반분양 산술 추정","579세대"),("조합원 수 대비","약 89.6%")],
+                "확정 분양물량·비례율·투자수익률 아님")
+          panel("realestate-myeonmok7-20261021-04.png",
+                "5억 이하 진입 사례","민간 플랫폼 기록 | 확인일 2026.10.10",
+                [("매매 호가","5억원"),("플랫폼 표기 초투","약 3.93억원"),("공개 대지지분","약 6.44평")],
+                "실제 승계·분양자격·비용은 물건별 확인")
+          subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+          subprocess.run(["git","add","social-publisher/media/realestate-myeonmok7-20261021-*.png"],check=True)
+          diff=subprocess.run(["git","diff","--staged","--quiet"]).returncode
+          if diff:
+              subprocess.run(["git","commit","-m","Add verified Myeonmok7 rendering and factual Threads cards"],check=True)
+              subprocess.run(["git","push"],check=True)
+          else:
+              print("No changes")
