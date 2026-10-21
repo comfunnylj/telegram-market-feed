@@ -1,8 +1,8 @@
 {
   "dedup_key": "realestate:myeonmok7-20261021",
   "expected_job_id": "44d48e1a-b535-5a58-ae07-2b34bfb1fe01",
-  "checked_at": "2026-10-21T07:15:04.989888+00:00",
-  "attempt": 13,
+  "checked_at": "2026-10-21T07:15:53.653045+00:00",
+  "attempt": 16,
   "bridge_id": null,
   "publisher_version": "0.4",
   "account": "genie_carrot",
@@ -11,17 +11,60 @@
     "max_images": 20,
     "carousel": true
   },
-  "updated_at": 1792566903.2919164,
+  "updated_at": 1792566947.345121,
   "matched_jobs": [
     {
       "id": "44d48e1a-b535-5a58-ae07-2b34bfb1fe01",
       "source": "realestate",
       "dedup_key": "realestate:myeonmok7-20261021",
       "due": 1792566840.0,
-      "status": "running",
+      "status": "published",
       "requested_topic": "부동산",
       "image_count": 4,
-      "parts": []
+      "parts": [
+        {
+          "index": 1,
+          "status": "published",
+          "id": "18567703654077558",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2NbvFHDA",
+          "topic_tag": "부동산"
+        },
+        {
+          "index": 2,
+          "status": "published",
+          "id": "18107324195211038",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2O4vlGTf",
+          "topic_tag": null
+        },
+        {
+          "index": 3,
+          "status": "published",
+          "id": "17911904880557124",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2PtjlLPF",
+          "topic_tag": null
+        },
+        {
+          "index": 4,
+          "status": "published",
+          "id": "18146000329572175",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2RKbFDWT",
+          "topic_tag": null
+        },
+        {
+          "index": 5,
+          "status": "published",
+          "id": "18130682603495051",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2TzVlHkh",
+          "topic_tag": null
+        },
+        {
+          "index": 6,
+          "status": "published",
+          "id": "17933499171413012",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dev2VUBlOGC",
+          "topic_tag": "면목7구역"
+        }
+      ]
     }
   ],
   "matches": 1,
