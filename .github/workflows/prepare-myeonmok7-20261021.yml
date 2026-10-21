@@ -20,6 +20,7 @@ jobs:
           python -m pip install -q Pillow
       - name: Fetch actual official image and create factual cards
         run: |
+          python - <<'PY'
           from pathlib import Path
           from PIL import Image, ImageDraw, ImageFont
           from urllib.request import Request, urlopen
@@ -85,3 +86,4 @@ jobs:
               subprocess.run(["git","push"],check=True)
           else:
               print("No changes")
+          PY
