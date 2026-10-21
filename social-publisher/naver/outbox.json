@@ -2,5 +2,17 @@
   "protocol": 1,
   "network": "naver",
   "account": "comfunny_lj",
-  "jobs": []
+  "jobs": [
+    {
+      "dedup_key": "naver:comfunny_lj:myeonmok7-20261021-original",
+      "approved": false,
+      "mode": "draft",
+      "title": "면목7구역 재개발 분석｜SK·현대 시공사 선정, 1,515세대 통합심의 통과! 5억 이하 투자 가능할까?",
+      "category": "부동산",
+      "body_markdown": "",
+      "images": [],
+      "source": "2026-10-21 기존 채팅 초안 작성, 전체 본문 및 첨부 이미지 미회수",
+      "status_note": "원문 확보 및 공식 조감도 검증 전에는 승인하거나 게시하지 않습니다."
+    }
+  ]
 }
