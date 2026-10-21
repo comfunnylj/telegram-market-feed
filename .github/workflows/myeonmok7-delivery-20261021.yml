@@ -1,0 +1,67 @@
+name: Verify Myeonmok7 Threads delivery
+on:
+  push:
+    paths:
+      - '.github/workflows/myeonmok7-delivery-20261021.yml'
+permissions:
+  contents: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - name: Poll public Social Publisher receipt for exact job and persist verified state
+        run: |
+          python - <<'PY'
+          from urllib.request import Request,urlopen
+          from pathlib import Path
+          import json,time,uuid,subprocess,datetime
+          base="https://161-33-141-193.sslip.io/social-publisher-status/status.json"
+          key="realestate:myeonmok7-20261021"
+          jid=str(uuid.uuid5(uuid.NAMESPACE_URL,"social-publisher/"+key))
+          out=Path("social-publisher/automation/myeonmok7-delivery-status.json")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          def scan(obj,found):
+              if isinstance(obj,dict):
+                  if obj.get("dedup_key")==key or str(obj.get("job_id") or obj.get("id") or "")==jid:
+                      found.append(obj)
+                  for v in obj.values(): scan(v,found)
+              elif isinstance(obj,list):
+                  for v in obj: scan(v,found)
+          def commit_if_changed(payload,stage):
+              s=json.dumps(payload,ensure_ascii=False,indent=2)+"\n"
+              if out.exists() and out.read_text()==s: return
+              out.write_text(s)
+              subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+              subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+              subprocess.run(["git","add",str(out)],check=True)
+              subprocess.run(["git","commit","-m","Myeonmok7 delivery "+stage],check=True)
+              subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+              subprocess.run(["git","push","origin","HEAD:main"],check=True)
+          previous=None
+          for i in range(25):
+              result={"dedup_key":key,"expected_job_id":jid,"checked_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"attempt":i+1}
+              try:
+                  req=Request(base+"?poll="+str(int(time.time())),headers={"User-Agent":"Myeonmok7-status-check/1.0"})
+                  with urlopen(req,timeout=25) as r: data=json.load(r)
+                  hits=[];scan(data,hits)
+                  result.update({
+                    "bridge_id":data.get("bridge_id"),"publisher_version":data.get("publisher_version"),
+                    "account":data.get("account"),"enabled":data.get("enabled"),
+                    "capabilities":data.get("capabilities"),"updated_at":data.get("updated_at"),
+                    "matched_jobs":hits[:3],
+                    "matches":len(hits),
+                    "top_level_keys":list(data.keys())
+                  })
+              except Exception as e:
+                  result["error"]=type(e).__name__+": "+str(e)[:300]
+              statuses=[str(x.get("status","")).lower() for x in result.get("matched_jobs",[])]
+              stage=next(iter(statuses),"not_found")
+              if i==0 or stage!=previous:
+                  commit_if_changed(result,stage)
+              previous=stage
+              if "published" in statuses: break
+              if i<24:time.sleep(15)
+          print("Completed status watch",stage)
+          PY
