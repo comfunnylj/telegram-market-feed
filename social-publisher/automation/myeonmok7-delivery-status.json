@@ -1,8 +1,8 @@
 {
   "dedup_key": "realestate:myeonmok7-20261021",
   "expected_job_id": "44d48e1a-b535-5a58-ae07-2b34bfb1fe01",
-  "checked_at": "2026-10-21T07:12:10.151978+00:00",
-  "attempt": 2,
+  "checked_at": "2026-10-21T07:15:04.989888+00:00",
+  "attempt": 13,
   "bridge_id": null,
   "publisher_version": "0.4",
   "account": "genie_carrot",
@@ -11,14 +11,14 @@
     "max_images": 20,
     "carousel": true
   },
-  "updated_at": 1792566728.9857774,
+  "updated_at": 1792566903.2919164,
   "matched_jobs": [
     {
       "id": "44d48e1a-b535-5a58-ae07-2b34bfb1fe01",
       "source": "realestate",
       "dedup_key": "realestate:myeonmok7-20261021",
       "due": 1792566840.0,
-      "status": "pending",
+      "status": "running",
       "requested_topic": "부동산",
       "image_count": 4,
       "parts": []
