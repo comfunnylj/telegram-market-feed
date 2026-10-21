@@ -110,6 +110,26 @@
         "sha256": "c717a6d0524676e1bfe7c482af5884006c3287e7ab2d0b8c83cada9def10e0ee",
         "size": 2052520
       }
+    },
+    {
+      "dedup_key": "energy:4a6239ae9b86375e81a62afd9fa692fdb36d349ea441a9bd8568363cdaaf0a98",
+      "created_at": "2026-10-21T09:41:03.035+09:00",
+      "not_before": "2026-10-21T09:46:03.035+09:00",
+      "expires_at": "2026-10-21T09:51:03.035+09:00",
+      "topic": "원자재",
+      "text": "10/21 에너지 시장 한눈에\n\n1. 아시아 정유사는 호르무즈 운임 급등에 VLCC 대신 Aframax와 인도조건부 원유로 대응 중이야.\n\n2. 러시아 경유는 10/9 수출금지 해제 뒤 튀르키예·브라질행이 다시 잡혔어.\n\n3. 미국 주간 소매가격은 휘발유가 내리고 경유는 올랐어.\n\n4. 미국의 경유 증산 압박, IEA 비축유 방출, Bayway 노사 갈등은 아직 실제 공급 증가·감소로 확인되진 않았어.주요 기관 유가 전망\nEIA(10/6): 2026년 4분기 Brent 현물 평균 105달러/배럴, 2027년 평균 84달러—중동 수송 제약과 재고 감소를 전제한 최신 확인본이야.\nhttps://www.eia.gov/outlooks/steo/\nGoldman Sachs(10/16): 2026년 12월 Brent 90달러, 2027년 평균 80달러—공급 적응·회복을 기본 시나리오로 본 전망이야.\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers\n\nWTI 101.79달러/배럴 (−1.87, 선물, 10/20)\n브렌트유 108.79달러/배럴 (−0.76, 선물, 10/20)\n두바이유 110.70달러/배럴 (+3.60, 현물 평가·추정, 10/20)운임 충격이 조달 방식까지 바꾸고 있어. 약 80척의 VLCC가 호르무즈 셔틀에 묶였고, 미국산 원유의 아시아행 운임은 배럴당 40달러까지 올랐어. CPC는 지난주 Aframax 6척을 샀고 SK Energy도 11월 초 미국 선적용 선박을 잡았어. ADNOC·Saudi Aramco의 인도조건부 판매도 늘었지.\n\n해석: 총 정제마진이 커 보여도 운임·보험을 빼면 실제 순마진은 크게 줄 수 있어.\nhttps://www.reuters.com/business/energy/asian-refiners-use-smaller-tankers-buy-delivered-crude-freight-rates-soar-2026-10-20/러시아 경유는 Primorsk발 각 30만 배럴 화물이 브라질·튀르키예로 향했어. 다만 연초 이후 평균 수출은 34.5만b/d로 전년보다 41% 낮고, EU·영국 금수도 유지돼. 유럽 경유의 Brent 대비 프리미엄은 배럴당 80달러로 고점 약 95달러보다 낮아졌어.\n\n미국에서는 10/19 기준 휘발유 4.284달러/갤런(주간 −0.047), 경유 6.276달러(+0.097)였어.\nhttps://www.reuters.com/business/energy/russian-diesel-returns-familiar-destinations-following-export-ban-lift-shipping-2026-10-20/미 에너지부는 국내외 정유사에 경유 증산과 정유소 재가동을 논의 중이지만, 업계는 가동률이 95~100%이고 신규·재가동에는 수개월~수년이 걸린다고 밝혔어. IEA 방출 물량에는 경유 2천만 배럴 이상이 포함되지만 실제 시기·물량은 회원국 결정이야.\n\nPhillips 66 Bayway는 385명가량을 직장폐쇄했지만 회사는 훈련 인력으로 운영을 유지한다고 했어. 장치 정지나 생산손실은 확인되지 않았어.\n\n해석: 공급 기대보다 실행 시차와 확인된 물량을 봐야 해.",
+      "parts": [
+        "10/21 에너지 시장 한눈에\n\n1. 아시아 정유사는 호르무즈 운임 급등에 VLCC 대신 Aframax와 인도조건부 원유로 대응 중이야.\n\n2. 러시아 경유는 10/9 수출금지 해제 뒤 튀르키예·브라질행이 다시 잡혔어.\n\n3. 미국 주간 소매가격은 휘발유가 내리고 경유는 올랐어.\n\n4. 미국의 경유 증산 압박, IEA 비축유 방출, Bayway 노사 갈등은 아직 실제 공급 증가·감소로 확인되진 않았어.",
+        "주요 기관 유가 전망\nEIA(10/6): 2026년 4분기 Brent 현물 평균 105달러/배럴, 2027년 평균 84달러—중동 수송 제약과 재고 감소를 전제한 최신 확인본이야.\nhttps://www.eia.gov/outlooks/steo/\nGoldman Sachs(10/16): 2026년 12월 Brent 90달러, 2027년 평균 80달러—공급 적응·회복을 기본 시나리오로 본 전망이야.\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers\n\nWTI 101.79달러/배럴 (−1.87, 선물, 10/20)\n브렌트유 108.79달러/배럴 (−0.76, 선물, 10/20)\n두바이유 110.70달러/배럴 (+3.60, 현물 평가·추정, 10/20)",
+        "운임 충격이 조달 방식까지 바꾸고 있어. 약 80척의 VLCC가 호르무즈 셔틀에 묶였고, 미국산 원유의 아시아행 운임은 배럴당 40달러까지 올랐어. CPC는 지난주 Aframax 6척을 샀고 SK Energy도 11월 초 미국 선적용 선박을 잡았어. ADNOC·Saudi Aramco의 인도조건부 판매도 늘었지.\n\n해석: 총 정제마진이 커 보여도 운임·보험을 빼면 실제 순마진은 크게 줄 수 있어.\nhttps://www.reuters.com/business/energy/asian-refiners-use-smaller-tankers-buy-delivered-crude-freight-rates-soar-2026-10-20/",
+        "러시아 경유는 Primorsk발 각 30만 배럴 화물이 브라질·튀르키예로 향했어. 다만 연초 이후 평균 수출은 34.5만b/d로 전년보다 41% 낮고, EU·영국 금수도 유지돼. 유럽 경유의 Brent 대비 프리미엄은 배럴당 80달러로 고점 약 95달러보다 낮아졌어.\n\n미국에서는 10/19 기준 휘발유 4.284달러/갤런(주간 −0.047), 경유 6.276달러(+0.097)였어.\nhttps://www.reuters.com/business/energy/russian-diesel-returns-familiar-destinations-following-export-ban-lift-shipping-2026-10-20/",
+        "미 에너지부는 국내외 정유사에 경유 증산과 정유소 재가동을 논의 중이지만, 업계는 가동률이 95~100%이고 신규·재가동에는 수개월~수년이 걸린다고 밝혔어. IEA 방출 물량에는 경유 2천만 배럴 이상이 포함되지만 실제 시기·물량은 회원국 결정이야.\n\nPhillips 66 Bayway는 385명가량을 직장폐쇄했지만 회사는 훈련 인력으로 운영을 유지한다고 했어. 장치 정지나 생산손실은 확인되지 않았어.\n\n해석: 공급 기대보다 실행 시차와 확인된 물량을 봐야 해."
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/06bf98f813ab64a786014656cbd37dc0c46ff997/social-publisher/assets/energy/2026-10-21-energy-market.jpg",
+        "sha256": "19207187e5ca835c6d90238490d9550580bed663aa2dbad054e418586f4bc03d",
+        "size": 339540
+      }
     }
   ]
 }
