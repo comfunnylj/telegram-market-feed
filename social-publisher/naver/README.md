@@ -8,7 +8,7 @@ ChatGPT can place a fully reviewed and approved blog post in `outbox.json` throu
 - Real estate publication jobs require a verifiably authentic official rendering. An unverified or AI-generated picture must not be presented as a real rendering.
 - Never put a password, cookie, session token, or private manuscript in this public repository.
 - A job needs separate approval. A queue entry on its own is not evidence of publication.
-- The worker logs results locally; a remote status feedback integration has not been configured. Do not claim publication without verifying a Naver public post URL.
+- The worker logs results locally. With a user-configured fine-grained GitHub token (Contents: write, local environment only), it can report to `status.json`; this has NOT been tested on the user's device. Do not claim publication without verifying a Naver public post URL.
 - The exact SmartEditor selectors and login on the user's own device are not yet live-tested. Its unsupported UI automation may fail if Naver changes the page.
 
 Official Naver statement: https://developers.naver.com/notice/article/7527 (blog writing API retired 2020-05-06)
