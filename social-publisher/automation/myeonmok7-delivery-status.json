@@ -1,0 +1,27 @@
+{
+  "dedup_key": "realestate:myeonmok7-20261021",
+  "expected_job_id": "44d48e1a-b535-5a58-ae07-2b34bfb1fe01",
+  "checked_at": "2026-10-21T07:11:52.696659+00:00",
+  "attempt": 1,
+  "bridge_id": null,
+  "publisher_version": "0.4",
+  "account": "genie_carrot",
+  "enabled": null,
+  "capabilities": {
+    "max_images": 20,
+    "carousel": true
+  },
+  "updated_at": 1792566708.9456244,
+  "matched_jobs": [],
+  "matches": 0,
+  "top_level_keys": [
+    "protocol",
+    "account",
+    "publisher_version",
+    "capabilities",
+    "updated_at",
+    "bridge",
+    "jobs",
+    "events"
+  ]
+}
