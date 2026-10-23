@@ -1,0 +1,10 @@
+{
+  "key": "realestate:myeonmok9-20261023-retry1",
+  "job_id": "9ed2395b-f8c0-57d3-ae19-efc867ff6d88",
+  "time": "2026-10-23T22:42:49+09:00",
+  "status": "media_ready",
+  "image_urls": [
+    "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/4198ce43fd9203a9b6906705331ea0d00a50c068/social-publisher/media/realestate-myeonmok9-retry1-01.jpg",
+    "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/4198ce43fd9203a9b6906705331ea0d00a50c068/social-publisher/media/realestate-myeonmok9-retry1-02.jpg"
+  ]
+}
