@@ -1,0 +1,18 @@
+{
+  "dedup_key": "realestate:myeonmok9-20261023",
+  "job_id": "a6c3f9cc-46cd-5911-80d4-8e91159ac6ec",
+  "status": "images_verified",
+  "account": "genie_carrot",
+  "topic": "부동산",
+  "image_count": 2,
+  "checked_at": "2026-10-23T20:07:22+09:00",
+  "asset_commit": "a27f7bb7741f1d70beebff9d86bba437af29baf7",
+  "image_hashes": [
+    "0c1ce8c3cb11ae6b5c1665fb908ca85d3f57a16fe91bc49aeda6ed1d85290bcd",
+    "2f849e9d3c18e59793cc169767adafa7d924d271c396f7792bd650581f3552f6"
+  ],
+  "image_sizes": [
+    210371,
+    97416
+  ]
+}
