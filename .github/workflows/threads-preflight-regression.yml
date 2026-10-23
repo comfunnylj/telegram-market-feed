@@ -1,0 +1,51 @@
+name: Threads publishing preflight regression tests
+on:
+  push:
+    paths:
+      - 'social-publisher/automation/preflight.py'
+      - 'social-publisher/automation/test_preflight.py'
+      - '.github/workflows/threads-preflight-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install image validation dependency
+        run: python3 -m pip install --quiet Pillow
+      - name: Execute fail-closed safety tests and record result
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess,datetime,json,sys
+          p=subprocess.run(["python3","-m","unittest","discover","-s","social-publisher/automation",
+                "-p","test_preflight.py","-v"],capture_output=True,text=True)
+          print(p.stdout)
+          print(p.stderr)
+          result={
+            "tested_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "target": "social-publisher/automation/preflight.py",
+            "test_suite": "test_preflight.py",
+            "exit_code":p.returncode,
+            "passed":p.returncode==0,
+            "summary":p.stderr[-1300:],
+          }
+          report=Path("social-publisher/diagnostics/threads-preflight-test-report.json")
+          report.parent.mkdir(parents=True,exist_ok=True)
+          report.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
+          subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+          subprocess.run(["git","add",str(report)],check=True)
+          subprocess.run(["git","commit","-m","Record Threads preflight offline safety test results"],check=True)
+          subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+          subprocess.run(["git","push","origin","HEAD:main"],check=True)
+          if p.returncode:
+            sys.exit(p.returncode)
+          PY
