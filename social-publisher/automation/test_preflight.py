@@ -3,6 +3,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -38,6 +39,7 @@ def receipt(status="published"):
         "protocol":1,"account":"genie_carrot",
         "publisher_version":"0.4","capabilities":{"carousel":True,"max_images":20},
         "bridge":{"bridge_id":"sp-oracle-genie-carrot-v1","enabled":True,"last_error":None,
+                  "last_success_at":time.time(),
                   "task_errors":{},"tasks":[{"id":"realestate","enabled":True,
                     "account":"genie_carrot","topic":"부동산",
                     "outbox":"realestate.json"}]},
@@ -126,6 +128,10 @@ class Tests(unittest.TestCase):
         self.assertTrue(pf.validate_receipt(receipt())["carousel"])
         j=receipt();j["capabilities"]["carousel"]=False
         with self.assertRaises(pf.PreflightError):pf.validate_receipt(j)
+        newer=receipt();newer["publisher_version"]="0.4.1"
+        self.assertTrue(pf.validate_receipt(newer)["carousel"])
+        stale=receipt();stale["bridge"]["last_success_at"]=time.time()-900
+        with self.assertRaises(pf.PreflightError):pf.validate_receipt(stale)
 
     def test_published_confirmation(self):
         j=receipt()
