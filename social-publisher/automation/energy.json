@@ -130,6 +130,26 @@
         "sha256": "19207187e5ca835c6d90238490d9550580bed663aa2dbad054e418586f4bc03d",
         "size": 339540
       }
+    },
+    {
+      "dedup_key": "energy:75392c4eb7756b4adddb48009e18ab4b672416760a69b61d16f480f7eea48b17",
+      "created_at": "2026-10-23T09:39:57.664+09:00",
+      "not_before": "2026-10-23T09:44:57.664+09:00",
+      "expires_at": "2026-10-23T09:49:57.664+09:00",
+      "topic": "원자재",
+      "text": "10/23, 에너지 시장 한눈에\n\n1. 미국 정유 가동률은 5~9월 평균 95%를 넘어 1998년 이후 같은 기간 최고였어.\n2. Valero는 4분기 미국·영국 설비를 96~99%로 돌릴 계획이고, St. Charles의 가솔린·알킬레이트 증설을 마쳤어.\n3. 일본은 10월 22일부터 가솔린·경유 등에 42.8엔/L, 항공유에 34.2엔/L을 지원해.\n4. IEA는 중동만→일본 LR1 운임이 약 27달러/bbl로 전쟁 전의 5배라고 봤어.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 105달러/bbl. 중동 흐름 제약과 4.5 million b/d 생산 차질을 전제해.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent 90달러/bbl, 2027년 평균 80달러/bbl. 중동 공급 회복이 기본 전제야.\n\nWTI 99.47달러/bbl (+2.32, NYMEX 선물, 10/22)\nBrent 113.17달러/bbl (+4.35, ICE 선물, 10/22)\nDubai 115.40달러/bbl (+4.42, 현물 평가·추정값, 10/22)\n\nEIA를 보면 미국 정제능력은 2019년보다 4% 줄었어. 그래서 가동률은 매우 높지만 총산출은 2019년 이후 최고 수준이야. 높은 국제 중간유분 수요가 고가동을 끌고 있고, 설비 여유가 작아 돌발 정지에 민감하다는 뜻이야.\n\nValero의 3분기 처리량 배럴당 정제마진은 39.24달러였어. 4분기 96~99%는 합산 정격능력 3.0 million b/d에 대한 계획이지 실제 생산실적은 아니야.\n\n일본 지원책은 소매가격 충격을 낮추는 정책이고 물리 공급 증가를 뜻하지 않아. 납사는 대상이 아니야.\n\n운임 부담은 더 직접적이야. IEA 기준 중동만→아시아 대형 원유선 운임은 37달러/bbl을 넘었고, 9월 중동산 원유를 처리하는 아시아 정유마진은 음수로 밀렸어. LR2가 원유 수송으로 빠지면서 제품선 여력도 좁아졌어.\n\n해석: 미국의 높은 가동과 가솔린 증설이 공급을 보완해도, 아시아는 높은 원료·제품 운임 때문에 가동 경제성이 계속 압박받을 수 있어.\n\n원문\nEIA https://www.eia.gov/todayinenergy/detail.php?id=68344\nValero/Reuters https://www.reuters.com/business/energy/valero-kicks-off-refiner-results-with-record-quarterly-profit-higher-margins-2026-10-22/\n일본 자원에너지청 https://nenryo-teigakuhikisage.go.jp/\nIEA https://www.iea.org/commentaries/the-soaring-cost-of-shipping-is-lifting-the-price-of-oil-for-consumers",
+      "parts": [
+        "10/23, 에너지 시장 한눈에\n\n1. 미국 정유 가동률은 5~9월 평균 95%를 넘어 1998년 이후 같은 기간 최고였어.\n2. Valero는 4분기 미국·영국 설비를 96~99%로 돌릴 계획이고, St. Charles의 가솔린·알킬레이트 증설을 마쳤어.\n3. 일본은 10월 22일부터 가솔린·경유 등에 42.8엔/L, 항공유에 34.2엔/L을 지원해.\n4. IEA는 중동만→일본 LR1 운임이 약 27달러/bbl로 전쟁 전의 5배라고 봤어.\n\n주요 기관 유가 전망",
+        "\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 105달러/bbl. 중동 흐름 제약과 4.5 million b/d 생산 차질을 전제해.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent 90달러/bbl, 2027년 평균 80달러/bbl. 중동 공급 회복이 기본 전제야.\n\nWTI 99.47달러/bbl (+2.32, NYMEX 선물, 10/22)\nBrent 113.17달러/bbl (+4.35, ICE 선물, 10/22)\nDubai 115.40달러/bbl (+4.42, 현물 평가·추정값, 10/22)",
+        "\n\nEIA를 보면 미국 정제능력은 2019년보다 4% 줄었어. 그래서 가동률은 매우 높지만 총산출은 2019년 이후 최고 수준이야. 높은 국제 중간유분 수요가 고가동을 끌고 있고, 설비 여유가 작아 돌발 정지에 민감하다는 뜻이야.\n\nValero의 3분기 처리량 배럴당 정제마진은 39.24달러였어. 4분기 96~99%는 합산 정격능력 3.0 million b/d에 대한 계획이지 실제 생산실적은 아니야.",
+        "\n\n일본 지원책은 소매가격 충격을 낮추는 정책이고 물리 공급 증가를 뜻하지 않아. 납사는 대상이 아니야.\n\n운임 부담은 더 직접적이야. IEA 기준 중동만→아시아 대형 원유선 운임은 37달러/bbl을 넘었고, 9월 중동산 원유를 처리하는 아시아 정유마진은 음수로 밀렸어. LR2가 원유 수송으로 빠지면서 제품선 여력도 좁아졌어.\n\n해석: 미국의 높은 가동과 가솔린 증설이 공급을 보완해도, 아시아는 높은 원료·제품 운임 때문에 가동 경제성이 계속 압박받을 수 있어.",
+        "\n\n원문\nEIA https://www.eia.gov/todayinenergy/detail.php?id=68344\nValero/Reuters https://www.reuters.com/business/energy/valero-kicks-off-refiner-results-with-record-quarterly-profit-higher-margins-2026-10-22/\n일본 자원에너지청 https://nenryo-teigakuhikisage.go.jp/\nIEA https://www.iea.org/commentaries/the-soaring-cost-of-shipping-is-lifting-the-price-of-oil-for-consumers"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/0a0f49e640926c09845087aa6d8cdc008119d8bc/social-publisher/media/energy-75392c4eb7756b4adddb48009e18ab4b672416760a69b61d16f480f7eea48b17.png",
+        "sha256": "302bc7583e90a74bb82cf9c81802a73894f103eb241fbe93570d65f548c92982",
+        "size": 2053930
+      }
     }
   ]
 }
