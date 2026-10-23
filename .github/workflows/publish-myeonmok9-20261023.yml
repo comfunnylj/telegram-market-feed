@@ -1,0 +1,24 @@
+name: Publish Myeonmok9 official two-photo Threads 2026-10-23
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-myeonmok9-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-myeonmok9-20261023
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow and AVIF image support
+        run: python3 -m pip install --quiet --break-system-packages Pillow pillow-avif-plugin
+      - name: Download two official images, validate, queue and verify Threads
+        run: python3 social-publisher/diagnostics/publish-myeonmok9-20261023.py
