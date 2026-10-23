@@ -1,7 +1,38 @@
 {
   "key": "realestate:myeonmok9-20261023-retry1",
   "job_id": "9ed2395b-f8c0-57d3-ae19-efc867ff6d88",
-  "time": "2026-10-23T22:44:45+09:00",
-  "status": "pending",
-  "parts": []
+  "time": "2026-10-23T22:49:27+09:00",
+  "status": "published",
+  "parts": [
+    {
+      "index": 1,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s2JdFIYc"
+    },
+    {
+      "index": 2,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s3kMFKO-"
+    },
+    {
+      "index": 3,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s4_3FHNX"
+    },
+    {
+      "index": 4,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s6U5lC94"
+    },
+    {
+      "index": 5,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s7x5lPn-"
+    },
+    {
+      "index": 6,
+      "status": "published",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De1s9QpFEhI"
+    }
+  ]
 }
