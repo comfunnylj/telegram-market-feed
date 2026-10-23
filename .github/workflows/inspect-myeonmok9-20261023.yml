@@ -1,0 +1,51 @@
+name: Inspect Myeonmok9 uncertain Threads publish receipt
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-myeonmok9-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Inspect read-only receipt without resubmitting
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,time,datetime,subprocess
+          from pathlib import Path
+          key="realestate:myeonmok9-20261023"
+          jid="a6c3f9cc-46cd-5911-80d4-8e91159ac6ec"
+          url="https://161-33-141-193.sslip.io/social-publisher-status/status.json"
+          out=Path("social-publisher/diagnostics/myeonmok9-receipt-inspect.json")
+          data={}
+          for n in range(3):
+              try:
+                  req=urllib.request.Request(url+"?x="+str(time.time_ns()),headers={"User-Agent":"RealEstate-Receipt-ReadOnly/1.0"})
+                  with urllib.request.urlopen(req,timeout=20) as response:
+                      obj=json.load(response)
+                  hits=[j for j in obj.get("jobs",[]) if j.get("dedup_key")==key or str(j.get("id"))==jid]
+                  data={"checked_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"protocol":obj.get("protocol"),
+                        "publisher_version":obj.get("publisher_version"),"updated_at":obj.get("updated_at"),
+                        "account":obj.get("account"),"bridge":{k:v for k,v in (obj.get("bridge") or {}).items() if k in ["bridge_id","enabled","last_error","last_success_at","task_errors"]},
+                        "jobs":hits, "matched_events":[e for e in obj.get("events",[]) if key in str(e) or jid in str(e)][-10:]}
+                  if hits and hits[0].get("status")=="published":break
+                  if n<2:time.sleep(25)
+              except Exception as e:
+                  data={"checked_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"probe_error":str(e)[:500]}
+                  if n<2:time.sleep(15)
+          out.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(data,ensure_ascii=False,indent=2)[:11000])
+          subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+          subprocess.run(["git","add",str(out)],check=True)
+          subprocess.run(["git","commit","-m","Record read-only Myeonmok9 uncertain publishing receipt"],check=True)
+          subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+          subprocess.run(["git","push","origin","HEAD:main"],check=True)
+          PY
