@@ -201,7 +201,7 @@ def validate_receipt(receipt: dict, *, source: str = "realestate", images: int =
     # Do not rely on the public receipt alone for verifying Meta publishing.
     caps = receipt.get("capabilities") or {}
     version = str(receipt.get("publisher_version", ""))
-    m = re.fullmatch(r"(\\d+)\\.(\\d+)(?:\\.\\d+)?", version)
+    m = re.fullmatch(r"(\d+)\.(\d+)(?:\.\d+)?", version)
     compatible = bool(m) and (int(m.group(1)) > 0 or int(m.group(2)) >= 4)
     fail_if(not compatible or caps.get("carousel") is not True or
             int(caps.get("max_images") or 0) < images, "Carousel receiver capability not verified")
