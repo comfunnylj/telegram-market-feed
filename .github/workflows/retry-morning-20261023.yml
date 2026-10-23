@@ -1,0 +1,28 @@
+name: One-time Oracle Morning Retry 2026-10-23
+on:
+  push:
+    paths:
+      - '.github/workflows/retry-morning-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  submit-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    concurrency:
+      group: morning-retry-20261023
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install raster renderer and Korean font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk libcairo2 >/dev/null
+          python3 -m pip install --quiet --break-system-packages cairosvg Pillow
+          fc-match 'Noto Sans CJK KR'
+      - name: Verify Oracle, publish immutable image, queue stable key, verify result
+        run: python3 social-publisher/diagnostics/retry-morning-20261023.py
