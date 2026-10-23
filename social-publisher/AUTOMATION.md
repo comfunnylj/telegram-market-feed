@@ -147,3 +147,20 @@ Auditable recovery sources:
 - `social-publisher/diagnostics/diagnose-myeonmok9-unknown.py` — read-only server diagnosis (run only inside authorized Oracle container).
 
 Server-side future fix, **not yet deployed**: persist Meta child/parent container IDs and upstream status/errors before publishing; implement reconciliation by container status and account timeline when publish response is lost, rather than immediately terminal `publishing_unknown`. Update Oracle software only with proper server access, backups, and tests.
+
+
+## Shared REAL ESTATE Threads pre-submit gate (2026-10-23)
+
+MANDATORY before adding any future `realestate` job to the live outbox. This code is NOT the Oracle server patch: `social-publisher/automation/preflight.py`. Offline regression tests: `test_preflight.py`; GitHub Actions: `threads-preflight-regression.yml`.
+
+1. Visually review each source image and confirm that it depicts the correct site, is readable, and has suitable usage rights. Do not invent images or silently replace with another location.
+2. Normalize each image to a 1080-pixel-width JPEG, sRGB encoding, preserved aspect ratio, no cropping. Example: `python3 social-publisher/automation/preflight.py normalize original.jpg social-publisher/media/realestate-NEWKEY-01.jpg`. Inspect the actual output files. This reduces variation in encoding but does not establish the root cause of the 2026-10-23 incident.
+3. Commit each image, use the resulting immutable 40-hex Git commit URLs, and read back *the actual remote bytes*. URLs to news site images, branch-main aliases, and image placeholders must never be passed to the Oracle outbox.
+4. Construct a **candidate job file not yet in the live outbox** with all the parts, images, topic and dates. Before submitting, run `python3 social-publisher/automation/preflight.py verify-job candidate.json --outbox social-publisher/automation/realestate.json --remote`. A nonzero exit status means **do not enqueue**. This checks remote image SHA256, decoded JPEG/PNG, width, size, original order, duplicate content, immutable job ID, timestamps and 450 UTF-16 limit.
+5. Fetch the current Oracle public receipt to a fresh local JSON file. Run `python3 social-publisher/automation/preflight.py receipt-check receipt.json --source realestate --images 2`. Account/receiver/topic/capabilities and last heartbeat must pass. A stale GitHub copy of receipt data is not live verification.
+6. Only then append the complete immutable job to the existing outbox, verify the committed readback, and confirm the Oracle receipt accepted the exact key. Do not queue a fallback text-only or single-image version if a photo failed.
+7. On `publishing_unknown` or `published_unverified`, STOP automated new-key retries and reconcile the original private server history and Meta status first. Explicit permission to retry by itself does not prove the first post was never published; avoid accidental double-posting.
+8. Declare success only if Oracle reports each part `published`, each permalink is present, image count matches, and the root official topic is correct. The count in the receipt is not proof of end-user image rendering. If possible inspect the live Threads post directly.
+9. The pre-submit code must be invoked by EACH FUTURE publishing script/workflow **before** its outbox write; the GitHub regression workflow runs on source changes but cannot stop an outbox already consumed by Oracle.
+
+Server-side work STILL required to eliminate the blind spot: persist Meta carousel child IDs, root creation ID, publish attempt timestamp, and redacted HTTP code/error to protected Oracle history; for ambiguous responses, GET the saved container status using official Threads API fields `id,status,error_message`, compare the authenticated feed, and resume only definitively unposted parts using saved IDs. This requires SSH access, backup and tested Oracle deployment. It has NOT been done merely by adding this preflight module.
