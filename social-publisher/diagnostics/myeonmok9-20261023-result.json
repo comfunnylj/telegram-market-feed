@@ -1,11 +1,11 @@
 {
   "dedup_key": "realestate:myeonmok9-20261023",
   "job_id": "a6c3f9cc-46cd-5911-80d4-8e91159ac6ec",
-  "status": "pending",
+  "status": "publishing_unknown",
   "account": "genie_carrot",
   "topic": "부동산",
   "image_count": 2,
-  "checked_at": "2026-10-23T20:08:25+09:00",
+  "checked_at": "2026-10-23T20:12:50+09:00",
   "asset_commit": "a27f7bb7741f1d70beebff9d86bba437af29baf7",
   "image_hashes": [
     "0c1ce8c3cb11ae6b5c1665fb908ca85d3f57a16fe91bc49aeda6ed1d85290bcd",
@@ -18,5 +18,36 @@
   "outbox_commit": "655a3c8e4d572aec75e95568e2b6919054c7b6d8",
   "not_before": "2026-10-23T20:12:25+09:00",
   "expires_at": "2026-10-23T20:17:25+09:00",
-  "parts": []
+  "parts": [
+    {
+      "index": 1,
+      "status": "publishing_unknown",
+      "permalink": null
+    },
+    {
+      "index": 2,
+      "status": "prepared",
+      "permalink": null
+    },
+    {
+      "index": 3,
+      "status": "prepared",
+      "permalink": null
+    },
+    {
+      "index": 4,
+      "status": "prepared",
+      "permalink": null
+    },
+    {
+      "index": 5,
+      "status": "prepared",
+      "permalink": null
+    },
+    {
+      "index": 6,
+      "status": "prepared",
+      "permalink": null
+    }
+  ]
 }
