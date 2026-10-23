@@ -121,3 +121,29 @@ The public receipt reports capabilities and requested image_count, while detaile
 Existing briefing-specific requirements to use one 4:5 image remain unchanged until the user requests another content policy.
 
 Primary API reference used: https://www.postman.com/meta/threads/documentation/dht3nzz/threads-api
+
+## Myeonmok9 recovery postmortem and preflight policy (2026-10-23)
+
+Verified incident:
+- Original job `realestate:myeonmok9-20261023` was accepted by Oracle Bridge 0.4. It entered `publishing_unknown` on part 1; parts 2–6 stayed `prepared`. Public status did not include the underlying Meta error or the parent creation ID, so exact root cause **is not established**.
+- Explicitly user-authorized one-time recovery job `realestate:myeonmok9-20261023-retry1` used the **same two sourced photographs**, decoded them from their verified immutable SHA256 URLs, re-exported each as sRGB-compatible RGB JPEG at 1080 pixels wide with aspect ratio retained (no crop), and verified their immutable uploaded URL, SHA256 and byte size.
+- Oracle returned `verified_published` on 2026-10-23 22:49 KST: six published parts, all with permalinks; requested image count 2; root topic tag `부동산`.
+- This A/B outcome does **not** prove the first failure was a media-size issue, because time/network/API conditions also changed.
+
+Permanent requirements for *future* Threads carousel attempts through this integration:
+1. Before uploading, read each real picture's pixels and verify that it belongs to the requested site. Convert to JPEG RGB/sRGB at an appropriate 1080-pixel width when its source dimensions are small; preserve the aspect ratio, never crop/alter meaning or substitute a different site. Check both files are between 20 KB and 8 MiB and match supported dimensions.
+2. After GitHub asset upload, fetch both commit-pinned raw.githubusercontent.com URLs and verify SHA256 and exact sizes. Do not put guessed or unverified URLs into `images`.
+3. Confirm live Oracle Bridge account, version 0.4+, task `realestate`, and `capabilities.carousel` / `max_images` **before** queue submission.
+4. Use a stable dedup key; publish request is immutable after accepted. Verify that the exact image count, official topic, all parts, and a single job entry reached the outbox.
+5. If `publishing_unknown` occurs, **do not** claim failure or auto-resubmit. First check the private server history `/home/ubuntu/social-publisher/data/history/<request-id>.json` and Meta authenticated account timeline for an already-published root. This read-only reconciliation requires authorized server access and cannot be replaced by public receipt data alone.
+6. When the user expressly authorizes another attempt after reconciliation, use a **new** stable recovery key. Do not overwrite or erase the original uncertain job; preserve a separate status file and audit IDs.
+7. Report success only on `published`, each part `published` with an actual permalink, the correct root official topic tag, and expected image_count. The receipt's requested image_count is not independent proof of client-side rendered images; inspect the live post when possible.
+8. Avoid claiming a definitive failure cause unless server-side Meta error and the publishing-stage transaction are available. Scaling to 1080px is a defensive preflight measure, not a verified universal fix for `publishing_unknown`.
+
+Auditable recovery sources:
+- `social-publisher/diagnostics/myeonmok9-20261023-result.json` — original root uncertain.
+- `social-publisher/diagnostics/myeonmok9-recovery-status.json` — recovery result.
+- `social-publisher/diagnostics/recover-myeonmok9-20261023.py` — concrete image/receipt/retry gate.
+- `social-publisher/diagnostics/diagnose-myeonmok9-unknown.py` — read-only server diagnosis (run only inside authorized Oracle container).
+
+Server-side future fix, **not yet deployed**: persist Meta child/parent container IDs and upstream status/errors before publishing; implement reconciliation by container status and account timeline when publish response is lost, rather than immediately terminal `publishing_unknown`. Update Oracle software only with proper server access, backups, and tests.
