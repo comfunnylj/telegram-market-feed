@@ -1,0 +1,63 @@
+name: Threads live media preflight audit (no posting)
+on:
+  push:
+    paths:
+      - '.github/workflows/threads-preflight-live-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow
+        run: python3 -m pip install --quiet Pillow
+      - name: Verify real published media URLs and current public bridge
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import sys,json,urllib.request,datetime,subprocess
+          from pathlib import Path
+          sys.path.insert(0,"social-publisher/automation")
+          import preflight
+          data=json.loads(Path("social-publisher/automation/realestate.json").read_text())
+          key="realestate:myeonmok9-20261023-retry1"
+          entry=next(x for x in data["jobs"] if x.get("dedup_key")==key)
+          report={"date_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                  "original_published_key":key,"posted_or_queued_by_audit":False}
+          try:
+              image_result=preflight.validate_job(entry,remote=True)
+              report["remote_images"]=image_result["image_metadata"]
+              report["media_gate"]=True
+              # Public, unauthenticated status endpoint only. No Meta write action.
+              u="https://161-33-141-193.sslip.io/social-publisher-status/status.json"
+              req=urllib.request.Request(u,headers={"User-Agent":"Threads-ReadOnly-Live-Audit/1.0"})
+              with urllib.request.urlopen(req,timeout=20) as resp:receipt=json.load(resp)
+              report["bridge_gate"]=preflight.validate_receipt(receipt,images=2)
+              try:
+                  classified=preflight.classify_result(receipt,key,6,2)
+                  report["receipt_decision"]=classified["decision"]
+                  report["published_link_count"]=len(classified.get("links",[]))
+              except Exception as err:
+                  report["receipt_decision"]="not_in_recent_receipt"
+                  report["receipt_note"]=type(err).__name__
+              report["passed"]=True
+          except Exception as err:
+              report["passed"]=False
+              report["error"]=type(err).__name__+": "+str(err)[:300]
+          output=Path("social-publisher/diagnostics/threads-preflight-live-audit.json")
+          output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+          subprocess.run(["git","add",str(output)],check=True)
+          subprocess.run(["git","commit","-m","Record read-only Threads published media preflight validation"],check=True)
+          subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+          subprocess.run(["git","push","origin","HEAD:main"],check=True)
+          if not report["passed"]:sys.exit(1)
+          PY
