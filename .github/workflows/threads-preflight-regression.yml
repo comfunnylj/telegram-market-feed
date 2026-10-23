@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: threads-preflight-regression
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
