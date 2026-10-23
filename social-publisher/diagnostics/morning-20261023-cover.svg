@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#041126"/><stop offset="0.56" stop-color="#0a2040"/><stop offset="1" stop-color="#080f20"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#40d3ec"/><stop offset="1" stop-color="#6b8eff"/></linearGradient>
+  <linearGradient id="coral" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff7566"/><stop offset="1" stop-color="#ffac79"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#122e53" stop-opacity="0.96"/><stop offset="1" stop-color="#0a162c" stop-opacity="0.92"/></linearGradient>
+  <radialGradient id="halo"><stop offset="0" stop-color="#2e6cc9" stop-opacity="0.38"/><stop offset="1" stop-color="#1a3a60" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.1" fill="#91b8e9" opacity="0.12"/></pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="13"/></filter>
+</defs>
+<rect width="1080" height="1350" fill="url(#bg)"/>
+<rect width="1080" height="1350" fill="url(#dots)"/>
+<circle cx="840" cy="210" r="390" fill="url(#halo)"/>
+<g stroke="#3c6799" opacity="0.19" stroke-width="2"><path d="M 0 64 H1080 M0 110 H1080 M0 156 H1080 M0 202 H1080 M0 248 H1080"/><path d="M92 0 V320 M182 0 V320 M272 0 V320 M362 0 V320 M452 0 V320 M542 0 V320 M632 0 V320 M722 0 V320 M812 0 V320 M902 0 V320"/></g>
+<!-- thematic abstract global trading lines; not price data -->
+<path d="M0 245 C120 140 190 240 295 177 S490 230 610 151 S840 192 1080 85" fill="none" stroke="#218edb" stroke-width="10" opacity="0.2" filter="url(#glow)"/>
+<path d="M0 245 C120 140 190 240 295 177 S490 230 610 151 S840 192 1080 85" fill="none" stroke="#4a99df" stroke-width="3" opacity="0.35"/>
+<text x="70" y="91" fill="#88bedf" font-size="26" font-family="Noto Sans CJK KR" font-weight="500" letter-spacing="3">GLOBAL MARKET / MORNING EDITION</text>
+<rect x="70" y="113" width="940" height="3" fill="url(#accent)" opacity="0.7"/>
+<text x="70" y="237" fill="#ffffff" font-size="88" font-weight="900" font-family="Noto Sans CJK KR">10/23 밤 사이 일어난 일</text>
+<text x="74" y="300" fill="#a8cae7" font-size="29" font-family="Noto Sans CJK KR" letter-spacing="1">미국 증시 브리핑  ·  2026년 10월 23일</text>
+<g transform="translate(70,369)">
+  <rect x="0" y="0" rx="20" width="940" height="196" fill="url(#card)" stroke="#2b568a" stroke-width="2"/>
+  <rect x="0" y="0" rx="20" width="9" height="196" fill="url(#coral)"/>
+  <g transform="translate(55,58)" fill="none" stroke="#ff918a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M0 52 L26 16 L51 43 L78 8 L101 26"/><path d="M80 8 H102 V29" stroke-width="6"/></g>
+  <text x="218" y="80" fill="#ffffff" font-size="59" font-family="Noto Sans CJK KR" font-weight="800">반도체 · 기술주</text>
+  <text x="218" y="148" fill="#ff9787" font-size="54" font-family="Noto Sans CJK KR" font-weight="800">급락</text>
+</g>
+<g transform="translate(70,592)">
+  <rect x="0" y="0" rx="20" width="940" height="196" fill="url(#card)" stroke="#2b568a" stroke-width="2"/>
+  <rect x="0" y="0" rx="20" width="9" height="196" fill="url(#accent)"/>
+  <g transform="translate(60,42)" fill="none" stroke="#53c8e8" stroke-width="6"><rect x="0" y="0" rx="9" width="102" height="96"/><rect x="15" y="16" width="72" height="11" fill="#53c8e8" opacity="0.7" stroke="none"/><path d="M18 56 H88 M18 76 H88"/></g>
+  <text x="218" y="80" fill="#ffffff" font-size="59" font-family="Noto Sans CJK KR" font-weight="800">메타 AI 투자비</text>
+  <text x="218" y="148" fill="#73d9ee" font-size="54" font-family="Noto Sans CJK KR" font-weight="800">부담 확대</text>
+</g>
+<g transform="translate(70,815)">
+  <rect x="0" y="0" rx="20" width="940" height="196" fill="url(#card)" stroke="#2b568a" stroke-width="2"/>
+  <rect x="0" y="0" rx="20" width="9" height="196" fill="url(#coral)"/>
+  <g transform="translate(75,44)" stroke="#ffb16c" stroke-width="7" fill="none" stroke-linecap="round"><path d="M26 114 V36 L66 3 L107 40 V114"/><path d="M0 115 H130"/><path d="M16 66 H117"/></g>
+  <text x="218" y="80" fill="#ffffff" font-size="59" font-family="Noto Sans CJK KR" font-weight="800">유가 상승 · 국채</text>
+  <text x="218" y="148" fill="#ffb37f" font-size="54" font-family="Noto Sans CJK KR" font-weight="800">안전자산 강세</text>
+</g>
+<g transform="translate(70,1056)" opacity="0.75">
+  <path d="M0 200 H940" stroke="#4585bb" stroke-width="2"/>
+  <g stroke="#5b86b8" stroke-width="2" opacity="0.7">
+    <path d="M20 100 V169 M60 77 V151 M100 105 V180 M140 54 V146 M180 41 V125 M220 70 V159 M260 44 V134 M300 26 V114 M340 61 V147 M380 58 V168 M420 42 V150 M460 29 V135 M500 73 V174 M540 44 V144 M580 51 V165 M620 32 V130 M660 55 V160 M700 29 V136 M740 40 V120 M780 32 V152 M820 24 V126 M860 41 V162 M900 15 V105"/>
+  </g>
+  <path d="M20 138 L60 128 L100 145 L140 104 L180 95 L220 113 L260 87 L300 74 L340 91 L380 112 L420 97 L460 69 L500 117 L540 100 L580 107 L620 81 L660 102 L700 72 L740 81 L780 69 L820 63 L860 80 L900 51" fill="none" stroke="#67d2f0" stroke-width="4" opacity="0.45"/>
+</g>
+<text x="70" y="1306" fill="#8daac9" font-size="20" font-family="Noto Sans CJK KR" letter-spacing="1">미국 정규장 마감 기준 · 상세 수치는 본문 참고</text>
+</svg>
