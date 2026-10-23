@@ -132,7 +132,12 @@ def check_media_ref(item: dict, *, remote: bool = False) -> dict:
         # This URL is public, commit pinned, and cannot contain auth headers.
         data = bounded_fetch(url)
         fail_if(sha256(data) != digest or len(data) != size, "Remote image hash or size mismatch")
-        return inspect_image(data)
+        metadata = inspect_image(data)
+        suffix = urlsplit(url).path.rsplit(".", 1)[-1].lower()
+        fail_if((suffix in ("jpg", "jpeg") and metadata["format"] != "JPEG") or
+                (suffix == "png" and metadata["format"] != "PNG"),
+                "URL extension does not match decoded media")
+        return metadata
     return {"sha256": digest, "size": size, "url_valid": True}
 
 def utf16_length(text: str) -> int:
@@ -189,11 +194,15 @@ def validate_receipt(receipt: dict, *, source: str = "realestate", images: int =
             "Bridge identity disabled or incorrect")
     fail_if(bridge.get("last_error") or (bridge.get("task_errors") or {}).get(source),
             "Oracle reports task/bridge errors")
+    from time import time
+    heartbeat = bridge.get("last_success_at")
+    fail_if(type(heartbeat) not in (float, int) or abs(time() - heartbeat) > 600,
+            "Oracle heartbeat missing or stale")
     # Do not rely on the public receipt alone for verifying Meta publishing.
     caps = receipt.get("capabilities") or {}
     version = str(receipt.get("publisher_version", ""))
-    major, _, minor = version.partition(".")
-    compatible = (major.isdigit() and minor.isdigit() and (int(major) > 0 or int(minor) >= 4))
+    m = re.fullmatch(r"(\\d+)\\.(\\d+)(?:\\.\\d+)?", version)
+    compatible = bool(m) and (int(m.group(1)) > 0 or int(m.group(2)) >= 4)
     fail_if(not compatible or caps.get("carousel") is not True or
             int(caps.get("max_images") or 0) < images, "Carousel receiver capability not verified")
     tasks = bridge.get("tasks") or []
