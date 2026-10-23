@@ -1,8 +1,7 @@
 {
   "key": "realestate:myeonmok9-20261023-retry1",
   "job_id": "9ed2395b-f8c0-57d3-ae19-efc867ff6d88",
-  "time": "2026-10-23T22:42:53+09:00",
-  "status": "queued",
-  "due": "2026-10-23T22:47:52+09:00",
-  "outbox_commit": "82bebb80d1302434abcddbd2ba4cc082d87fe873"
+  "time": "2026-10-23T22:44:45+09:00",
+  "status": "pending",
+  "parts": []
 }
