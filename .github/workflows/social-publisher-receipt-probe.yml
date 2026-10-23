@@ -23,6 +23,9 @@ jobs:
                   obj = json.load(r)
               print('PROBE_HTTP_OK')
               print('RECEIPT_ROOT_FIELDS',list(obj.keys()))
+              print('RECEIPT_BRIDGE',json.dumps(obj.get('bridge'),ensure_ascii=False)[:12000])
+              print('RECEIPT_JOBS_METADATA',type(obj.get('jobs')).__name__,len(obj.get('jobs') or []))
+              print('RECEIPT_JOB_SAMPLE',json.dumps((obj.get('jobs') or [])[-1:] if isinstance(obj.get('jobs'),list) else list((obj.get('jobs') or {}).items())[-1:],ensure_ascii=False)[:6000])
               compact = {k:obj.get(k) for k in ['protocol','bridge_id','enabled','account','publisher_version','updated_at','last_success_at','last_error','capabilities','task_errors']}
               print('RECEIPT_SUMMARY',json.dumps(compact,ensure_ascii=False))
               for k in ['tasks','jobs']:
