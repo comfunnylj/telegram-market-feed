@@ -1,0 +1,31 @@
+{
+  "date_utc": "2026-10-23T14:25:32.533803+00:00",
+  "original_published_key": "realestate:myeonmok9-20261023-retry1",
+  "posted_or_queued_by_audit": false,
+  "remote_images": [
+    {
+      "width": 1080,
+      "height": 632,
+      "format": "JPEG",
+      "size": 369397,
+      "sha256": "8f2330f7dc2327702b7e2c35df6b719dbf58207b0a9fc0ed1541728928d16e2b"
+    },
+    {
+      "width": 1080,
+      "height": 1134,
+      "format": "JPEG",
+      "size": 317247,
+      "sha256": "8b3c13241c0edf264ee71522afaeb609eef6a61e61cac29c3833face45e232ac"
+    }
+  ],
+  "media_gate": true,
+  "bridge_gate": {
+    "bridge": "sp-oracle-genie-carrot-v1",
+    "account": "genie_carrot",
+    "source": "realestate",
+    "carousel": true
+  },
+  "receipt_decision": "confirmed",
+  "published_link_count": 6,
+  "passed": true
+}
