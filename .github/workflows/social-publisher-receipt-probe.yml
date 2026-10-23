@@ -1,0 +1,38 @@
+name: Social Publisher Oracle receipt probe
+on:
+  push:
+    paths:
+      - '.github/workflows/social-publisher-receipt-probe.yml'
+      - 'social-publisher/diagnostics/probe-request.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read_public_receipt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Fetch public Oracle health and morning status
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, time, urllib.request, sys
+          url = 'https://161-33-141-193.sslip.io/social-publisher-status/status.json?probe=' + str(int(time.time()))
+          try:
+              with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Oracle-Receipt-Probe/1.0','Cache-Control':'no-cache'}),timeout=12) as r:
+                  obj = json.load(r)
+              print('PROBE_HTTP_OK')
+              print('RECEIPT_ROOT_FIELDS',list(obj.keys()))
+              compact = {k:obj.get(k) for k in ['protocol','bridge_id','enabled','account','publisher_version','updated_at','last_success_at','last_error','capabilities','task_errors']}
+              print('RECEIPT_SUMMARY',json.dumps(compact,ensure_ascii=False))
+              for k in ['tasks','jobs']:
+                  value=obj.get(k)
+                  if isinstance(value,dict):
+                      print('RECEIPT_'+k.upper(),json.dumps({a:b for a,b in value.items() if a=='morning' or '2026-10-23' in str(a) or k=='tasks'},ensure_ascii=False)[:14000])
+                  elif isinstance(value,list):
+                      print('RECEIPT_'+k.upper(),json.dumps([it for it in value if 'morning:2026-10-23' in str(it) or (k=='tasks' and 'morning' in str(it))],ensure_ascii=False)[:14000])
+              print('RECEIPT_RECENT_KEYS',[s for s in str(obj).split("'") if 'morning:2026-10-23' in s][:4])
+          except Exception as e:
+              print('PROBE_ERROR',type(e).__name__,str(e))
+              sys.exit(1)
+          PY
