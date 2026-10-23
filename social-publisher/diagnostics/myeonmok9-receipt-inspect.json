@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-10-23T11:15:08.808818+00:00",
+  "protocol": 1,
+  "publisher_version": "0.4",
+  "updated_at": 1792754105.2014992,
+  "account": "genie_carrot",
+  "bridge": {
+    "bridge_id": "sp-oracle-genie-carrot-v1",
+    "enabled": true,
+    "last_success_at": 1792754061.356109,
+    "last_error": null,
+    "task_errors": {}
+  },
+  "jobs": [
+    {
+      "id": "a6c3f9cc-46cd-5911-80d4-8e91159ac6ec",
+      "source": "realestate",
+      "dedup_key": "realestate:myeonmok9-20261023",
+      "due": 1792753945.0,
+      "status": "publishing_unknown",
+      "requested_topic": "부동산",
+      "image_count": 2,
+      "parts": [
+        {
+          "index": 1,
+          "status": "publishing_unknown",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        },
+        {
+          "index": 2,
+          "status": "prepared",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        },
+        {
+          "index": 3,
+          "status": "prepared",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        },
+        {
+          "index": 4,
+          "status": "prepared",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        },
+        {
+          "index": 5,
+          "status": "prepared",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        },
+        {
+          "index": 6,
+          "status": "prepared",
+          "id": null,
+          "permalink": null,
+          "topic_tag": null
+        }
+      ]
+    }
+  ],
+  "matched_events": [
+    {
+      "key": "realestate:myeonmok9-20261023",
+      "source": "realestate",
+      "status": "received",
+      "reason": null,
+      "updated_at": 1792753700.537659
+    }
+  ]
+}
