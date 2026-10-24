@@ -54,7 +54,7 @@ jobs:
           ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec social-publisher python -c '\''import core,json;print(json.dumps({"version":core.VERSION,"data":str(core.DATA),"token_present":(core.DATA/"threads-token").exists()}))'\'''
       - name: Upload exact normalized original bytes at an immutable commit URL
         run: python3 social-publisher/diagnostics/recover-morning-20261024.py --publish-asset
-      - name: Audit Meta and recover the same Oracle job with a backed-up worker update
+      - name: Verify all eight live posts and patched worker without publishing
         shell: bash
         run: |
           set -euo pipefail
@@ -66,7 +66,7 @@ jobs:
           ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-recovery-20261024-v2'
           tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-recovery-20261024-v2 -xf -'
           set +e
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-recovery-20261024-v2/deploy.py' > morning-recovery-result.json
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-recovery-20261024-v2/verify_live.py' > morning-recovery-result.json
           DEPLOY_EXIT=$?
           set -e
           cat morning-recovery-result.json
@@ -75,8 +75,8 @@ jobs:
           import json,pathlib,sys
           report=json.loads(pathlib.Path('morning-recovery-result.json').read_text().splitlines()[-1])
           print(json.dumps(report,ensure_ascii=False,indent=2))
-          good=(report.get('status')=='published' and report.get('worker_patch_deployed') is True
-                and len(report.get('parts',[]))==8 and all(p.get('permalink') for p in report['parts'])
+          good=(report.get('status')=='verified' and report.get('version')=='2026-10-24.2'
+                and len(report.get('parts',[]))==8 and all(p.get('permalink') for p in report['parts']))
           sys.exit(0 if good else 2)
           PY
       - name: Preserve non-secret recovery evidence
