@@ -150,6 +150,27 @@
         "sha256": "302bc7583e90a74bb82cf9c81802a73894f103eb241fbe93570d65f548c92982",
         "size": 2053930
       }
+    },
+    {
+      "dedup_key": "energy:4c4fc8554512b317e9c9c98bf903542b3b0bd5ce11016dbbdf69366bf86aaa39",
+      "created_at": "2026-10-24T09:44:56+09:00",
+      "not_before": "2026-10-24T09:49:56+09:00",
+      "expires_at": "2026-10-24T09:54:56+09:00",
+      "topic": "원자재",
+      "text": "10/24 에너지 브리핑\n\n1. 미 SPR 원유 최대 40만 배럴이 Lake Charles 정유소로 긴급 교환돼.\n2. 러시아 ULSD 4만 톤은 계획 단계를 넘어 실제 미국행 출항했어.\n3. HPCL은 운임 급등에 중동 원유를 거의 전량 도착도 기준으로 돌렸어.\n4. 미국은 정유 생산·저장·물류에 DPA 자금 최대 1.5억달러를 예고했어.주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴. 중동 공급 제약 전제, 9월 전망보다 14달러 상향.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복 전제. 기관 견해이며 확정 가격은 아니야.10월23일 오피넷 $/Bbl\nWTI 103.27(+3.80, NYMEX 선물)\nBrent 116.72(+3.55, ICE 선물)\nDubai 116.90(+1.50, 싱가포르 현물 평가·추정값)\n모두 10월22일 동일 정의 관측 대비 변화야.\n\n미 에너지부는 West Hackberry SPR 원유를 즉시 교환해 운송연료 생산 지속을 지원한다고 밝혔어.\nhttps://www.energy.gov/articles/energy-department-authorizes-strategic-petroleum-reserve-exchange-support-fuel-supplyAgioi Fanendes호는 10월22일 Primorsk에서 ULSD 4만 톤을 싣고 출항했고, 미국 도착 예정일은 11월7일이야. 전날의 ‘선적 계획’에서 실제 적재·출항으로 바뀐 게 핵심이야. 다만 실제 하역 전이라 확정 수입으로 보진 않았어.\nhttps://www.reuters.com/business/energy/tanker-carrying-40000-t-russian-diesel-heads-new-york-after-putin-trump-deal-2026-10-23/HPCL은 중동 원유 도착도 조달을 기존 약 절반에서 거의 전량으로 늘렸어. Suezmax 비용이 3~4달러/배럴에서 약 9달러로 뛰자 운임 위험을 판매자 쪽으로 옮긴 대응이야.\n\nRajasthan 18만 b/d 정유소는 현재 60% 가동. 12월 HSFO 생산과 연말~1월초 완전가동은 아직 회사 계획이야.\nhttps://www.reuters.com/business/energy/freight-discounts-prompt-indias-hpcl-buy-oil-delivered-basis-2026-10-23/미 에너지부는 DPA 자금 최대 1.5억달러를 정유 생산·저장·물류 확대에 투입할 계획이야. 선정이 진행 중이라 수혜 시설과 실제 증설량은 아직 없어.\n\n해석: SPR 교환은 단기 원료 차질 완충, DPA는 중기 공급능력 보강 신호야. 둘 다 곧바로 완제품 증산 물량으로 계산하면 안 돼.\nhttps://www.energy.gov/articles/energy-department-use-defense-production-act-funding-restart-american-refinery-and-expand",
+      "parts": [
+        "10/24 에너지 브리핑\n\n1. 미 SPR 원유 최대 40만 배럴이 Lake Charles 정유소로 긴급 교환돼.\n2. 러시아 ULSD 4만 톤은 계획 단계를 넘어 실제 미국행 출항했어.\n3. HPCL은 운임 급등에 중동 원유를 거의 전량 도착도 기준으로 돌렸어.\n4. 미국은 정유 생산·저장·물류에 DPA 자금 최대 1.5억달러를 예고했어.",
+        "주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴. 중동 공급 제약 전제, 9월 전망보다 14달러 상향.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복 전제. 기관 견해이며 확정 가격은 아니야.",
+        "10월23일 오피넷 $/Bbl\nWTI 103.27(+3.80, NYMEX 선물)\nBrent 116.72(+3.55, ICE 선물)\nDubai 116.90(+1.50, 싱가포르 현물 평가·추정값)\n모두 10월22일 동일 정의 관측 대비 변화야.\n\n미 에너지부는 West Hackberry SPR 원유를 즉시 교환해 운송연료 생산 지속을 지원한다고 밝혔어.\nhttps://www.energy.gov/articles/energy-department-authorizes-strategic-petroleum-reserve-exchange-support-fuel-supply",
+        "Agioi Fanendes호는 10월22일 Primorsk에서 ULSD 4만 톤을 싣고 출항했고, 미국 도착 예정일은 11월7일이야. 전날의 ‘선적 계획’에서 실제 적재·출항으로 바뀐 게 핵심이야. 다만 실제 하역 전이라 확정 수입으로 보진 않았어.\nhttps://www.reuters.com/business/energy/tanker-carrying-40000-t-russian-diesel-heads-new-york-after-putin-trump-deal-2026-10-23/",
+        "HPCL은 중동 원유 도착도 조달을 기존 약 절반에서 거의 전량으로 늘렸어. Suezmax 비용이 3~4달러/배럴에서 약 9달러로 뛰자 운임 위험을 판매자 쪽으로 옮긴 대응이야.\n\nRajasthan 18만 b/d 정유소는 현재 60% 가동. 12월 HSFO 생산과 연말~1월초 완전가동은 아직 회사 계획이야.\nhttps://www.reuters.com/business/energy/freight-discounts-prompt-indias-hpcl-buy-oil-delivered-basis-2026-10-23/",
+        "미 에너지부는 DPA 자금 최대 1.5억달러를 정유 생산·저장·물류 확대에 투입할 계획이야. 선정이 진행 중이라 수혜 시설과 실제 증설량은 아직 없어.\n\n해석: SPR 교환은 단기 원료 차질 완충, DPA는 중기 공급능력 보강 신호야. 둘 다 곧바로 완제품 증산 물량으로 계산하면 안 돼.\nhttps://www.energy.gov/articles/energy-department-use-defense-production-act-funding-restart-american-refinery-and-expand"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/2655ff71b8601454f9436ab030559f667b72a158/social-publisher/assets/energy/2026-10-24-energy-market.jpg",
+        "sha256": "4eaf17a1b81806ac63aab8ef51e682a174fd6b2598fe4325f13e782cf15d4e1e",
+        "size": 327444
+      }
     }
   ]
 }
