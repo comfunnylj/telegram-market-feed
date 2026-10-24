@@ -43,9 +43,10 @@ def schedules(path):
  db=sqlite3.connect(path.as_uri()+'?mode=ro',uri=True)
  rows=db.execute("SELECT id,due,payload FROM jobs WHERE id!='cb9b3125-4bed-580c-9220-b5b9430de973' ORDER BY id").fetchall();db.close();return rows
 report['preservation']={'other_job_schedules_unchanged':schedules(backup/'schedule.sqlite3')==schedules(data/'schedule.sqlite3'),
- 'container_environment_unchanged':old['Config']['Env']==snapshot['Config']['Env'],
+ 'container_environment_unchanged':dict(x.split('=',1) for x in old['Config']['Env'])==dict(x.split('=',1) for x in snapshot['Config']['Env']),
  'runtime_user_unchanged':old['Config']['User']==snapshot['Config']['User'],
  'restart_policy_unchanged':old['HostConfig']['RestartPolicy']==snapshot['HostConfig']['RestartPolicy']}
-assert all(report['preservation'].values())
+report['preservation_detail']={'backup':backup.name,'before_job_count':len(schedules(backup/'schedule.sqlite3')),'after_job_count':len(schedules(data/'schedule.sqlite3'))}
 print(json.dumps(report,ensure_ascii=False))
+assert all(report['preservation'].values())
 if 'PermissionError' in combined or 'recovery check error' in combined: raise SystemExit(1)

@@ -91,3 +91,4 @@ jobs:
 # Surface container startup diagnostics for the authorized recovery only.
 # Allow the existing container user to read public recovery code.
 # Verify schedule and runtime preservation against the consistent deployment backup.
+# Compare environment values independent of Docker ordering.
