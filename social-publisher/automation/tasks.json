@@ -79,6 +79,19 @@
       "max_posts": 500,
       "max_utf16": 450,
       "late_grace_seconds": 300
+    },
+    {
+      "id": "quote",
+      "name": "Daily Quote Maker 매일의 문장",
+      "enabled": false,
+      "network": "threads",
+      "account": "genie_carrot",
+      "topic": "기타",
+      "outbox": "quote.json",
+      "image_required": true,
+      "max_posts": 1,
+      "max_utf16": 450,
+      "late_grace_seconds": 300
     }
   ]
 }
