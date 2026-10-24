@@ -83,7 +83,7 @@
     {
       "id": "quote",
       "name": "Daily Quote Maker 매일의 문장",
-      "enabled": false,
+      "enabled": true,
       "network": "threads",
       "account": "genie_carrot",
       "topic": "기타",
