@@ -63,15 +63,14 @@ jobs:
           python3 social-publisher/diagnostics/prepare-oracle-ssh.py
           cp morning-recovery-candidate.json social-publisher/oracle-recovery/candidate.json
           SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-recovery-20261024'
-          tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-recovery-20261024 -xf -'
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-recovery-20261024-v2'
+          tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-recovery-20261024-v2 -xf -'
           set +e
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-recovery-20261024/audit_live.py' > morning-recovery-result.json
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-recovery-20261024-v2/deploy.py' > morning-recovery-result.json
           DEPLOY_EXIT=$?
           set -e
           cat morning-recovery-result.json
           if [ "$DEPLOY_EXIT" -ne 0 ]; then exit "$DEPLOY_EXIT"; fi
-          exit 0
           python3 - <<'PY'
           import json,pathlib,sys
           report=json.loads(pathlib.Path('morning-recovery-result.json').read_text().splitlines()[-1])

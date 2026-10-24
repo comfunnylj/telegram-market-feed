@@ -40,12 +40,13 @@ def main():
         raise RuntimeError('Unsupported runtime configuration')
     manifest = json.loads((ROOT / 'manifest.json').read_text())
     installed = docker('exec', NAME, 'python', '-c',
-        'import hashlib,json,pathlib;print(json.dumps({n:hashlib.sha256(pathlib.Path("/app/"+n).read_bytes()).hexdigest() for n in ["core.py","worker.py"]}))')
+        'import hashlib,json,pathlib;print(json.dumps({n:hashlib.sha256(pathlib.Path("/app/"+n).read_bytes()).hexdigest() for n in ["core.py","worker.py","recovery.py"] if pathlib.Path("/app/"+n).exists()}))')
     actual = json.loads(installed)
     if actual['core.py'] != manifest['baseline']['core.py']:
         raise RuntimeError('Live core differs from reviewed v0.4 source; sha256=' + actual['core.py'])
-    already = actual['worker.py'] == manifest['patched']['worker.py']
-    if not already and actual['worker.py'] != manifest['baseline']['worker.py']:
+    reviewed_workers = {manifest['baseline']['worker.py'], manifest['previous_worker_sha256'], manifest['patched']['worker.py']}
+    already = (actual['worker.py'] == manifest['patched']['worker.py'] and actual.get('recovery.py') == hashlib.sha256((ROOT/'recovery.py').read_bytes()).hexdigest())
+    if actual['worker.py'] not in reviewed_workers:
         raise RuntimeError('Live worker differs from reviewed baseline')
     def queue_gate():
         db = sqlite3.connect(data.joinpath('schedule.sqlite3').as_uri() + '?mode=ro', uri=True)
@@ -87,11 +88,18 @@ def main():
                    '--volumes-from', NAME, '--mount', 'type=bind,src=' + str(ROOT) + ',dst=/recovery,readonly',
                    '--entrypoint', 'python', snapshot['Image'], '/recovery/run_recovery.py',
                    '--candidate', '/recovery/candidate.json', '--apply']
-        raw = docker(*command)
-        report = json.loads(raw.splitlines()[-1])
+        runtime_user = snapshot['Config'].get('User')
+        if runtime_user:
+            command[1:1] = ['--user', runtime_user]
         enabled = data / 'recovery-enabled-at'
         if not enabled.exists():
             enabled.write_text(str(time.time()))
+        owner = data.stat()
+        os.chown(enabled, owner.st_uid, owner.st_gid)
+        enabled.chmod(0o600)
+        raw = docker(*command)
+        report = json.loads(raw.splitlines()[-1])
+        enabled = data / 'recovery-enabled-at'
         if already:
             docker('update', '--restart', snapshot['HostConfig']['RestartPolicy']['Name'], NAME)
             docker('start', NAME)
@@ -130,7 +138,7 @@ def main():
                 if docker('inspect', '--format', '{{.State.Running}}', NAME) == 'true':
                     try:
                         version = docker('exec', NAME, 'python', '-c', 'import recovery;print(recovery.VERSION)')
-                        if version == '2026-10-24.1':
+                        if version == '2026-10-24.2':
                             stopped = False
                             break
                     except subprocess.CalledProcessError:

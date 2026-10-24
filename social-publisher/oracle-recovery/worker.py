@@ -3,6 +3,7 @@ import os
 import signal
 import threading
 import time
+import traceback
 from core import DATA
 from recovery import Publisher, recover_one
 from bridge import Bridge
@@ -47,7 +48,9 @@ def main():
         else:
             if time.monotonic()-last_recovery>30:
                 try:recover_one(scheduler)
-                except Exception as exc:print('recovery check error:',type(exc).__name__,flush=True)
+                except Exception as exc:
+                    print('recovery check error:',type(exc).__name__,flush=True)
+                    traceback.print_exc()
                 last_recovery=time.monotonic()
             stopping.wait(1)
         if time.monotonic()-last_status>10:

@@ -13,7 +13,7 @@ import urllib.request
 import uuid
 import core
 
-VERSION = '2026-10-24.1'
+VERSION = '2026-10-24.2'
 
 
 class MetaError(RuntimeError):
@@ -59,6 +59,21 @@ def identity(token):
     if str(me.get('id')) != core.ACCOUNT or me.get('username') != 'genie_carrot':
         raise RuntimeError('Meta account identity mismatch')
     return me
+
+
+def rejected_missing_media(record, active):
+    detail = active.get('last_error') or {}
+    if detail.get('http_status') == 400 and detail.get('code') == 24 and detail.get('error_subcode') == 4279009:
+        return True
+    legacy = record.get('error') or ''
+    if not legacy.startswith('HTTP 400: '):
+        return False
+    try:
+        error = json.loads(legacy[len('HTTP 400: '):])['error']
+        return (error.get('code') == 24 and error.get('error_subcode') == 4279009
+                and str(active.get('container_id')) in error.get('error_user_msg', ''))
+    except (ValueError, KeyError, TypeError):
+        return False
 
 
 def own_matches(token, text, previous, since):
@@ -145,7 +160,9 @@ class Publisher(core.Publisher):
         if state.get('status') in ('ERROR', 'EXPIRED'):
             # Definitively unusable container plus complete negative account evidence.
             return 'unpublished_container'
-        # FINISHED does not prove a lost publish request was never accepted.
+        if state.get('status') == 'FINISHED' and rejected_missing_media(record, active):
+            return 'retry_same_container'
+        # FINISHED alone does not authorize retry; an explicit rejection is required.
         return 'unknown'
 
     def create(self, token, record, active, payload, child=None):
@@ -189,7 +206,7 @@ class Publisher(core.Publisher):
                 if decision == 'published':
                     return
                 # Only explicit rate-limit rejection can retry the SAME container.
-                if exc.status != 429 or attempt == 2:
+                if (exc.status != 429 and decision != 'retry_same_container') or attempt == 2:
                     raise
             except (OSError, ValueError, KeyError):
                 # Lost response: read-only reconciliation, never blind re-POST.
@@ -199,7 +216,7 @@ class Publisher(core.Publisher):
                     if check < 2:
                         time.sleep(5 * (check + 1))
                 raise RuntimeError('Publish outcome unresolved; same job retained')
-            time.sleep(2 ** (attempt + 1))
+            time.sleep(30 * (attempt + 1) if decision == 'retry_same_container' else 2 ** (attempt + 1))
 
     def send(self, text, topic, parts=None, image=None, scheduled=False, images=None,
              job_id=None, record=None):
@@ -227,10 +244,14 @@ class Publisher(core.Publisher):
             for index, active in enumerate(record['parts']):
                 root_topic = topic if index == 0 else None
                 if active.get('post_id') or active.get('status') in ('published', 'publishing_unknown', 'published_unverified'):
-                    if self.reconcile(token, record, active, previous, root_topic) != 'published':
+                    decision = self.reconcile(token, record, active, previous, root_topic)
+                    if decision == 'published':
+                        previous = active['post_id']
+                        continue
+                    if decision != 'retry_same_container':
                         raise RuntimeError('Existing publish unresolved; no new container')
-                    previous = active['post_id']
-                    continue
+                    active['status'] = 'container_created'
+                    self.audit(record, 'retry_explicitly_rejected_same_container', container_id=active['container_id'])
                 payload = {'media_type': 'TEXT', 'text': active['text'], 'auto_publish_text': 'false'}
                 if index == 0 and len(media) == 1:
                     payload = {'media_type': 'IMAGE', 'text': active['text'], 'image_url': media[0]['image_url']}

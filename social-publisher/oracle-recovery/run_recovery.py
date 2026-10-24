@@ -52,6 +52,12 @@ def run(candidate, apply=False):
                               diagnosis=active.get('last_error') or record.get('error'),
                               reason='No authoritative no-publication evidence; no blind retry')
                 return report
+            if decision == 'retry_same_container':
+                if not apply:
+                    report.update(status='eligible_same_container_recovery', part=index+1)
+                    return report
+                active['status'] = 'container_created'
+                publisher.audit(record, 'explicit_rejection_same_container_recovery', container_id=active['container_id'])
             if decision == 'unpublished_container':
                 # Only an authoritative failed/expired container plus complete negative
                 # Meta feed permits recreating this part under the SAME existing job.
@@ -72,7 +78,7 @@ def run(candidate, apply=False):
         return report
     if old_status in ('running', 'pending'):
         raise RuntimeError('Do not take over queued or active jobs')
-    if not any(p.get('post_id') for p in record['parts']):
+    if not any(p.get('post_id') for p in record['parts']) and not record['parts'][0].get('container_id'):
         # Technical media normalization was explicitly authorized. Keep original
         # source metadata in private history and never mutate the public old outbox.
         publisher.audit(record, 'authorized_same_image_normalization',

@@ -1,4 +1,5 @@
 import copy
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -151,6 +152,37 @@ class RecoveryTests(unittest.TestCase):
             record = {'job_id': 'stable-job', 'created_at': 1}
             with self.assertRaises(RuntimeError):
                 p.reconcile('test', record, {'text': 'approved', 'container_id': 'c1'}, None)
+
+    def test_finished_without_rejection_does_not_retry(self):
+        with self.patched():
+            p = r.Publisher()
+            self.assertEqual(p.reconcile('test', {'job_id':'stable-job','created_at':1},
+                {'text':self.parts[0],'container_id':'c1'}, None), 'unknown')
+
+    def test_legacy_missing_media_rejection_retries_existing_container(self):
+        self.containers['c1'] = {'text':self.parts[0], 'topic_tag':'미국주식'}
+        record={'job_id':'stable-job','created_at':1,'text':''.join(self.parts),
+            'error':'HTTP 400: '+json.dumps({'error':{'code':24,'error_subcode':4279009,'error_user_msg':'ID: c1 media missing'}}),
+            'parts':[{'text':self.parts[0],'status':'publishing_unknown','container_id':'c1'},
+                     {'text':self.parts[1],'status':'prepared'}]}
+        with self.patched():
+            result=self.send(record=record)
+        self.assertEqual(result['status'],'published')
+        self.assertEqual(result['parts'][0]['container_id'],'c1')
+        self.assertEqual(len([d for p,d in self.calls if d and p.endswith('/threads')]),1)
+
+    def test_missing_media_rejection_then_success_reuses_container(self):
+        seen=[]
+        def api(t,p,d=None):
+            if p.endswith('/threads_publish'):
+                seen.append(d['creation_id'])
+                if len(seen)<3:
+                    raise r.MetaError(400,{'code':24,'error_subcode':4279009})
+            return self.api(t,p,d)
+        with self.patched(api):
+            result=self.send()
+        self.assertEqual(result['status'],'published')
+        self.assertEqual(seen[:3],['c1','c1','c1'])
 
     def test_changed_approved_text_rejected(self):
         record = {'job_id': 'stable-job', 'text': 'changed', 'parts': []}
