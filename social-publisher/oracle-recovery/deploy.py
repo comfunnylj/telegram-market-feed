@@ -19,6 +19,12 @@ def docker(*args, check=True):
 
 def main():
     os.umask(0o077)
+    # Only public recovery code/candidate files: readable by the existing UID 1000.
+    # Private data, tokens, backups and SSH material keep their original modes.
+    ROOT.chmod(0o755)
+    for source_file in ROOT.iterdir():
+        if source_file.is_file() and source_file.suffix in ('.py', '.json'):
+            source_file.chmod(0o644)
     snapshot = json.loads(docker('inspect', NAME))[0]
     if not snapshot['State']['Running']:
         raise RuntimeError('Existing worker must already be running')

@@ -89,3 +89,4 @@ jobs:
           retention-days: 14
 
 # Surface container startup diagnostics for the authorized recovery only.
+# Allow the existing container user to read public recovery code.
