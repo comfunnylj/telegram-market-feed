@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-10-24T06:26:45.454897+00:00",
+  "images": [
+    {
+      "name": "realestate-banghak3-20261024-official-render.jpg",
+      "status": "downloaded",
+      "source": "https://www.dobong.go.kr/Open_content/images/2025/SCPMOO_A1_00135_15_250728.jpg",
+      "mime": "JPEG",
+      "bytes": 2988847,
+      "width": 4000,
+      "height": 2250,
+      "sha256": "356a4e5c23cf3efc734157b6eab757ce263f75a1aff1f299033b22f822db33d5"
+    },
+    {
+      "name": "realestate-banghak3-20261024-official-location.png",
+      "status": "downloaded",
+      "source": "https://www.dobong.go.kr/Open_content/images/SCPMOO_A1_00135_14.png",
+      "mime": "PNG",
+      "bytes": 612602,
+      "width": 643,
+      "height": 445,
+      "sha256": "cff6871fbb6b1c9e60964d3dd387e7ed7c4b72d8b015e8a0c708cfd8b4312c3f"
+    }
+  ]
+}
