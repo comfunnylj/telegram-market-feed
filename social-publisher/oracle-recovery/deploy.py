@@ -37,7 +37,7 @@ def main():
         'import hashlib,json,pathlib;print(json.dumps({n:hashlib.sha256(pathlib.Path("/app/"+n).read_bytes()).hexdigest() for n in ["core.py","worker.py"]}))')
     actual = json.loads(installed)
     if actual['core.py'] != manifest['baseline']['core.py']:
-        raise RuntimeError('Live core differs from reviewed v0.4 source; no blind patch')
+        raise RuntimeError('Live core differs from reviewed v0.4 source; sha256=' + actual['core.py'])
     already = actual['worker.py'] == manifest['patched']['worker.py']
     if not already and actual['worker.py'] != manifest['baseline']['worker.py']:
         raise RuntimeError('Live worker differs from reviewed baseline')
@@ -158,5 +158,7 @@ if __name__ == '__main__':
     except Exception as exc:
         print(json.dumps({'status': 'blocked', 'worker_patch_deployed': False,
                           'error_type': type(exc).__name__,
-                          'reason': 'Oracle preflight or deployment failed; no credentials logged'}))
+                          'reason': str(exc) if isinstance(exc, (RuntimeError, AssertionError)) else 'Oracle operation failed',
+                          'operation': exc.cmd[1] if isinstance(exc, subprocess.CalledProcessError) else None,
+                          'safe_child_report': (json.loads(exc.stdout.splitlines()[-1]) if isinstance(exc, subprocess.CalledProcessError) and exc.stdout and exc.stdout.splitlines()[-1].startswith('{') else None)}))
         raise SystemExit(1)
