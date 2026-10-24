@@ -160,5 +160,6 @@ if __name__ == '__main__':
                           'error_type': type(exc).__name__,
                           'reason': str(exc) if isinstance(exc, (RuntimeError, AssertionError)) else 'Oracle operation failed',
                           'operation': exc.cmd[1] if isinstance(exc, subprocess.CalledProcessError) else None,
+                          'child_error': (exc.stderr[-1200:] if isinstance(exc, subprocess.CalledProcessError) and exc.cmd[1] == 'run' else None),
                           'safe_child_report': (json.loads(exc.stdout.splitlines()[-1]) if isinstance(exc, subprocess.CalledProcessError) and exc.stdout and exc.stdout.splitlines()[-1].startswith('{') else None)}))
         raise SystemExit(1)

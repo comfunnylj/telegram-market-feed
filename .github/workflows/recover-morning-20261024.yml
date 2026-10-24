@@ -87,3 +87,5 @@ jobs:
           path: morning-recovery-result.json
           if-no-files-found: error
           retention-days: 14
+
+# Surface container startup diagnostics for the authorized recovery only.
