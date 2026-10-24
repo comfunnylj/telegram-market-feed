@@ -1,6 +1,8 @@
 """Read-only post-deployment verification of this exact original 8-part job."""
 import json
 import subprocess
+from pathlib import Path
+import sqlite3
 code=r'''
 import hashlib,json,os,sqlite3
 import core,recovery
@@ -30,7 +32,20 @@ if r.returncode:
 if r.returncode: raise SystemExit(r.returncode)
 logs=subprocess.run(['docker','logs','--since','90s','social-publisher'],capture_output=True,text=True)
 combined=logs.stdout+logs.stderr
-health={'recent_permission_error':'PermissionError' in combined,'recent_recovery_error':'recovery check error' in combined,'worker_ready':'worker ready' in combined}
+health={'recent_permission_error':'PermissionError' in combined,'recent_recovery_error':'recovery check error' in combined,'worker_ready':'worker ready' in (subprocess.run(['docker','logs','social-publisher'],capture_output=True,text=True).stdout)}
 report=json.loads(r.stdout.strip());report['health']=health
+snapshot=json.loads(subprocess.check_output(['docker','inspect','social-publisher']))[0]
+data=Path(next(m['Source'] for m in snapshot['Mounts'] if m['Destination']=='/data'))
+backups=sorted((data.parent/'backups').glob('recovery-20261024-*'),key=lambda p:p.stat().st_mtime)
+backup=backups[-1]
+old=json.loads((backup/'container.json').read_text())
+def schedules(path):
+ db=sqlite3.connect(path.as_uri()+'?mode=ro',uri=True)
+ rows=db.execute("SELECT id,due,payload FROM jobs WHERE id!='cb9b3125-4bed-580c-9220-b5b9430de973' ORDER BY id").fetchall();db.close();return rows
+report['preservation']={'other_job_schedules_unchanged':schedules(backup/'schedule.sqlite3')==schedules(data/'schedule.sqlite3'),
+ 'container_environment_unchanged':old['Config']['Env']==snapshot['Config']['Env'],
+ 'runtime_user_unchanged':old['Config']['User']==snapshot['Config']['User'],
+ 'restart_policy_unchanged':old['HostConfig']['RestartPolicy']==snapshot['HostConfig']['RestartPolicy']}
+assert all(report['preservation'].values())
 print(json.dumps(report,ensure_ascii=False))
 if 'PermissionError' in combined or 'recovery check error' in combined: raise SystemExit(1)
