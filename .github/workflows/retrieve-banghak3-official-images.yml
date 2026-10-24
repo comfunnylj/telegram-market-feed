@@ -1,0 +1,73 @@
+name: Retrieve Banghak 3 official visuals only
+on:
+  push:
+    paths:
+      - '.github/workflows/retrieve-banghak3-official-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: retrieve-banghak3-official-images
+  cancel-in-progress: false
+jobs:
+  retrieve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install image parser
+        run: python3 -m pip install --quiet Pillow
+      - name: Download two ORIGINAL official images and verify
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import urllib.request, io, hashlib, json, datetime, subprocess, time
+          from pathlib import Path
+          from PIL import Image
+          inputs=[
+            ("realestate-banghak3-20261024-official-render.jpg", "https://www.dobong.go.kr/Open_content/images/2025/SCPMOO_A1_00135_15_250728.jpg", "JPEG"),
+            ("realestate-banghak3-20261024-official-location.png", "https://www.dobong.go.kr/Open_content/images/SCPMOO_A1_00135_14.png", "PNG"),
+          ]
+          root=Path("social-publisher/media")
+          root.mkdir(parents=True, exist_ok=True)
+          records=[]
+          for name,url,expected in inputs:
+              target=root/name
+              if target.exists():
+                  records.append({"name":name,"status":"already_present_not_overwritten"})
+                  continue
+              last=None
+              for attempt in range(4):
+                  try:
+                      req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Accept":"image/avif,image/webp,image/png,image/jpeg,image/*;q=0.9"})
+                      with urllib.request.urlopen(req,timeout=22) as response:
+                          content=response.read(12*1024*1024+1)
+                      if not (10000<=len(content)<=12*1024*1024):raise ValueError("size_out_of_range "+str(len(content)))
+                      with Image.open(io.BytesIO(content)) as im:
+                          im.load()
+                          w,h=im.size
+                          if im.format!=expected or w<320 or h<180:
+                              raise ValueError("unexpected_image "+str((im.format,w,h)))
+                      target.write_bytes(content)
+                      records.append({"name":name,"status":"downloaded","source":url,"mime":expected,"bytes":len(content),"width":w,"height":h,"sha256":hashlib.sha256(content).hexdigest()})
+                      break
+                  except Exception as e:
+                      last=str(e)[:300]
+                      if attempt<3:time.sleep(3)
+              else:records.append({"name":name,"status":"download_failed","source":url,"error":last})
+          report=Path("social-publisher/diagnostics/banghak3-official-image-retrieval.json")
+          report.parent.mkdir(parents=True,exist_ok=True)
+          report.write_text(json.dumps({"checked_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"images":records},ensure_ascii=False,indent=2)+"\n")
+          subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+          subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+          subprocess.run(["git","add",str(report),*[str(root/r["name"]) for r in records if r["status"]=="downloaded"]],check=True)
+          subprocess.run(["git","commit","-m","Store Banghak3 official original images and retrieval audit"],check=True)
+          subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+          subprocess.run(["git","push","origin","HEAD:main"],check=True)
+          print(json.dumps(records,ensure_ascii=False))
+          if not all(x["status"] in ("downloaded","already_present_not_overwritten") for x in records):
+              raise SystemExit("One or more official source images unavailable")
+          PY
