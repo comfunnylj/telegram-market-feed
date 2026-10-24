@@ -1,0 +1,88 @@
+name: Recover October 24 morning Threads on Oracle without duplicate posts
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-morning-20261024.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: oracle-threads-morning-20261024-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    env:
+      # These optional secret bindings do not create credentials. Missing credentials
+      # stop before any public post, queue mutation or Oracle deployment.
+      ORACLE_KEY: ${{ secrets.SOCIAL_PUBLISHER_SSH_KEY || secrets.ORACLE_SSH_KEY || secrets.ORACLE_SSH_PRIVATE_KEY }}
+      ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install deterministic image tools
+        run: python3 -m pip install --quiet Pillow
+      - name: Test durable recovery and duplicate prevention offline
+        run: python3 -m unittest discover -s social-publisher/oracle-recovery -p 'test_*.py' -v
+      - name: Validate original morning text and normalize original image without posting
+        run: python3 social-publisher/diagnostics/recover-morning-20261024.py
+      - name: Require authenticated Oracle access and pinned host identity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,sys
+          missing=[]
+          if not os.environ.get('ORACLE_KEY'):missing.append('SOCIAL_PUBLISHER_SSH_KEY')
+          if not os.environ.get('ORACLE_HOST_KEYS'):missing.append('SOCIAL_PUBLISHER_KNOWN_HOSTS')
+          report={'key':'morning:2026-10-24','status':'blocked' if missing else 'credentials_present',
+                  'missing_secret_configuration':missing,'posted':False,'outbox_changed':False,
+                  'oracle_deployed':False,'reason':'Authenticated private history and Meta audit required before retry'}
+          pathlib.Path('morning-recovery-result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print(json.dumps(report,ensure_ascii=False))
+          sys.exit(1 if missing else 0)
+          PY
+      - name: Read Oracle account and queue preflight using SSH without logging credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          install -d -m 700 "$RUNNER_TEMP/sp-ssh"
+          trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          printf '%s\n' "$ORACLE_KEY" > "$RUNNER_TEMP/sp-ssh/key"
+          printf '%s\n' "$ORACLE_HOST_KEYS" > "$RUNNER_TEMP/sp-ssh/known_hosts"
+          chmod 600 "$RUNNER_TEMP/sp-ssh/"*
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec social-publisher python -c '\''import core,json;print(json.dumps({"version":core.VERSION,"data":str(core.DATA),"token_present":(core.DATA/"threads-token").exists()}))'\'''
+      - name: Upload exact normalized original bytes at an immutable commit URL
+        run: python3 social-publisher/diagnostics/recover-morning-20261024.py --publish-asset
+      - name: Audit Meta and recover the same Oracle job with a backed-up worker update
+        shell: bash
+        run: |
+          set -euo pipefail
+          install -d -m 700 "$RUNNER_TEMP/sp-ssh"
+          trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          printf '%s\n' "$ORACLE_KEY" > "$RUNNER_TEMP/sp-ssh/key"
+          printf '%s\n' "$ORACLE_HOST_KEYS" > "$RUNNER_TEMP/sp-ssh/known_hosts"
+          chmod 600 "$RUNNER_TEMP/sp-ssh/"*
+          cp morning-recovery-candidate.json social-publisher/oracle-recovery/candidate.json
+          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-recovery-20261024'
+          tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-recovery-20261024 -xf -'
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-recovery-20261024/deploy.py' > morning-recovery-result.json
+          python3 - <<'PY'
+          import json,pathlib,sys
+          report=json.loads(pathlib.Path('morning-recovery-result.json').read_text().splitlines()[-1])
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          good=(report.get('status')=='published' and report.get('worker_patch_deployed') is True
+                and len(report.get('parts',[]))==8 and all(p.get('permalink') for p in report['parts'])
+          sys.exit(0 if good else 2)
+          PY
+      - name: Preserve non-secret recovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: morning-20261024-recovery-evidence
+          path: morning-recovery-result.json
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,11 @@
+{
+  "baseline": {
+    "core.py": "c6c91534cf9044519d83873eeadfdcc435f7319feff91a112742964a9a0395d0",
+    "worker.py": "24e3c85c8987a64a457aba20dba23c6073b827a270fd2ceabfdb15eade1885c0"
+  },
+  "patched": {
+    "worker.py": "0b04119aae1aa927a9b8faed8e559d48adb0c0add74ab493af2df4edc662c06a",
+    "recovery.py": "aba3d4a0839c617b927ac3cf20533c39d17765e08d68d2c6206fe00c4e345b22"
+  },
+  "version": "2026-10-24.1"
+}
