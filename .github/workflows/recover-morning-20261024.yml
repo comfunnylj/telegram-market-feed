@@ -50,9 +50,7 @@ jobs:
           set -euo pipefail
           install -d -m 700 "$RUNNER_TEMP/sp-ssh"
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
-          printf '%s\n' "$ORACLE_KEY" > "$RUNNER_TEMP/sp-ssh/key"
-          printf '%s\n' "$ORACLE_HOST_KEYS" > "$RUNNER_TEMP/sp-ssh/known_hosts"
-          chmod 600 "$RUNNER_TEMP/sp-ssh/"*
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
           ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec social-publisher python -c '\''import core,json;print(json.dumps({"version":core.VERSION,"data":str(core.DATA),"token_present":(core.DATA/"threads-token").exists()}))'\'''
       - name: Upload exact normalized original bytes at an immutable commit URL
         run: python3 social-publisher/diagnostics/recover-morning-20261024.py --publish-asset
@@ -62,9 +60,7 @@ jobs:
           set -euo pipefail
           install -d -m 700 "$RUNNER_TEMP/sp-ssh"
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
-          printf '%s\n' "$ORACLE_KEY" > "$RUNNER_TEMP/sp-ssh/key"
-          printf '%s\n' "$ORACLE_HOST_KEYS" > "$RUNNER_TEMP/sp-ssh/known_hosts"
-          chmod 600 "$RUNNER_TEMP/sp-ssh/"*
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
           cp morning-recovery-candidate.json social-publisher/oracle-recovery/candidate.json
           SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
           ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-recovery-20261024'

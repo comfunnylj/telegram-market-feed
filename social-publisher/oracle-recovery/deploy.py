@@ -145,7 +145,7 @@ def main():
         elif stopped and renamed:
             # Keep an active new worker rather than interrupt any started publish.
             state = docker('inspect', '--format', '{{.State.Running}}', NAME, check=False)
-            if state == 'false':
+            if state in ('false', ''):
                 docker('rm', NAME, check=False)
                 docker('rename', old_name, NAME, check=False)
                 docker('update', '--restart', host['RestartPolicy']['Name'], NAME, check=False)
