@@ -4,9 +4,9 @@
   "account": "genie_carrot",
   "topic": "부동산",
   "parts": 4,
-  "stage": "receipt_published",
+  "stage": "published",
   "image_count": 3,
-  "checked_at": "2026-10-25T16:43:13+09:00",
+  "checked_at": "2026-10-25T16:43:14+09:00",
   "publisher_version": "0.4",
   "image_commit": "b4858b53f145f48da4cda7217449a294e6c37f20",
   "remote_image_hashes": [
@@ -18,5 +18,15 @@
   "not_before": "2026-10-25T16:41:51+09:00",
   "expires_at": "2026-10-25T16:46:51+09:00",
   "receipt_image_count": 3,
-  "published_count": 4
+  "published_count": 4,
+  "root": "https://www.threads.com/@genie_carrot/post/De6MjsKFHt-",
+  "links": [
+    "https://www.threads.com/@genie_carrot/post/De6MjsKFHt-",
+    "https://www.threads.com/@genie_carrot/post/De6MlUQlK53",
+    "https://www.threads.com/@genie_carrot/post/De6Mm6-FMgD",
+    "https://www.threads.com/@genie_carrot/post/De6MoeElAMB"
+  ],
+  "verified_parts": 4,
+  "verified_images": 3,
+  "verified_topic": "부동산"
 }
