@@ -1,0 +1,24 @@
+name: Republish Seongbuk1 in friendly Korean banmal (4 parts)
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-seongbuk1-20261025-friendly-republish1.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seongbuk1-20261025-friendly-republish-once
+  cancel-in-progress: false
+jobs:
+  republish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow for media preflight
+        run: python3 -m pip install --quiet --break-system-packages Pillow
+      - name: Validate banmal and re-publish exactly once through existing Oracle bridge
+        run: python3 social-publisher/diagnostics/publish-seongbuk1-20261025-friendly-republish1.py
