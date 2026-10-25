@@ -1,0 +1,17 @@
+{
+  "dedup_key": "realestate:seongbuk1-20261025-friendly-republish1",
+  "job_id": "911b4fc7-715e-5d3a-ac18-20a26ebd1623",
+  "replaces_deleted": "realestate:seongbuk1-20261025-blog-224453159178",
+  "account": "genie_carrot",
+  "topic": "부동산",
+  "expected_parts": 4,
+  "expected_images": 3,
+  "phase": "text_and_bridge_verified",
+  "checked_at": "2026-10-25T16:53:22+09:00",
+  "part_lengths": [
+    254,
+    227,
+    233,
+    265
+  ]
+}
