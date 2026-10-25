@@ -4,8 +4,14 @@
   "account": "genie_carrot",
   "topic": "부동산",
   "parts": 4,
-  "stage": "health_checked",
+  "stage": "images_verified",
   "image_count": 3,
-  "checked_at": "2026-10-25T16:36:45+09:00",
-  "publisher_version": "0.4"
+  "checked_at": "2026-10-25T16:36:50+09:00",
+  "publisher_version": "0.4",
+  "image_commit": "b4858b53f145f48da4cda7217449a294e6c37f20",
+  "remote_image_hashes": [
+    "0fdff1027a04636941ad78bd92bd86f0518c14469c63356ae43b299e94fc3362",
+    "167ee4f0780f007d1b25086e6ff6c8a5fd3991cb83ab7d0c0f84b07e5dc50938",
+    "735ed7dbb2201891d2cbe99b52d1b0276dede52ce248818fdfab067baa9e00e6"
+  ]
 }
