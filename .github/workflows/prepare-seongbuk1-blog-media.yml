@@ -1,0 +1,89 @@
+name: Prepare Seongbuk1 blog media
+on:
+  push:
+    paths:
+      - .github/workflows/prepare-seongbuk1-blog-media.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install media utilities
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk poppler-utils
+          python -m pip install --quiet pillow requests
+      - name: Create three charts and extract official Seoul city artwork
+        shell: bash
+        run: |
+          mkdir -p social-publisher/media
+          cat > /tmp/seongbuk1_art.py <<'PY'
+          import os,requests,subprocess
+          from PIL import Image, ImageDraw, ImageFont
+          P="social-publisher/media"
+          font="/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+          bold="/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
+          def f(n,b=False):return ImageFont.truetype(bold if b else font,n)
+          def base(title,sub,w=1500,h=780):
+              im=Image.new("RGB",(w,h),"#f7f9fc");d=ImageDraw.Draw(im)
+              d.rectangle((0,0,w,17),fill="#243e63")
+              d.text((75,56),title,font=f(59,True),fill="#152946")
+              d.text((77,140),sub,font=f(25),fill="#4c657e")
+              return im,d
+          def card(d,box,title,number,foot):
+              x1,y1,x2,y2=box;d.rounded_rectangle(box,radius=25,fill="white",outline="#ced8e3",width=2)
+              d.text((x1+35,y1+30),title,font=f(29,True),fill="#344d66")
+              d.text((x1+35,y1+105),number,font=f(69,True),fill="#173d6d")
+              d.text((x1+35,y2-59),foot,font=f(22),fill="#687c90")
+          im,d=base("성북1구역, 4.4억 공개 매물","재개발닷컴 공개 화면 기준 · 2026.10.25 · 가격 및 권리관계 변동 가능")
+          card(d,(72,240,710,622),"매매 호가","4억 4,000만 원","대지지분 5.14평")
+          card(d,(790,240,1430,622),"플랫폼 표시 초기투자금","3억 300만 원","보증금·대출·권리관계 개별 확인")
+          d.text((74,667),"대지지분 평당 호가 약 8,560만 원  |  실제 총투입금·분양자격 별도 검증",font=f(26,True),fill="#a45538")
+          im.save(P+"/seongbuk1_01_entry_price.png",optimize=True)
+          im,d=base("일반분양, 권리자 수에 따라 313세대 차이","분양주택 1,668세대 기준 · 각 소유자 1세대 배정이라는 단순 가정",w=1540,h=865)
+          xs=[80,565,1050];cols=[("#1e4d7c","서울시 공개", "1,192명","476세대","39.9%"),("#3f647b","재개발닷컴", "1,296명","372세대","28.7%"),("#725d7d","갈타맵", "1,505명","163세대","10.8%")]
+          for x,(c,site,owners,sale,pct) in zip(xs,cols):
+              d.rounded_rectangle((x,245,x+408,697),radius=24,fill="white",outline="#cdd7e3",width=2)
+              d.rounded_rectangle((x+17,263,x+390,344),radius=18,fill=c)
+              d.text((x+36,279),site,font=f(29,True),fill="white")
+              d.text((x+34,378),"권리자 "+owners,font=f(26),fill="#4f6277")
+              d.text((x+34,438),sale,font=f(65,True),fill="#183756")
+              d.text((x+34,548),"일반분양 ÷ 권리자",font=f(24),fill="#4f6277")
+              d.text((x+34,591),pct,font=f(55,True),fill=c)
+          d.text((84,742),"세 값 모두 확정 일반분양이 아님 · 분양대상자·현금청산·보류지에 따라 변동",font=f(27,True),fill="#a25336")
+          im.save(P+"/seongbuk1_02_general_sale_scenarios.png",optimize=True)
+          im,d=base("성북1구역 인근 아파트 거래가격","전용 59~60㎡ / 84~85㎡ · 2026.6~9 계약 사례 · 억 원",w=1600,h=1120)
+          data=[("돈암 한진 59㎡",9.4,"59㎡"),("삼선푸르지오 59㎡",9.9,"59㎡"),("돈암 한진 84㎡",9.65,"84㎡"),("돈암 한신 84㎡",10.5,"84㎡"),("삼선현대힐스테이트 84㎡",10.85,"84㎡"),("삼선푸르지오 84㎡",11.0,"84㎡")]
+          for i,(name,val,typ) in enumerate(data):
+              y=246+i*132;d.text((76,y+15),name,font=f(32,True),fill="#243952")
+              d.rounded_rectangle((620,y+8,620+int(val/12*690),y+67),radius=12,fill="#2a6b97" if typ=="59㎡" else "#7195ad")
+              d.text((1364,y+16),f"{val:.2f}억",font=f(33,True),fill="#183756")
+          d.text((76,1053),"개별 실거래 예시이며 평균 시세 또는 신축 예상가가 아닙니다",font=f(24),fill="#65788c")
+          im.save(P+"/seongbuk1_03_neighbor_transactions.png",optimize=True)
+          url="https://files-scs.pstatic.net/2024/06/07/3AQL25MQQt/%EC%84%B1%EB%B6%811%EA%B5%AC%EC%97%AD_%EC%A0%95%EB%B9%84%EA%B5%AC%EC%97%AD%EC%A7%80%EC%A0%95%EB%8F%84%EA%B3%84%EC%9C%84_20240605.pdf"
+          r=requests.get(url,timeout=60,headers={"User-Agent":"Mozilla/5.0"});r.raise_for_status()
+          assert r.content[:4]==b"%PDF",f"Bad PDF response: {r.status_code} {r.content[:40]!r}"
+          open("/tmp/seongbuk_official.pdf","wb").write(r.content)
+          subprocess.run(["pdftoppm","-f","5","-l","5","-scale-to-x","2048","-scale-to-y","-1","-singlefile","-png","/tmp/seongbuk_official.pdf","/tmp/seongbuk_page"],check=True)
+          page=Image.open("/tmp/seongbuk_page.png").convert("RGB");w,h=page.size
+          boxmap=(int(.114*w),int(.116*h),int(.905*w),int(.470*h))
+          boxrender=(int(.114*w),int(.511*h),int(.905*w),int(.913*h))
+          mapim=page.crop(boxmap);renderim=page.crop(boxrender)
+          assert mapim.width>500 and renderim.width>500
+          mapim.save(P+"/seongbuk1_05_official_location.png",optimize=True)
+          renderim.save(P+"/seongbuk1_04_official_render.png",optimize=True)
+          print("CREATED",[(x,Image.open(P+"/"+x).size) for x in sorted(os.listdir(P)) if x.startswith("seongbuk1_")])
+          PY
+          python /tmp/seongbuk1_art.py
+      - name: Publish media to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social-publisher/media/seongbuk1_*.png
+          if ! git diff --cached --quiet; then
+            git commit -m "media: add Seongbuk1 ready-to-post charts and official project images"
+            git push
+          fi
