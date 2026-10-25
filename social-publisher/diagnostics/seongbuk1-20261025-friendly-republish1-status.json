@@ -6,8 +6,8 @@
   "topic": "부동산",
   "expected_parts": 4,
   "expected_images": 3,
-  "phase": "queued",
-  "checked_at": "2026-10-25T16:53:28+09:00",
+  "phase": "receipt_pending",
+  "checked_at": "2026-10-25T16:55:21+09:00",
   "part_lengths": [
     254,
     227,
@@ -38,5 +38,7 @@
     }
   ],
   "not_before": "2026-10-25T16:58:24+09:00",
-  "outbox_commit": "4feea5ab18e66cbf8b014cbacba80dc9e2812e34"
+  "outbox_commit": "4feea5ab18e66cbf8b014cbacba80dc9e2812e34",
+  "receipt_image_count": 3,
+  "published_count": 0
 }
