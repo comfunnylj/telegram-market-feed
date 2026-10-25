@@ -43,8 +43,8 @@ jobs:
           card(d,(790,240,1430,622),"플랫폼 표시 초기투자금","3억 300만 원","보증금·대출·권리관계 개별 확인")
           d.text((74,667),"대지지분 평당 호가 약 8,560만 원  |  실제 총투입금·분양자격 별도 검증",font=f(26,True),fill="#a45538")
           im.save(P+"/seongbuk1_01_entry_price.png",optimize=True)
-          im,d=base("일반분양, 권리자 수에 따라 313세대 차이","분양주택 1,668세대 기준 · 각 소유자 1세대 배정이라는 단순 가정",w=1540,h=865)
-          xs=[80,565,1050];cols=[("#1e4d7c","서울시 공개", "1,192명","476세대","39.9%"),("#3f647b","재개발닷컴", "1,296명","372세대","28.7%"),("#725d7d","갈타맵", "1,505명","163세대","10.8%")]
+          im,d=base("일반분양, 권리자 가정에 따라 140세대 차이","분양주택 1,668세대 기준 · 각 소유자 1세대 배정이라는 단순 가정",w=1540,h=865)
+          xs=[80,565,1050];cols=[("#1e4d7c","서울시 공개", "1,192명","476세대","39.9%"),("#3f647b","재개발닷컴", "1,296명","372세대","28.7%"),("#725d7d","민간 보유자료", "1,332명","336세대","25.2%")]
           for x,(c,site,owners,sale,pct) in zip(xs,cols):
               d.rounded_rectangle((x,245,x+408,697),radius=24,fill="white",outline="#cdd7e3",width=2)
               d.rounded_rectangle((x+17,263,x+390,344),radius=18,fill=c)
@@ -55,13 +55,13 @@ jobs:
               d.text((x+34,591),pct,font=f(55,True),fill=c)
           d.text((84,742),"세 값 모두 확정 일반분양이 아님 · 분양대상자·현금청산·보류지에 따라 변동",font=f(27,True),fill="#a25336")
           im.save(P+"/seongbuk1_02_general_sale_scenarios.png",optimize=True)
-          im,d=base("성북1구역 인근 아파트 거래가격","전용 59~60㎡ / 84~85㎡ · 2026.6~9 계약 사례 · 억 원",w=1600,h=1120)
-          data=[("돈암 한진 59㎡",9.4,"59㎡"),("삼선푸르지오 59㎡",9.9,"59㎡"),("돈암 한진 84㎡",9.65,"84㎡"),("돈암 한신 84㎡",10.5,"84㎡"),("삼선현대힐스테이트 84㎡",10.85,"84㎡"),("삼선푸르지오 84㎡",11.0,"84㎡")]
+          im,d=base("성북1구역 인근 아파트 실거래","59㎡대 / 84㎡대 · 2026.6~9 계약 사례 · 억 원",w=1740,h=1250)
+          data=[("돈암 한진 59㎡ · 9/28",8.70,"59㎡"),("삼선푸르지오 59㎡ · 9/05",9.90,"59㎡"),("보문리슈빌하우트 59㎡ · 8월",13.25,"59㎡"),("돈암 한진 84㎡ · 9/30",10.10,"84㎡"),("삼선푸르지오 84㎡ · 8/25",11.00,"84㎡"),("삼선현대힐스테이트 84㎡ · 6/18",10.85,"84㎡"),("삼선SK뷰 84㎡ · 9/14",14.80,"84㎡")]
           for i,(name,val,typ) in enumerate(data):
-              y=246+i*132;d.text((76,y+15),name,font=f(32,True),fill="#243952")
-              d.rounded_rectangle((620,y+8,620+int(val/12*690),y+67),radius=12,fill="#2a6b97" if typ=="59㎡" else "#7195ad")
-              d.text((1364,y+16),f"{val:.2f}억",font=f(33,True),fill="#183756")
-          d.text((76,1053),"개별 실거래 예시이며 평균 시세 또는 신축 예상가가 아닙니다",font=f(24),fill="#65788c")
+              y=238+i*135;d.text((76,y+15),name,font=f(28,True),fill="#243952")
+              d.rounded_rectangle((750,y+8,750+int(val/16*650),y+67),radius=12,fill="#2a6b97" if typ=="59㎡" else "#7195ad")
+              d.text((1460,y+16),f"{val:.2f}억",font=f(33,True),fill="#183756")
+          d.text((76,1195),"개별 실거래 예시 · 평균 시세·신축 예상가격 아님 / 출처: 신고 실거래 재가공 공개자료",font=f(24),fill="#65788c")
           im.save(P+"/seongbuk1_03_neighbor_transactions.png",optimize=True)
           url="https://files-scs.pstatic.net/2024/06/07/3AQL25MQQt/%EC%84%B1%EB%B6%811%EA%B5%AC%EC%97%AD_%EC%A0%95%EB%B9%84%EA%B5%AC%EC%97%AD%EC%A7%80%EC%A0%95%EB%8F%84%EA%B3%84%EC%9C%84_20240605.pdf"
           r=requests.get(url,timeout=60,headers={"User-Agent":"Mozilla/5.0"});r.raise_for_status()
