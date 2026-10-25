@@ -1,0 +1,26 @@
+name: Publish Seongbuk1 approved 4-part Threads
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-seongbuk1-20261025.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-seongbuk1-20261025-once
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install media preflight dependencies
+        run: |
+          python3 -m pip install --quiet --break-system-packages Pillow
+      - name: Run approved Seongbuk1 Threads publication with live preflight and exact delivery verification
+        run: |
+          python3 social-publisher/diagnostics/publish-seongbuk1-20261025.py
