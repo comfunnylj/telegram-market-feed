@@ -4,9 +4,9 @@
   "account": "genie_carrot",
   "topic": "부동산",
   "parts": 4,
-  "stage": "receipt_failed_before_publish",
+  "stage": "receipt_published",
   "image_count": 3,
-  "checked_at": "2026-10-25T16:42:15+09:00",
+  "checked_at": "2026-10-25T16:43:13+09:00",
   "publisher_version": "0.4",
   "image_commit": "b4858b53f145f48da4cda7217449a294e6c37f20",
   "remote_image_hashes": [
@@ -18,5 +18,5 @@
   "not_before": "2026-10-25T16:41:51+09:00",
   "expires_at": "2026-10-25T16:46:51+09:00",
   "receipt_image_count": 3,
-  "published_count": 0
+  "published_count": 4
 }
