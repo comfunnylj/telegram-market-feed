@@ -6,8 +6,8 @@
   "topic": "부동산",
   "expected_parts": 4,
   "expected_images": 3,
-  "phase": "remote_images_verified",
-  "checked_at": "2026-10-25T16:53:25+09:00",
+  "phase": "queued",
+  "checked_at": "2026-10-25T16:53:28+09:00",
   "part_lengths": [
     254,
     227,
@@ -36,5 +36,7 @@
       "size": 132597,
       "sha256": "735ed7dbb2201891d2cbe99b52d1b0276dede52ce248818fdfab067baa9e00e6"
     }
-  ]
+  ],
+  "not_before": "2026-10-25T16:58:24+09:00",
+  "outbox_commit": "4feea5ab18e66cbf8b014cbacba80dc9e2812e34"
 }
