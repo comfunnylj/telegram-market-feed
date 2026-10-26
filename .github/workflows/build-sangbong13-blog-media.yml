@@ -1,0 +1,65 @@
+name: Build Sangbong13 blog infographics and verify public source images
+on:
+  push:
+    paths:
+      - '.github/workflows/build-sangbong13-blog-media.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sangbong13-blog-media-once
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow and Korean fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-nanum
+          python3 -m pip install --quiet --break-system-packages Pillow
+      - name: Render and verify 3 chart images
+        run: |
+          python3 social-publisher/diagnostics/build-sangbong13-blog-media.py
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          from urllib.request import urlopen,Request
+          import json,hashlib
+          srcs=[
+            ["render","https://cleanup.seoul.go.kr/servlet/image?url=images%2Fassc%2F2025%2F09%2F202509251817021758791822028.jpg"],
+            ["siteplan","https://cleanup.seoul.go.kr/servlet/image?url=images%2Fassc%2F2025%2F09%2F202509251817021758791822211.jpg"]
+          ]
+          verified={}
+          for p in sorted(Path("social-publisher/media").glob("sangbong13_0*.png")):
+            with Image.open(p) as im:
+              im.verify()
+            data=p.read_bytes()
+            assert len(data)>15000
+            verified[p.name]={"sha256":hashlib.sha256(data).hexdigest(),"size":len(data)}
+          assert len(verified)==3
+          for kind,u in srcs:
+            try:
+              req=Request(u,headers={"User-Agent":"Mozilla/5.0"})
+              with urlopen(req,timeout=18) as r:
+                body=r.read(4*1024*1024)
+                content_type=r.headers.get("Content-Type","")
+              print("IMAGE_SOURCE",kind,"bytes",len(body),"type",content_type)
+            except Exception as ex:
+              print("IMAGE_SOURCE_UNVERIFIED",kind,type(ex).__name__,str(ex)[:130])
+          Path("social-publisher/diagnostics/sangbong13-media-report.json").write_text(json.dumps(verified,ensure_ascii=False,indent=2)+"\n")
+          print("GENERATED_MEDIA",json.dumps(verified))
+          PY
+      - name: Commit verified original infographics
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social-publisher/media/sangbong13_03_entry_price.png social-publisher/media/sangbong13_04_supply_scenarios.png social-publisher/media/sangbong13_05_nearby_sales.png social-publisher/diagnostics/sangbong13-media-report.json
+          git commit -m 'Publish original Sangbong13 three blog charts'
+          git pull --rebase origin main
+          git push origin HEAD:main
