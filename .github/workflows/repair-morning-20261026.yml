@@ -1,0 +1,27 @@
+name: Diagnose and repair morning Threads October 26
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-morning-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: oracle-threads-repair-20261026
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      ORACLE_KEY: ${{ secrets.SOCIAL_PUBLISHER_SSH_KEY || secrets.ORACLE_SSH_KEY || secrets.ORACLE_SSH_PRIVATE_KEY }}
+      ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authenticate pinned Oracle and diagnose existing jobs
+        shell: bash
+        run: |
+          set -euo pipefail
+          trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' < social-publisher/diagnostics/audit-morning-20261026.py
