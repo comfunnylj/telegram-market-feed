@@ -28,5 +28,15 @@ jobs:
           SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
           ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-repair-20261026'
           tar -C social-publisher/oracle-recovery --exclude=__pycache__ -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-repair-20261026 -xf -'
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-repair-20261026/deploy_verification_patch.py'
+          for attempt in {1..12}; do
+            set +e
+            report=$(ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-repair-20261026/deploy_verification_patch.py')
+            rc=$?
+            set -e
+            printf '%s\n' "$report"
+            if [ "$rc" -eq 0 ]; then break; fi
+            if [[ "$report" != *"Existing job is due soon"* && "$report" != *"Publication in progress"* ]]; then exit "$rc"; fi
+            if [ "$attempt" -eq 12 ]; then exit "$rc"; fi
+            sleep 30
+          done
           ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' < social-publisher/diagnostics/resume-morning-20261026.py
