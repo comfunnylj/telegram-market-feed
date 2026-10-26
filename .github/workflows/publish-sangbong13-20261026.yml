@@ -1,0 +1,24 @@
+name: Publish Sangbong13 to Threads once in natural banmal
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-sangbong13-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sangbong13-224454397062-once
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow for image integrity verification
+        run: python3 -m pip install --quiet --break-system-packages Pillow
+      - name: Fail-closed validation, one-time publish, and public-receipt verification
+        run: python3 social-publisher/diagnostics/publish-sangbong13-20261026.py
