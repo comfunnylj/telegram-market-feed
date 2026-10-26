@@ -18,12 +18,15 @@ jobs:
       ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
     steps:
       - uses: actions/checkout@v4
-      - name: Authenticate pinned Oracle and diagnose existing jobs
+      - name: Test regression and authenticate Oracle
         shell: bash
         run: |
           set -euo pipefail
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          python3 -m unittest discover -s social-publisher/oracle-recovery -p 'test_*.py' -v
           python3 social-publisher/diagnostics/prepare-oracle-ssh.py
-          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' < social-publisher/diagnostics/audit-morning-20261026.py
-
-# Compare exact returned text and approved text after successful authenticated audit.
+          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-repair-20261026'
+          tar -C social-publisher/oracle-recovery --exclude=__pycache__ -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-repair-20261026 -xf -'
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-repair-20261026/deploy_verification_patch.py'
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' < social-publisher/diagnostics/resume-morning-20261026.py

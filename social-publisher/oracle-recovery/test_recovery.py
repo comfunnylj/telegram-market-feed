@@ -195,6 +195,25 @@ class RecoveryTests(unittest.TestCase):
                 self.send()
         self.assertFalse(any(p.endswith('/threads_publish') for p, d in self.calls))
 
+    def test_trailing_whitespace_readback_resumes_without_new_root(self):
+        self.parts = ['approved root\n\n', 'approved reply\n\n']
+        def api(t, p, d=None):
+            result = self.api(t, p, d)
+            if isinstance(result, dict) and 'text' in result:
+                result['text'] = result['text'].rstrip(' \t\r\n')
+            return result
+        with self.patched(api):
+            result = self.send()
+        self.assertEqual(result['status'], 'published')
+        self.assertEqual(len([1 for p,d in self.calls if p.endswith('/threads_publish')]), 2)
+
+    def test_only_trailing_ascii_whitespace_is_normalized(self):
+        self.assertTrue(r.text_matches('body', 'body\n\n'))
+        self.assertFalse(r.text_matches(' body', 'body'))
+        self.assertFalse(r.text_matches('a b', 'a  b'))
+        self.assertFalse(r.text_matches('a\nb', 'a b'))
+        self.assertFalse(r.text_matches(None, 'body'))
+
 
 if __name__ == '__main__':
     unittest.main()

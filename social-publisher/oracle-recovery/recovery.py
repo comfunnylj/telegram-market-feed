@@ -13,7 +13,13 @@ import urllib.request
 import uuid
 import core
 
-VERSION = '2026-10-24.2'
+VERSION = '2026-10-26.1'
+
+
+def text_matches(actual, expected):
+    """Threads trims trailing ASCII whitespace; preserve every other character."""
+    return (isinstance(actual, str) and isinstance(expected, str)
+            and actual.rstrip(' \t\r\n') == expected.rstrip(' \t\r\n'))
 
 
 class MetaError(RuntimeError):
@@ -86,7 +92,7 @@ def own_matches(token, text, previous, since):
         items = page.get('data', [])
         for item in items:
             stamp = dt.datetime.fromisoformat(item['timestamp'].replace('Z', '+00:00')).timestamp()
-            if (item.get('username') == 'genie_carrot' and item.get('text') == text
+            if (item.get('username') == 'genie_carrot' and text_matches(item.get('text'), text)
                     and stamp >= since - 300):
                 hits.append(item)
         next_url = (page.get('paging') or {}).get('next')
@@ -125,7 +131,7 @@ class Publisher(core.Publisher):
         if topic and getattr(self, 'root_image_count', 0) > 1:
             fields += ',children{id}'
         post = read(token, '/' + active['post_id'] + '?fields=' + fields)
-        if (str(post.get('id')) != str(active['post_id']) or post.get('text') != active['text']
+        if (str(post.get('id')) != str(active['post_id']) or not text_matches(post.get('text'), active['text'])
                 or post.get('username') != 'genie_carrot' or not post.get('permalink')):
             raise RuntimeError('Published post verification mismatch')
         if topic and post.get('topic_tag') != topic:
