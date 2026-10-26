@@ -25,3 +25,5 @@ jobs:
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
           python3 social-publisher/diagnostics/prepare-oracle-ssh.py
           ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' < social-publisher/diagnostics/audit-morning-20261026.py
+
+# Compare exact returned text and approved text after successful authenticated audit.

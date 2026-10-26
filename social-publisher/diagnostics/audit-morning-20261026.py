@@ -13,4 +13,7 @@ for jid,status,rawp,rawr in db.execute("SELECT id,status,payload,result FROM job
   out['verify_error']={'type':type(e).__name__,'message':str(e),'detail':getattr(e,'detail',None)}
   try:out['minimal_post']=read(token,'/'+r['parts'][0]['post_id']+'?fields=id,permalink,topic_tag,media_type,media_url,username')
   except Exception as e:out['minimal_error']={'message':str(e),'detail':getattr(e,'detail',None)}
+ post=read(token,'/'+r['parts'][0]['post_id']+'?fields=id,text,username,permalink,topic_tag')
+ expected=r['parts'][0]['text'];actual=post.get('text','')
+ out['text_comparison']={'expected_len':len(expected),'actual_len':len(actual),'equal_strip':expected.strip()==actual.strip(),'expected_tail':repr(expected[-30:]),'actual_tail':repr(actual[-30:]),'expected_head':repr(expected[:30]),'actual_head':repr(actual[:30]),'diff':[(i,repr(a),repr(b)) for i,(a,b) in enumerate(zip(expected,actual)) if a!=b][:6]}
  print(json.dumps(out,ensure_ascii=False))
