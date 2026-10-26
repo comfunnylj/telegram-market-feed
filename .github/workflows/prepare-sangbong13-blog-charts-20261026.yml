@@ -1,0 +1,37 @@
+name: Prepare Sangbong13 five-image Work handoff charts (no publishing)
+on:
+  push:
+    paths:
+      - '.github/workflows/prepare-sangbong13-blog-charts-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: prepare-sangbong13-blog-charts-20261026
+  cancel-in-progress: false
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Install Korean font and image renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-nanum
+          python3 -m pip install --quiet --break-system-packages pillow
+      - name: Draw and verify three original Sangbong13 data illustrations
+        run: |
+          python3 social-publisher/diagnostics/generate-sangbong13-blog-charts.py
+      - name: Commit verified original chart assets only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add social-publisher/media/sangbong13_03_entry_price.png social-publisher/media/sangbong13_04_supply_scenarios.png social-publisher/media/sangbong13_05_nearby_sales.png
+          git commit -m "Add Sangbong13 three ready-to-use blog charts"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          git rev-parse HEAD
