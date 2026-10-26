@@ -6,13 +6,28 @@
   "blog_url": "https://blog.naver.com/comfunny_lj/224454397062",
   "expected_parts": 4,
   "expected_images": 3,
-  "phase": "health_and_banmal_checked",
-  "checked_at": "2026-10-26T21:34:05+09:00",
+  "phase": "remote_media_verified",
+  "checked_at": "2026-10-26T21:34:14+09:00",
   "lengths": [
     247,
     244,
     234,
     273
   ],
-  "publisher_version": "0.4"
+  "publisher_version": "0.4",
+  "media_commit": "3d4eba65b1d6e7808a719a838dbe2fe60d0a41db",
+  "images": [
+    {
+      "sha256": "47bca4b60f8dc315a6a9115109d181bf6b1bc92d79235ac365250b842fc46c3b",
+      "size": 266469
+    },
+    {
+      "sha256": "4792630d7309213b21bdbccabd5508b92bff0e3de832f8c11b793f46dd7b958a",
+      "size": 97119
+    },
+    {
+      "sha256": "d7d83a91a8f8402d09db37d308625c2ac7a9c71bcd7594978f444709c4fbe64a",
+      "size": 103647
+    }
+  ]
 }
