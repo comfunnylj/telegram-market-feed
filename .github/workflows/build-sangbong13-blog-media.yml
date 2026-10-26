@@ -61,5 +61,13 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add social-publisher/media/sangbong13_03_entry_price.png social-publisher/media/sangbong13_04_supply_scenarios.png social-publisher/media/sangbong13_05_nearby_sales.png social-publisher/diagnostics/sangbong13-media-report.json
           git commit -m 'Publish original Sangbong13 three blog charts'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              echo 'PUBLISH_CHARTS_OK'
+              exit 0
+            fi
+            sleep 3
+          done
+          echo 'PUBLISH_CHARTS_FAILED' >&2
+          exit 1
