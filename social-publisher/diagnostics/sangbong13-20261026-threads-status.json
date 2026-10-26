@@ -1,0 +1,18 @@
+{
+  "dedup_key": "realestate:sangbong13-blog-224454397062-20261026",
+  "job_id": "c26eb6e2-3e3b-5af6-8990-4f43159608b9",
+  "account": "genie_carrot",
+  "topic": "부동산",
+  "blog_url": "https://blog.naver.com/comfunny_lj/224454397062",
+  "expected_parts": 4,
+  "expected_images": 3,
+  "phase": "health_and_banmal_checked",
+  "checked_at": "2026-10-26T21:34:05+09:00",
+  "lengths": [
+    247,
+    244,
+    234,
+    273
+  ],
+  "publisher_version": "0.4"
+}
