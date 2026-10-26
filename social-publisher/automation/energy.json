@@ -171,6 +171,27 @@
         "sha256": "4eaf17a1b81806ac63aab8ef51e682a174fd6b2598fe4325f13e782cf15d4e1e",
         "size": 327444
       }
+    },
+    {
+      "dedup_key": "energy:2609666f1ae7b65798a2aedc1e85710fa420f63e08086a3374b0fdbbf28f65cb",
+      "created_at": "2026-10-26T09:35:24+09:00",
+      "not_before": "2026-10-26T09:40:24+09:00",
+      "expires_at": "2026-10-26T09:45:24+09:00",
+      "topic": "원자재",
+      "text": "2026.10.25 에너지 브리핑\n\n1. Goldman Sachs 추정으론 최근 걸프 원유 수출은 2025년 평균의 110%까지 회복했지만 디젤 등 정제품은 40%에 그쳤어.\n2. 러시아 정부는 북미행 디젤 선박이 3척이라고 발표했어. 공개 추적으로 확인된 건 1척·약 4만 톤이야.\n3. 미국 주거용 난방유는 6.190달러/갤런으로 전주보다 0.052달러 올랐어.\n\n주요 기관 유가 전망\nEIA(10/6 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴, 2027년 평균 84달러 전망. 중동 수송 제약과 낮은 재고, 디젤 부족을 전제로 했어.\nGoldman Sachs(10/23): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러 전망을 재확인했어. 기관 전망이지 확정 가격은 아니야.\n\nWTI 103.27달러/배럴(+3.80, NYMEX 선물, 10/23)\n브렌트유 116.72달러/배럴(+3.55, ICE 선물, 10/23)\n두바이유 116.90달러/배럴(+1.50, 싱가포르 현물 평가·추정값, 10/23)\n\n오피넷의 같은 정의·직전 관측과 비교했어. 조사일의 실시간 가격으로 보지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\nGoldman Sachs는 정유시설 피해와 선박 간 환적 제약 때문에 정제품 회복이 더디다고 봤어. 정유사들이 디젤·항공유 수율을 높이면서 가솔린은 상대적으로 타이트해졌고, 세계 평균 원유 운임은 전년보다 약 20달러/배럴 높다고 추정했어. 공식 물동량 통계가 아닌 기관 추정이야.\nhttps://www.goldmansachs.com/insights/goldman-sachs-exchanges/why-oil-prices-are-surging-despite-recovering-supply\n\n러시아 발표의 추가 2척은 선명·물량·최종 목적지가 아직 확인되지 않았어. 그래서 “3척 발표”와 “1척 공개 확인”을 구분해야 해. 북미 디젤 가용성은 늘 수 있지만 도착과 실제 인도 물량은 더 확인해야 해.\nhttps://www.reuters.com/business/energy/tanker-carrying-40000-t-russian-diesel-heads-new-york-after-putin-trump-deal-2026-10-23/\n\nEIA의 10월 19일 기준 미국 난방유 평균은 전년보다 2.664달러/갤런 높았어. 중간유분 비용 압력은 분명하지만 이 가격표만으로 재고 변화를 단정할 수는 없어.\nhttps://www.eia.gov/petroleum/heatingoilpropane/\n\n해석: 원유 수출 회복과 제품 공급 정상화 사이의 시차, 높은 운임, 제품별 수율 선택이 당분간 가솔린·디젤의 지역 차이를 키울 수 있어. #에너지시장",
+      "parts": [
+        "2026.10.25 에너지 브리핑\n\n1. Goldman Sachs 추정으론 최근 걸프 원유 수출은 2025년 평균의 110%까지 회복했지만 디젤 등 정제품은 40%에 그쳤어.\n2. 러시아 정부는 북미행 디젤 선박이 3척이라고 발표했어. 공개 추적으로 확인된 건 1척·약 4만 톤이야.\n3. 미국 주거용 난방유는 6.190달러/갤런으로 전주보다 0.052달러 올랐어.\n\n",
+        "주요 기관 유가 전망\nEIA(10/6 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴, 2027년 평균 84달러 전망. 중동 수송 제약과 낮은 재고, 디젤 부족을 전제로 했어.\nGoldman Sachs(10/23): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러 전망을 재확인했어. 기관 전망이지 확정 가격은 아니야.\n\n",
+        "WTI 103.27달러/배럴(+3.80, NYMEX 선물, 10/23)\n브렌트유 116.72달러/배럴(+3.55, ICE 선물, 10/23)\n두바이유 116.90달러/배럴(+1.50, 싱가포르 현물 평가·추정값, 10/23)\n\n오피넷의 같은 정의·직전 관측과 비교했어. 조사일의 실시간 가격으로 보지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "Goldman Sachs는 정유시설 피해와 선박 간 환적 제약 때문에 정제품 회복이 더디다고 봤어. 정유사들이 디젤·항공유 수율을 높이면서 가솔린은 상대적으로 타이트해졌고, 세계 평균 원유 운임은 전년보다 약 20달러/배럴 높다고 추정했어. 공식 물동량 통계가 아닌 기관 추정이야.\nhttps://www.goldmansachs.com/insights/goldman-sachs-exchanges/why-oil-prices-are-surging-despite-recovering-supply\n\n",
+        "러시아 발표의 추가 2척은 선명·물량·최종 목적지가 아직 확인되지 않았어. 그래서 “3척 발표”와 “1척 공개 확인”을 구분해야 해. 북미 디젤 가용성은 늘 수 있지만 도착과 실제 인도 물량은 더 확인해야 해.\nhttps://www.reuters.com/business/energy/tanker-carrying-40000-t-russian-diesel-heads-new-york-after-putin-trump-deal-2026-10-23/\n\n",
+        "EIA의 10월 19일 기준 미국 난방유 평균은 전년보다 2.664달러/갤런 높았어. 중간유분 비용 압력은 분명하지만 이 가격표만으로 재고 변화를 단정할 수는 없어.\nhttps://www.eia.gov/petroleum/heatingoilpropane/\n\n해석: 원유 수출 회복과 제품 공급 정상화 사이의 시차, 높은 운임, 제품별 수율 선택이 당분간 가솔린·디젤의 지역 차이를 키울 수 있어. #에너지시장"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/0318b3b831f61805d92082a219d93fd8ba40a357/social-publisher/media/energy-2609666f1ae7b65798a2aedc1e85710fa420f63e08086a3374b0fdbbf28f65cb.png",
+        "sha256": "69f143f2beba8581aa31aad882287fee273a2369d0893f28ebbb056755643aa7",
+        "size": 2331561
+      }
     }
   ]
 }
