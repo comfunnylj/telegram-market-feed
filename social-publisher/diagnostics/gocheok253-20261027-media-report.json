@@ -1,0 +1,27 @@
+{
+  "site": "고척동 253",
+  "source_date": "2026-10-27",
+  "images": [
+    {
+      "name": "gocheok253_03_entry_price.png",
+      "width": 1600,
+      "height": 1000,
+      "size": 79747,
+      "sha256": "493c5dcb39be3239d8bc95ddcfe141be0221b326125a5bfa9b6da62d0778d304"
+    },
+    {
+      "name": "gocheok253_04_supply_valuation.png",
+      "width": 1600,
+      "height": 1000,
+      "size": 84544,
+      "sha256": "b8458b04c474f08b3eef0dc0803d716000bf4fca467edea98286de19408b4954"
+    },
+    {
+      "name": "gocheok253_05_apt_comparables.png",
+      "width": 1600,
+      "height": 1000,
+      "size": 80368,
+      "sha256": "8de24d66242c6faad233e3f12e54c5356692f744faf40842932a27f46f8a6d8b"
+    }
+  ]
+}
