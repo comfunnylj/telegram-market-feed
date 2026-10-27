@@ -1,0 +1,19 @@
+{
+  "dedup_key": "realestate:seogye-blog-224455764746-20261027",
+  "job_id": "c331dc50-f450-5a8e-9a7c-2fcaa2c94bee",
+  "account": "genie_carrot",
+  "topic": "부동산",
+  "blog_url": "https://blog.naver.com/comfunny_lj/224455764746",
+  "expected_parts": 5,
+  "expected_images": 3,
+  "phase": "health_and_text_verified",
+  "checked_at": "2026-10-27T19:45:55+09:00",
+  "lengths": [
+    221,
+    220,
+    240,
+    222,
+    319
+  ],
+  "publisher_version": "0.4"
+}
