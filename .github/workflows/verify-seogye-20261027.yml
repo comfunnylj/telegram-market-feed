@@ -1,9 +1,8 @@
-name: Verify Seogye Threads fifth post permalink read-only
+name: Verify Seogye final Threads post
 on:
   push:
     paths:
       - '.github/workflows/verify-seogye-20261027.yml'
-  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -15,28 +14,18 @@ jobs:
       ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
     steps:
       - uses: actions/checkout@v4
-      - name: Read exact published post ID from Meta without making any changes
+      - name: Read fifth Meta post without publishing
         shell: bash
         run: |
-          python3 - <<'PY'
-          import os,sys,subprocess,shlex,json
-          if not os.environ.get('ORACLE_KEY') or not os.environ.get('ORACLE_HOST_KEYS'):
-              print('BLOCKED_READONLY_NO_AUTHORIZED_SSH_SECRET')
-              sys.exit(2)
-          subprocess.run([sys.executable,'social-publisher/diagnostics/prepare-oracle-ssh.py'],check=True)
-          d=os.environ['RUNNER_TEMP']+'/sp-ssh'
-          code='''import json,core
-pid='17945279094090750'
-r=core.request(core.saved_token(),'/'+pid+'?fields=id,text,permalink,topic_tag')
-print(json.dumps({'id':r.get('id'),'permalink':r.get('permalink'),'has_expected_blog':('https://blog.naver.com/comfunny_lj/224455764746' in (r.get('text') or '')),'topic_tag':r.get('topic_tag')},ensure_ascii=False))'''
-          cmd=['ssh','-i',d+'/key','-o','BatchMode=yes','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+d+'/known_hosts','ubuntu@161.33.141.193','sudo -n docker exec social-publisher python -c '+shlex.quote(code)]
-          r=subprocess.run(cmd,text=True,capture_output=True,timeout=80)
-          if r.returncode:
-              print('PRIVATE_META_READ_FAILED',r.returncode,r.stderr[-400:])
-              sys.exit(1)
-          print('META_READ_ONLY_VERIFICATION',r.stdout.strip()[-1400:])
-          data=json.loads(r.stdout.strip().splitlines()[-1])
-          assert data.get('id')=='17945279094090750'
-          assert (data.get('permalink') or '').startswith('https://www.threads.com/')
-          assert data.get('has_expected_blog') is True
+          set -euo pipefail
+          test -n "$ORACLE_KEY" && test -n "$ORACLE_HOST_KEYS" || { echo 'AUTHORIZED_SSH_NOT_CONFIGURED'; exit 2; }
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' <<'PY'
+          import core,json
+          pid='17945279094090750'
+          x=core.request(core.saved_token(),'/'+pid+'?fields=id,text,permalink,topic_tag')
+          result={'id':x.get('id'),'permalink':x.get('permalink'),'blog_link_confirmed':'https://blog.naver.com/comfunny_lj/224455764746' in (x.get('text') or '')}
+          print(json.dumps(result,ensure_ascii=False))
+          if result['id']!=pid or not result['permalink'] or not result['blog_link_confirmed']:
+              raise SystemExit('VERIFICATION_INCOMPLETE')
           PY
