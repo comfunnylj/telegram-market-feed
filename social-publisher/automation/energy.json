@@ -192,6 +192,27 @@
         "sha256": "69f143f2beba8581aa31aad882287fee273a2369d0893f28ebbb056755643aa7",
         "size": 2331561
       }
+    },
+    {
+      "dedup_key": "energy:9609b654565f45896715980dcffebdfd99d525cc4991049cb2102e5116dd549b",
+      "created_at": "2026-10-27T09:40:30+09:00",
+      "not_before": "2026-10-27T09:45:30+09:00",
+      "expires_at": "2026-10-27T09:50:30+09:00",
+      "topic": "원자재",
+      "text": "10/27, 에너지 시장 한눈에\n\n1. 러시아 경유 생산은 10월 상반기 16만톤/일로 낮아졌다가 쿼터 뒤 18만톤/일 방향으로 회복했어.\n2. Galp 3분기 정제마진은 33.8달러/배럴로 전분기 16.8달러보다 뛰었어.\n3. Galp–Moeve의 약 70만b/d 정유 통합 협상은 종료됐어.\n4. 호주 휘발유·경유 커버는 39일·31일로 전주보다 2일씩 줄었어.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 105달러/배럴. 중동 공급 제약 전제야.\nGoldman Sachs(10/23, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복 전제야.\n\n10/23 오피넷 $/Bbl\nWTI 103.27(+3.80, NYMEX 선물)\n브렌트유 116.72(+3.55, ICE 선물)\n두바이유 116.90(+1.50, 싱가포르 현물 평가·추정값)\n\n모두 10/22의 같은 정의·직전 관측 대비야. 주말 뒤 최신 공개값이 아직 10/23 기준이라 실시간 가격으로 보지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n러시아 경유는 9월 약 17.5만톤/일에서 10월 상반기 약 16만톤/일로 줄었어. Reuters 소식통은 쿼터 뒤 약 18만톤/일 방향으로 회복했다고 전했어. 통상 10월 내수 추정치는 약 14만톤/일이야.\n\n해석: 수출 여력은 커질 수 있지만 공식 통계가 아니고, 실제 화물은 쿼터·인접국 공급·정유소 상태를 더 봐야 해.\nhttps://www.reuters.com/business/energy/russian-refiners-ramp-up-diesel-output-after-us-deal-sources-say-2026-10-26/\n\nGalp 공식 잠정치에서 3분기 정제마진은 33.8달러/배럴이야. 2분기 16.8달러, 전년동기 9.5달러보다 높아. 석유제품 공급도 390만톤에서 410만톤으로 늘었어.\n\n별도로 Galp와 Moeve는 Sines·Huelva·Algeciras 통합 협상을 끝냈어. 약 70만b/d는 합산 정격능력이지 생산 감소량이 아니야.\nhttps://www.galp.com/corp/pt/investidores/publicacoes-e-comunicados/comunicados-investidor/comunicado/id/1724/trading-update-3q26\n\n늦게 확인한 호주 10/24 공식 브리핑에선 휘발유 39일, 경유 31일, 항공유 28일의 커버를 제시했어. 전주보다 휘발유·경유는 2일씩 줄고 항공유는 같아. 향후 4주 확보 물량도 48척·32억리터에서 45척·30억리터로 낮아졌어.\n\n해석: 완충 재고는 남아 있지만 감소 흐름과 도착 예정 물량을 같이 봐야 해.\nhttps://minister.dcceew.gov.au/bowen/transcripts/press-conference-fairfield-west-nsw-8\n\n가솔린은 호주 커버 하락을 확인했어. Galp의 410만톤은 석유제품 전체라 가솔린 단독 증가로 바꾸지 않았어.\n\n납사는 이번 기준선 뒤 무료 공개 원문에서 독립적으로 검증된 새 수급 변화를 확보하지 못했어. 일부 전문매체·현지 경로는 접근 제한이 있어 ‘신규 없음’으로 단정하진 않아.\n\n기관 전망은 확정 가격이나 자체 예측이 아니야. #에너지시장",
+      "parts": [
+        "10/27, 에너지 시장 한눈에\n\n1. 러시아 경유 생산은 10월 상반기 16만톤/일로 낮아졌다가 쿼터 뒤 18만톤/일 방향으로 회복했어.\n2. Galp 3분기 정제마진은 33.8달러/배럴로 전분기 16.8달러보다 뛰었어.\n3. Galp–Moeve의 약 70만b/d 정유 통합 협상은 종료됐어.\n4. 호주 휘발유·경유 커버는 39일·31일로 전주보다 2일씩 줄었어.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 105달러/배럴. 중동 공급 제약 전제야.\nGoldman Sachs(10/23, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복 전제야.",
+        "\n\n10/23 오피넷 $/Bbl\nWTI 103.27(+3.80, NYMEX 선물)\n브렌트유 116.72(+3.55, ICE 선물)\n두바이유 116.90(+1.50, 싱가포르 현물 평가·추정값)\n\n모두 10/22의 같은 정의·직전 관측 대비야. 주말 뒤 최신 공개값이 아직 10/23 기준이라 실시간 가격으로 보지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do",
+        "\n\n러시아 경유는 9월 약 17.5만톤/일에서 10월 상반기 약 16만톤/일로 줄었어. Reuters 소식통은 쿼터 뒤 약 18만톤/일 방향으로 회복했다고 전했어. 통상 10월 내수 추정치는 약 14만톤/일이야.\n\n해석: 수출 여력은 커질 수 있지만 공식 통계가 아니고, 실제 화물은 쿼터·인접국 공급·정유소 상태를 더 봐야 해.\nhttps://www.reuters.com/business/energy/russian-refiners-ramp-up-diesel-output-after-us-deal-sources-say-2026-10-26/",
+        "\n\nGalp 공식 잠정치에서 3분기 정제마진은 33.8달러/배럴이야. 2분기 16.8달러, 전년동기 9.5달러보다 높아. 석유제품 공급도 390만톤에서 410만톤으로 늘었어.\n\n별도로 Galp와 Moeve는 Sines·Huelva·Algeciras 통합 협상을 끝냈어. 약 70만b/d는 합산 정격능력이지 생산 감소량이 아니야.\nhttps://www.galp.com/corp/pt/investidores/publicacoes-e-comunicados/comunicados-investidor/comunicado/id/1724/trading-update-3q26",
+        "\n\n늦게 확인한 호주 10/24 공식 브리핑에선 휘발유 39일, 경유 31일, 항공유 28일의 커버를 제시했어. 전주보다 휘발유·경유는 2일씩 줄고 항공유는 같아. 향후 4주 확보 물량도 48척·32억리터에서 45척·30억리터로 낮아졌어.\n\n해석: 완충 재고는 남아 있지만 감소 흐름과 도착 예정 물량을 같이 봐야 해.\nhttps://minister.dcceew.gov.au/bowen/transcripts/press-conference-fairfield-west-nsw-8",
+        "\n\n가솔린은 호주 커버 하락을 확인했어. Galp의 410만톤은 석유제품 전체라 가솔린 단독 증가로 바꾸지 않았어.\n\n납사는 이번 기준선 뒤 무료 공개 원문에서 독립적으로 검증된 새 수급 변화를 확보하지 못했어. 일부 전문매체·현지 경로는 접근 제한이 있어 ‘신규 없음’으로 단정하진 않아.\n\n기관 전망은 확정 가격이나 자체 예측이 아니야. #에너지시장"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/f2294145629a47ea0a9666fc0c6fdd183c9f6d99/social-publisher/media/energy-9609b654565f45896715980dcffebdfd99d525cc4991049cb2102e5116dd549b.jpg",
+        "sha256": "81f03da09483054ee3f18e87119dd245eb10a0eb8d944f8ddfe7970520bd0b91",
+        "size": 429072
+      }
     }
   ]
 }
