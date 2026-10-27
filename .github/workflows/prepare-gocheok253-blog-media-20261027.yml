@@ -1,0 +1,43 @@
+name: Render Gocheok253 blog data charts only
+on:
+  push:
+    paths:
+      - '.github/workflows/prepare-gocheok253-blog-media-20261027.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gocheok253-blog-20261027-media
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Korean fonts and Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-nanum
+          python3 -m pip install --quiet --break-system-packages Pillow
+      - name: Build and validate three data charts
+        run: python3 social-publisher/diagnostics/build-gocheok253-blog-media-20261027.py
+      - name: Publish original charts to accessible GitHub paths
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social-publisher/media/gocheok253_03_entry_price.png social-publisher/media/gocheok253_04_supply_valuation.png social-publisher/media/gocheok253_05_apt_comparables.png social-publisher/diagnostics/gocheok253-20261027-media-report.json
+          git commit -m 'Add three source-labelled Gocheok253 blog charts'
+          for attempt in 1 2 3 4 5 6 7; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              echo 'PUBLISH_CHARTS_OK'
+              exit 0
+            fi
+            sleep 3
+          done
+          echo 'PUBLISH_CHARTS_FAILED' >&2
+          exit 1
