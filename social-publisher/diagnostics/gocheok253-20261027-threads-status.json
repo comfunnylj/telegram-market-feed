@@ -6,13 +6,28 @@
   "blog_url": "https://blog.naver.com/comfunny_lj/224455463952",
   "expected_parts": 4,
   "expected_images": 3,
-  "phase": "health_and_text_verified",
-  "checked_at": "2026-10-27T15:42:56+09:00",
+  "phase": "remote_media_verified",
+  "checked_at": "2026-10-27T15:42:59+09:00",
   "lengths": [
     253,
     214,
     228,
     282
   ],
-  "publisher_version": "0.4"
+  "publisher_version": "0.4",
+  "media_commit": "0a1fe36cf1843328c280c67b021c7e84e38d6a67",
+  "media_hashes": [
+    {
+      "sha256": "07ac1fe7af7154c7c8a4fe90487321366e83887a30ee9d9ce7b8419e31e5f787",
+      "size": 109358
+    },
+    {
+      "sha256": "b0ca67c79eee449aba81cf002d754d109196c74604f415d72fc2f2ff53551e5f",
+      "size": 108800
+    },
+    {
+      "sha256": "0631d95079aef44845eb43f6df1f4dd978ddf379885dee65909904990b6c3565",
+      "size": 103990
+    }
+  ]
 }
