@@ -6,8 +6,8 @@
   "blog_url": "https://blog.naver.com/comfunny_lj/224455764746",
   "expected_parts": 5,
   "expected_images": 3,
-  "phase": "receipt_published_unverified",
-  "checked_at": "2026-10-27T19:53:00+09:00",
+  "phase": "requires_reconciliation",
+  "checked_at": "2026-10-27T19:53:01+09:00",
   "lengths": [
     221,
     220,
@@ -36,5 +36,43 @@
   "expires_at": "2026-10-27T19:55:59+09:00",
   "receipt_status": "published_unverified",
   "receipt_image_count": 3,
-  "published_count": 4
+  "published_count": 4,
+  "reason": "Meta state uncertain; reconcile private IDs/account before new job",
+  "receipt_parts": [
+    {
+      "index": 1,
+      "status": "published",
+      "id": "18484768039117727",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De_rzfwFCMr",
+      "topic_tag": "부동산"
+    },
+    {
+      "index": 2,
+      "status": "published",
+      "id": "18122520974471431",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De_r01oFKTq",
+      "topic_tag": null
+    },
+    {
+      "index": 3,
+      "status": "published",
+      "id": "17881411296543637",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De_r2WdFBne",
+      "topic_tag": null
+    },
+    {
+      "index": 4,
+      "status": "published",
+      "id": "18141562012626891",
+      "permalink": "https://www.threads.com/@genie_carrot/post/De_r2_ilLVU",
+      "topic_tag": null
+    },
+    {
+      "index": 5,
+      "status": "published_unverified",
+      "id": "17945279094090750",
+      "permalink": null,
+      "topic_tag": null
+    }
+  ]
 }
