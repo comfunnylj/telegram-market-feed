@@ -1,0 +1,19 @@
+{
+  "dedup_key": "realestate:jeonnong9-blog-224457184172-20261029",
+  "job_id": "ed9f295c-8545-5930-ba8d-83f3d5ac55a1",
+  "account": "genie_carrot",
+  "topic": "부동산",
+  "blog_url": "https://blog.naver.com/comfunny_lj/224457184172",
+  "expected_parts": 5,
+  "expected_images": 3,
+  "phase": "health_and_text_verified",
+  "checked_at": "2026-10-29T01:10:26+09:00",
+  "lengths": [
+    230,
+    245,
+    254,
+    265,
+    347
+  ],
+  "publisher_version": "0.4"
+}
