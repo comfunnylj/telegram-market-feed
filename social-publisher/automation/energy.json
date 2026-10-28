@@ -213,6 +213,27 @@
         "sha256": "81f03da09483054ee3f18e87119dd245eb10a0eb8d944f8ddfe7970520bd0b91",
         "size": 429072
       }
+    },
+    {
+      "dedup_key": "energy:3b8d852347dffaae4a9d68a5c8a62a60bf2f92016d4c7ec1ff541069f862311a",
+      "created_at": "2026-10-28T09:42:24+09:00",
+      "not_before": "2026-10-28T09:47:30+09:00",
+      "expires_at": "2026-10-28T09:52:30+09:00",
+      "topic": "원자재",
+      "text": "2026.10.28 에너지 시장 브리핑\n\n1. 러시아 정제 처리량은 10월 하반기 약 500만 b/d로, 월초보다 약 25% 회복한 것으로 추정돼.\n\n2. 인도 국영 정유사는 2027년 경유 생산능력을 합산 1,650만 t/년 늘릴 계획이야.\n\n3. 프랑스는 비축 경유 1,000만 배럴을 대여·환입이 아닌 저가 판매 방식으로 풀 예정이야.주요 기관 유가 전망\n\nEIA(10/6, 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴. 중동 수출 제약과 재고 감소가 전제야.\n\nGoldman Sachs Research(10/23, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복이 기본 전제야.오피넷 10월 27일 기준\n\nWTI 99.90달러/배럴(-1.86, NYMEX 선물)\nBrent 113.88달러/배럴(-1.93, ICE 선물)\nDubai 115.10달러/배럴(-0.64, 싱가포르 현물 추정값)\n\n전일과 같은 정의의 직전 유효 관측 대비 변동이야.러시아는 경유 생산을 10월 중 최소 5만 t/day 늘려 22.5만 t/day까지 끌어올린 것으로 추정돼. 이 중 수출 가능 물량은 약 8만 t/day로 잡혔어.\n\n해석: 대서양 공급 여력은 커질 수 있지만 익명 소식통 추정이고, 실제 수출은 쿼터·항만 지연·안보 상황에 달렸어.\nhttps://www.reuters.com/business/energy/russian-oil-refineries-boost-output-drone-attacks-halt-after-us-brokered-deal-2026-10-27/인도의 추가 계획은 IndianOil 800만, HPCL Rajasthan 300만, BPCL 150만, Numaligarh 300만 t/년이야. 증설 완료와 설비 안정화를 전제로 한 2027년 계획이라 현재 생산 증가로 보면 안 돼.\nhttps://www.reuters.com/business/energy/india-seeks-bigger-share-diesel-exports-refining-capacity-boom-2026-10-27/프랑스 Ufip 설명대로라면 11월 1일부터 비축 경유를 시장가격보다 낮게 판매하고 소매업체의 환입 의무를 없애. 다만 총리실 직접 확인과 실제 인도량은 아직 대기 중이야.\n\nRas Tanura 피격 주장은 사우디 확인과 생산손실이 없어 이번 브리핑의 확정 사실에서 뺐어.\nhttps://www.reuters.com/business/energy/france-exempt-retailers-replacing-diesel-released-reserves-2026-10-27/ #에너지",
+      "parts": [
+        "2026.10.28 에너지 시장 브리핑\n\n1. 러시아 정제 처리량은 10월 하반기 약 500만 b/d로, 월초보다 약 25% 회복한 것으로 추정돼.\n\n2. 인도 국영 정유사는 2027년 경유 생산능력을 합산 1,650만 t/년 늘릴 계획이야.\n\n3. 프랑스는 비축 경유 1,000만 배럴을 대여·환입이 아닌 저가 판매 방식으로 풀 예정이야.",
+        "주요 기관 유가 전망\n\nEIA(10/6, 최신 확인본): 2026년 4분기 Brent 현물 평균 105달러/배럴. 중동 수출 제약과 재고 감소가 전제야.\n\nGoldman Sachs Research(10/23, 최신 확인본): 2026년 12월 Brent 90달러/배럴, 2027년 평균 80달러/배럴. 중동 공급 회복이 기본 전제야.",
+        "오피넷 10월 27일 기준\n\nWTI 99.90달러/배럴(-1.86, NYMEX 선물)\nBrent 113.88달러/배럴(-1.93, ICE 선물)\nDubai 115.10달러/배럴(-0.64, 싱가포르 현물 추정값)\n\n전일과 같은 정의의 직전 유효 관측 대비 변동이야.",
+        "러시아는 경유 생산을 10월 중 최소 5만 t/day 늘려 22.5만 t/day까지 끌어올린 것으로 추정돼. 이 중 수출 가능 물량은 약 8만 t/day로 잡혔어.\n\n해석: 대서양 공급 여력은 커질 수 있지만 익명 소식통 추정이고, 실제 수출은 쿼터·항만 지연·안보 상황에 달렸어.\nhttps://www.reuters.com/business/energy/russian-oil-refineries-boost-output-drone-attacks-halt-after-us-brokered-deal-2026-10-27/",
+        "인도의 추가 계획은 IndianOil 800만, HPCL Rajasthan 300만, BPCL 150만, Numaligarh 300만 t/년이야. 증설 완료와 설비 안정화를 전제로 한 2027년 계획이라 현재 생산 증가로 보면 안 돼.\nhttps://www.reuters.com/business/energy/india-seeks-bigger-share-diesel-exports-refining-capacity-boom-2026-10-27/",
+        "프랑스 Ufip 설명대로라면 11월 1일부터 비축 경유를 시장가격보다 낮게 판매하고 소매업체의 환입 의무를 없애. 다만 총리실 직접 확인과 실제 인도량은 아직 대기 중이야.\n\nRas Tanura 피격 주장은 사우디 확인과 생산손실이 없어 이번 브리핑의 확정 사실에서 뺐어.\nhttps://www.reuters.com/business/energy/france-exempt-retailers-replacing-diesel-released-reserves-2026-10-27/ #에너지"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/31b8b5d00730ce28ff92609b0db3e1e5bdbb5fb9/social-publisher/media/energy-3b8d852347dffaae4a9d68a5c8a62a60bf2f92016d4c7ec1ff541069f862311a.jpg",
+        "sha256": "c69f64f9a0eb7ee0678b8f9497c219a1af63ef0dc4ddbc53ef5058510cdd2fb9",
+        "size": 305544
+      }
     }
   ]
 }
