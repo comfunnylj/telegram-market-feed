@@ -6,8 +6,8 @@
   "blog_url": "https://blog.naver.com/comfunny_lj/224457184172",
   "expected_parts": 5,
   "expected_images": 3,
-  "phase": "remote_media_verified",
-  "checked_at": "2026-10-29T01:10:29+09:00",
+  "phase": "queued",
+  "checked_at": "2026-10-29T01:10:34+09:00",
   "lengths": [
     230,
     245,
@@ -30,5 +30,8 @@
       "sha256": "dcb6571ebf85fc25628aef6bc7d50dfefe265e61d307fee61b7909160d246b71",
       "size": 139546
     }
-  ]
+  ],
+  "outbox_commit": "f5502235afd534e1bafd26f298f263d0ab3cf329",
+  "not_before": "2026-10-29T01:12:31+09:00",
+  "expires_at": "2026-10-29T01:17:31+09:00"
 }
