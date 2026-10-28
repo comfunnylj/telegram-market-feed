@@ -1,0 +1,31 @@
+name: Verify Jeonnong9 final Threads post
+on:
+  push:
+    paths:
+      - '.github/workflows/verify-jeonnong9-20261029.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ORACLE_KEY: ${{ secrets.SOCIAL_PUBLISHER_SSH_KEY || secrets.ORACLE_SSH_KEY || secrets.ORACLE_SSH_PRIVATE_KEY }}
+      ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read fifth Meta post without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ORACLE_KEY" && test -n "$ORACLE_HOST_KEYS" || { echo 'AUTHORIZED_SSH_NOT_CONFIGURED'; exit 2; }
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n docker exec -i social-publisher python -' <<'PY'
+          import core,json
+          pid='18641826718039584'
+          x=core.request(core.saved_token(),'/'+pid+'?fields=id,text,permalink,topic_tag')
+          result={'id':x.get('id'),'permalink':x.get('permalink'),'blog_link_confirmed':'https://blog.naver.com/comfunny_lj/224457184172' in (x.get('text') or '')}
+          print(json.dumps(result,ensure_ascii=False))
+          if result['id']!=pid or not result['permalink'] or not result['blog_link_confirmed']:
+              raise SystemExit('VERIFICATION_INCOMPLETE')
+          PY
