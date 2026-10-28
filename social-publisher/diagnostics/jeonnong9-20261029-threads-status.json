@@ -6,8 +6,8 @@
   "blog_url": "https://blog.naver.com/comfunny_lj/224457184172",
   "expected_parts": 5,
   "expected_images": 3,
-  "phase": "requires_reconciliation",
-  "checked_at": "2026-10-29T01:14:23+09:00",
+  "phase": "published_verified_via_authenticated_meta",
+  "checked_at": "2026-10-29T01:15:24+09:00",
   "lengths": [
     230,
     245,
@@ -74,5 +74,24 @@
       "permalink": null,
       "topic_tag": null
     }
-  ]
+  ],
+  "previous_oracle_receipt_status": "published_unverified",
+  "verified_parts": 5,
+  "verified_images": 3,
+  "verified_topic": "부동산",
+  "root": "https://www.threads.com/@genie_carrot/post/DfC1ZIIAaOz",
+  "links": [
+    "https://www.threads.com/@genie_carrot/post/DfC1ZIIAaOz",
+    "https://www.threads.com/@genie_carrot/post/DfC1aPwgQCe",
+    "https://www.threads.com/@genie_carrot/post/DfC1cHKgZod",
+    "https://www.threads.com/@genie_carrot/post/DfC1daKAfQW",
+    "https://www.threads.com/@genie_carrot/post/DfC1ejXAYjt"
+  ],
+  "verified_final_post": {
+    "id": "18641826718039584",
+    "permalink": "https://www.threads.com/@genie_carrot/post/DfC1ejXAYjt",
+    "blog_link_confirmed": true,
+    "verification": "authenticated Meta API read-only",
+    "verification_run": "https://github.com/comfunnylj/telegram-market-feed/actions/runs/40724110959"
+  }
 }
