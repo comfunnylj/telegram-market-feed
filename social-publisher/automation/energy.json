@@ -234,6 +234,27 @@
         "sha256": "c69f64f9a0eb7ee0678b8f9497c219a1af63ef0dc4ddbc53ef5058510cdd2fb9",
         "size": 305544
       }
+    },
+    {
+      "dedup_key": "energy:c8e765a32ac3d780b37a52d7de900eb99ee4693894d5e6e74ceabe9d6459c414",
+      "created_at": "2026-10-29T09:47:48+09:00",
+      "not_before": "2026-10-29T09:52:48+09:00",
+      "expires_at": "2026-10-29T09:57:48+09:00",
+      "topic": "원자재",
+      "text": "10월 29일 에너지 브리핑\n\n1. 미국 가솔린 재고는 390만 배럴 늘었고 주간 휘발유 제품공급은 835.8만 b/d로 줄었어.\n2. 중간유분 재고는 150만 배럴 감소했고 수요는 421만 b/d로 늘었어.\n3. 중국은 가솔린·경유·항공유 4차 수출쿼터를 냈다는 보도가 나왔어. 실제 배정량과 선적은 후속 확인이 필요해.4. Phillips 66은 정유 가동률 98%, 중간유분 수율 41%를 기록했어.\n5. Petrobras는 정유 가동률 99%, 경유 생산 76.9만 b/d로 분기 최고치를 냈어.\n\n주요 기관 유가 전망\nEIA(10/6): 2027년 Brent 평균 $84/bbl.\nGoldman Sachs(10/23): 2026년 말 $90, 2027년 평균 $80.\nJ.P. Morgan(10/2): 2027년 평화 기본 $64, Hormuz 제약 지속 $87 시나리오.WTI $102.78/bbl(+2.88, NYMEX 선물, 10/28)\nBrent $115.32/bbl(+1.44, ICE 선물, 10/28)\nDubai $114.20/bbl(-0.90, 현물 평가·추정값, 10/28)\n\n한국석유공사 오피넷의 $/Bbl 표 기준이야. 실시간 가격이 아니라 10월 28일 관측값이야.\nhttps://www.opinet.co.kr/glopcoilSelect.do미국 EIA를 보면 원유 재고는 1.9백만 배럴 줄었지만 가솔린은 3.9백만 배럴 늘었어. 가솔린 수요 약화는 단기 크랙에 부담이고, 중간유분은 재고 감소와 수요 증가가 타이트함을 지지해.\n\n정유 가동률은 92.8%로 0.6%p 낮아졌어.\nhttps://www.eia.gov/petroleum/supply/weekly/Phillips 66의 실현 정제마진은 2분기 $24.08/bbl에서 3분기 $38.00/bbl로 뛰었어. Petrobras는 국내 제품판매가 전분기보다 6.4% 늘었고 경유 판매는 14.4% 증가했어. 높은 가동과 제품 수율이 공급을 받치고 있다는 뜻이야.\n\nhttps://investor.phillips66.com/financial-information/news-releases/news-release-details/2026/Phillips-66-Reports-Third-Quarter-Results-Delivers-98-Refining-Utilization-and-Strong-Midstream-Volumes/default.aspxEU 집행위는 기존 정제능력 최적화와 생산 확대 방안을 업계와 검토하기 시작했어. 유럽 정유소는 경유 소비의 약 85%, 항공유의 약 70%를 공급하지만, 아직 추가 생산량이나 시행 시점이 정해진 건 아니야.\n\nRas Tanura 타격 주장은 공식 확인과 실제 생산손실 근거가 없어 공급 차질로 계산하지 않았어.\nhttps://energy.ec.europa.eu/news/commission-launches-high-level-dialogue-european-oil-refining-sector-2026-10-28_en",
+      "parts": [
+        "10월 29일 에너지 브리핑\n\n1. 미국 가솔린 재고는 390만 배럴 늘었고 주간 휘발유 제품공급은 835.8만 b/d로 줄었어.\n2. 중간유분 재고는 150만 배럴 감소했고 수요는 421만 b/d로 늘었어.\n3. 중국은 가솔린·경유·항공유 4차 수출쿼터를 냈다는 보도가 나왔어. 실제 배정량과 선적은 후속 확인이 필요해.",
+        "4. Phillips 66은 정유 가동률 98%, 중간유분 수율 41%를 기록했어.\n5. Petrobras는 정유 가동률 99%, 경유 생산 76.9만 b/d로 분기 최고치를 냈어.\n\n주요 기관 유가 전망\nEIA(10/6): 2027년 Brent 평균 $84/bbl.\nGoldman Sachs(10/23): 2026년 말 $90, 2027년 평균 $80.\nJ.P. Morgan(10/2): 2027년 평화 기본 $64, Hormuz 제약 지속 $87 시나리오.",
+        "WTI $102.78/bbl(+2.88, NYMEX 선물, 10/28)\nBrent $115.32/bbl(+1.44, ICE 선물, 10/28)\nDubai $114.20/bbl(-0.90, 현물 평가·추정값, 10/28)\n\n한국석유공사 오피넷의 $/Bbl 표 기준이야. 실시간 가격이 아니라 10월 28일 관측값이야.\nhttps://www.opinet.co.kr/glopcoilSelect.do",
+        "미국 EIA를 보면 원유 재고는 1.9백만 배럴 줄었지만 가솔린은 3.9백만 배럴 늘었어. 가솔린 수요 약화는 단기 크랙에 부담이고, 중간유분은 재고 감소와 수요 증가가 타이트함을 지지해.\n\n정유 가동률은 92.8%로 0.6%p 낮아졌어.\nhttps://www.eia.gov/petroleum/supply/weekly/",
+        "Phillips 66의 실현 정제마진은 2분기 $24.08/bbl에서 3분기 $38.00/bbl로 뛰었어. Petrobras는 국내 제품판매가 전분기보다 6.4% 늘었고 경유 판매는 14.4% 증가했어. 높은 가동과 제품 수율이 공급을 받치고 있다는 뜻이야.\n\nhttps://investor.phillips66.com/financial-information/news-releases/news-release-details/2026/Phillips-66-Reports-Third-Quarter-Results-Delivers-98-Refining-Utilization-and-Strong-Midstream-Volumes/default.aspx",
+        "EU 집행위는 기존 정제능력 최적화와 생산 확대 방안을 업계와 검토하기 시작했어. 유럽 정유소는 경유 소비의 약 85%, 항공유의 약 70%를 공급하지만, 아직 추가 생산량이나 시행 시점이 정해진 건 아니야.\n\nRas Tanura 타격 주장은 공식 확인과 실제 생산손실 근거가 없어 공급 차질로 계산하지 않았어.\nhttps://energy.ec.europa.eu/news/commission-launches-high-level-dialogue-european-oil-refining-sector-2026-10-28_en"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/57220c5e9a319eca8d4de04e7d686dc91b97dbc5/social-publisher/media/energy-c8e765a32ac3d780b37a52d7de900eb99ee4693894d5e6e74ceabe9d6459c414.jpg",
+        "sha256": "3e81f76aedb5577d37242e5301814b335bf31ab7b82f791532cdafbcb20bbc5c",
+        "size": 575096
+      }
     }
   ]
 }
