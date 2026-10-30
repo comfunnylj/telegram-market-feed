@@ -255,6 +255,27 @@
         "sha256": "3e81f76aedb5577d37242e5301814b335bf31ab7b82f791532cdafbcb20bbc5c",
         "size": 575096
       }
+    },
+    {
+      "dedup_key": "energy:a48a77107d64717f45019b522b7d58ae29a0adf9fc148be02341961cce0f5f48",
+      "created_at": "2026-10-30T09:40:15+09:00",
+      "not_before": "2026-10-30T09:45:15+09:00",
+      "expires_at": "2026-10-30T09:50:15+09:00",
+      "topic": "원자재",
+      "text": "2026.10.30 에너지 시장 브리핑\n\n1. Shell 3분기 정유 가동률은 102%에서 96%로 낮아졌어.\n2. 싱가포르 제품재고는 3,849만 배럴로 전주보다 0.9% 늘었어.\n3. 중국은 휘발유·경유 최고가격을 톤당 345·335위안 올렸어.\n4. 일본은 10/29 적용 연료 보조금을 갱신했어.\n\n주요 기관 유가 전망\n\nEIA(10/6, 최신 확인본·변경 없음): 4Q26 Brent 현물 평균 $105/bbl, 2027년 평균 $84/bbl 전망이야.\n\nGoldman Sachs Research(10/16, 최신 확인본·변경 없음): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl 전망이야. 지정학적 긴장 확대는 상방 위험으로 봤어.\n\n오피넷 10월 28일 기준\n\nWTI $102.78/bbl(+2.88, NYMEX 선물)\nBrent $115.32/bbl(+1.44, ICE 선물)\nDubai $114.20/bbl(-0.90, 싱가포르 현물 평가·추정값)\n\n같은 출처의 직전 유효 관측 대비 변화야. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\nShell의 정유 투입은 2분기 1,267 kb/d에서 3분기 1,211 kb/d로 줄었어. 회사는 라인강 저수위가 Rheinland 정유소에 영향을 줬다고 설명했어.\n\n다만 제품부문은 높은 정제마진의 도움을 받았고, 4분기 가동률 전망은 92~100%야.\n\n해석: 유럽 내륙 물류 제약과 높은 제품마진이 동시에 나타난 분기야.\nhttps://www.shell.com/news-and-insights/newsroom/news-and-media-releases/2026/shell-reports-q3-2026-results.html\n\n싱가포르의 10/28 종료주 경질유 재고는 1,130.4만 배럴로 2주 고점이야. 휘발유 수입은 31.4만톤으로 두 배 넘게 늘고 수출은 43.3만톤으로 40% 줄었어. 납사 수입은 약 10.5만톤으로 14% 감소했어.\n\n해석: 경질유 물량은 완화됐지만 한 주 자료만으로 가솔린·납사 추세를 단정하긴 어려워.\n\n중국 NDRC의 산식상 인상분은 휘발유 440위안/톤, 경유 420위안/톤이었지만 국가 조정 뒤 실제 인상은 345·335위안/톤이야. 10/29 24시부터 적용돼.\nhttps://www.ndrc.gov.cn/xwdt/xwfb/202610/t20261029_1401880.html\n\n일본의 10/29 보조금은 휘발유·경유·등유·중유 52.4엔/L, 항공유 41.9엔/L이야. 국제 제품가격과는 구분해야 해.\nhttps://nenryo-teigakuhikisage.go.jp/ #에너지시장",
+      "parts": [
+        "2026.10.30 에너지 시장 브리핑\n\n1. Shell 3분기 정유 가동률은 102%에서 96%로 낮아졌어.\n2. 싱가포르 제품재고는 3,849만 배럴로 전주보다 0.9% 늘었어.\n3. 중국은 휘발유·경유 최고가격을 톤당 345·335위안 올렸어.\n4. 일본은 10/29 적용 연료 보조금을 갱신했어.\n\n",
+        "주요 기관 유가 전망\n\nEIA(10/6, 최신 확인본·변경 없음): 4Q26 Brent 현물 평균 $105/bbl, 2027년 평균 $84/bbl 전망이야.\n\nGoldman Sachs Research(10/16, 최신 확인본·변경 없음): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl 전망이야. 지정학적 긴장 확대는 상방 위험으로 봤어.\n\n",
+        "오피넷 10월 28일 기준\n\nWTI $102.78/bbl(+2.88, NYMEX 선물)\nBrent $115.32/bbl(+1.44, ICE 선물)\nDubai $114.20/bbl(-0.90, 싱가포르 현물 평가·추정값)\n\n같은 출처의 직전 유효 관측 대비 변화야. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "Shell의 정유 투입은 2분기 1,267 kb/d에서 3분기 1,211 kb/d로 줄었어. 회사는 라인강 저수위가 Rheinland 정유소에 영향을 줬다고 설명했어.\n\n다만 제품부문은 높은 정제마진의 도움을 받았고, 4분기 가동률 전망은 92~100%야.\n\n해석: 유럽 내륙 물류 제약과 높은 제품마진이 동시에 나타난 분기야.\nhttps://www.shell.com/news-and-insights/newsroom/news-and-media-releases/2026/shell-reports-q3-2026-results.html\n\n",
+        "싱가포르의 10/28 종료주 경질유 재고는 1,130.4만 배럴로 2주 고점이야. 휘발유 수입은 31.4만톤으로 두 배 넘게 늘고 수출은 43.3만톤으로 40% 줄었어. 납사 수입은 약 10.5만톤으로 14% 감소했어.\n\n해석: 경질유 물량은 완화됐지만 한 주 자료만으로 가솔린·납사 추세를 단정하긴 어려워.\n\n",
+        "중국 NDRC의 산식상 인상분은 휘발유 440위안/톤, 경유 420위안/톤이었지만 국가 조정 뒤 실제 인상은 345·335위안/톤이야. 10/29 24시부터 적용돼.\nhttps://www.ndrc.gov.cn/xwdt/xwfb/202610/t20261029_1401880.html\n\n일본의 10/29 보조금은 휘발유·경유·등유·중유 52.4엔/L, 항공유 41.9엔/L이야. 국제 제품가격과는 구분해야 해.\nhttps://nenryo-teigakuhikisage.go.jp/ #에너지시장"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/1fddecd0b5c7ee7bf7282261c90556d94bc39ec2/social-publisher/media/energy-a48a77107d64717f45019b522b7d58ae29a0adf9fc148be02341961cce0f5f48.jpg",
+        "sha256": "56f79cdc9b6bfe7dd9d00ae4194f3e1a32b4b9b1ada6f3ec7ca00c448d39ffcf",
+        "size": 703288
+      }
     }
   ]
 }
