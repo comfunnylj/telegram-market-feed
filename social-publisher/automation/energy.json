@@ -298,6 +298,28 @@
         "sha256": "01eae7c724bfc0643d66c021066dcc15a3678ed94798a2a5bdfc001e22f00171",
         "size": 371328
       }
+    },
+    {
+      "dedup_key": "energy:e7130bfd55a5766523e5fdd5a0b550d236fce1b52f79dec386bcccffb508cd68",
+      "created_at": "2026-11-05T09:45:47+09:00",
+      "not_before": "2026-11-05T09:50:47+09:00",
+      "expires_at": "2026-11-05T09:55:47+09:00",
+      "topic": "원자재",
+      "text": "11/5 에너지 마켓 브리핑\n\n1. 미국 정유 가동률 94.5%, 전주보다 1.7%p 상승\n2. 미국 중간유분 재고 9,925.9만 배럴로 356.5만 배럴 감소\n3. 아시아 납사, 10월 초 대비 15.6% 높은 수준 유지\n\n4. 미국 DOE, 북동부 난방유 비축 30만 배럴 교환\n5. 글로벌 정유투입은 3분기 반등했지만 전년보다 약 5% 낮아\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 2027년 평균 $84/bbl.\nGoldman Sachs(10/23 재확인): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl.\n\n11/4 기준 오피넷 공개 가격이야.\n\nWTI $88.12 (-$7.97, NYMEX 선물)\n브렌트유 $94.62 (-$8.98, ICE 선물)\n두바이유 $100.89 (-$1.27, 현물 평가·추정값)\n\n직전 관측은 11/3이고, 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/gloptotSelect.do\n\n미국 10/30 종료주 정유 원유투입은 1,672.5만 b/d로 19.9만 b/d 늘었어. 가솔린 재고는 2억895.8만 배럴로 22.2만 배럴 줄었고, 중간유분은 9,925.9만 배럴로 356.5만 배럴 감소했어.\n\n해석: 높은 가동에도 중간유분 재고 일수가 23.8일로 내려가 겨울철 디젤·난방유 타이트함은 이어질 수 있어.\nhttps://www.eia.gov/petroleum/supply/weekly/\n\n아시아 CFR Japan 납사는 10/1 $907.88/mt에서 10/27 $1,060.25/mt까지 올랐고 이후 $1,049.75/mt로 완화됐어. 벤젠-납사 스프레드는 $150/mt 아래로 좁아졌어.\n\n한국 5개 보수의 벤젠 생산손실 추정치는 약 16만 mt야. 해석: 벤젠 공급 감소보다 높은 납사 원가의 마진 압박이 더 크게 작용하고 있어.\nhttps://www.opis.com/resources/energy-market-news-from-opis/asias-benzene-naphtha-spread-slumps-to-three-month-low-as-crude-retreats-feedstock-costs-rise/\n\nEIA는 글로벌 정유투입이 2분기 480만 b/d 줄었다가 3분기 180만 b/d 회복했지만 전년보다 약 5% 낮았다고 봤어. 중국은 3분기에도 80만 b/d 추가 감소했고, 인도·한국·일본 합계는 80만 b/d 반등했어.\nhttps://www.eia.gov/TodayinEnergy/detail.php?id=68404\n\n미국 DOE는 Boston·New Haven 비축시설의 초저유황 난방유 30만 배럴 교환 계약을 낙찰했어. 11/6까지 이전·인도 예정이야.\n\nJPMorgan은 10월 글로벌 원유시장을 140만 b/d 공급초과로 추정했고, HSBC는 Saudi Aramco 4Q26 생산 전망을 630만→830만 b/d로 높였어.\n\n해석: 원유 조달은 완화될 수 있지만 제품 재고와 설비 회복은 더 느릴 수 있어.\nhttps://www.energy.gov/hgeo/opr/articles/energy-department-awards-contracts-northeast-home-heating-oil-reserve",
+      "parts": [
+        "11/5 에너지 마켓 브리핑\n\n1. 미국 정유 가동률 94.5%, 전주보다 1.7%p 상승\n2. 미국 중간유분 재고 9,925.9만 배럴로 356.5만 배럴 감소\n3. 아시아 납사, 10월 초 대비 15.6% 높은 수준 유지",
+        "\n\n4. 미국 DOE, 북동부 난방유 비축 30만 배럴 교환\n5. 글로벌 정유투입은 3분기 반등했지만 전년보다 약 5% 낮아\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 2027년 평균 $84/bbl.\nGoldman Sachs(10/23 재확인): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl.",
+        "\n\n11/4 기준 오피넷 공개 가격이야.\n\nWTI $88.12 (-$7.97, NYMEX 선물)\n브렌트유 $94.62 (-$8.98, ICE 선물)\n두바이유 $100.89 (-$1.27, 현물 평가·추정값)\n\n직전 관측은 11/3이고, 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어. 실시간 가격은 아니야.\nhttps://www.opinet.co.kr/gloptotSelect.do",
+        "\n\n미국 10/30 종료주 정유 원유투입은 1,672.5만 b/d로 19.9만 b/d 늘었어. 가솔린 재고는 2억895.8만 배럴로 22.2만 배럴 줄었고, 중간유분은 9,925.9만 배럴로 356.5만 배럴 감소했어.\n\n해석: 높은 가동에도 중간유분 재고 일수가 23.8일로 내려가 겨울철 디젤·난방유 타이트함은 이어질 수 있어.\nhttps://www.eia.gov/petroleum/supply/weekly/",
+        "\n\n아시아 CFR Japan 납사는 10/1 $907.88/mt에서 10/27 $1,060.25/mt까지 올랐고 이후 $1,049.75/mt로 완화됐어. 벤젠-납사 스프레드는 $150/mt 아래로 좁아졌어.\n\n한국 5개 보수의 벤젠 생산손실 추정치는 약 16만 mt야. 해석: 벤젠 공급 감소보다 높은 납사 원가의 마진 압박이 더 크게 작용하고 있어.\nhttps://www.opis.com/resources/energy-market-news-from-opis/asias-benzene-naphtha-spread-slumps-to-three-month-low-as-crude-retreats-feedstock-costs-rise/",
+        "\n\nEIA는 글로벌 정유투입이 2분기 480만 b/d 줄었다가 3분기 180만 b/d 회복했지만 전년보다 약 5% 낮았다고 봤어. 중국은 3분기에도 80만 b/d 추가 감소했고, 인도·한국·일본 합계는 80만 b/d 반등했어.\nhttps://www.eia.gov/TodayinEnergy/detail.php?id=68404",
+        "\n\n미국 DOE는 Boston·New Haven 비축시설의 초저유황 난방유 30만 배럴 교환 계약을 낙찰했어. 11/6까지 이전·인도 예정이야.\n\nJPMorgan은 10월 글로벌 원유시장을 140만 b/d 공급초과로 추정했고, HSBC는 Saudi Aramco 4Q26 생산 전망을 630만→830만 b/d로 높였어.\n\n해석: 원유 조달은 완화될 수 있지만 제품 재고와 설비 회복은 더 느릴 수 있어.\nhttps://www.energy.gov/hgeo/opr/articles/energy-department-awards-contracts-northeast-home-heating-oil-reserve"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/7009d92bd30fa53ab239e4ff76e966739d421ff1/social-publisher/media/energy-e7130bfd55a5766523e5fdd5a0b550d236fce1b52f79dec386bcccffb508cd68.jpg",
+        "sha256": "7e7fa9fb2f366e04482766b6101c84c7eab7368b30c20775a3603011aa5af435",
+        "size": 515322
+      }
     }
   ]
 }
