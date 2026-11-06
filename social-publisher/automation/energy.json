@@ -320,6 +320,28 @@
         "sha256": "7e7fa9fb2f366e04482766b6101c84c7eab7368b30c20775a3603011aa5af435",
         "size": 515322
       }
+    },
+    {
+      "dedup_key": "energy:47111913b3e9af9cc86067ba553b96079dcd599f9040743f8ae01e08441aeba7",
+      "created_at": "2026-11-06T09:42:08+09:00",
+      "not_before": "2026-11-06T09:47:08+09:00",
+      "expires_at": "2026-11-06T09:52:08+09:00",
+      "topic": "원자재",
+      "text": "2026.11.06 에너지 브리핑\n\n1. 미국 정유사는 가솔린보다 중간유분·항공유 수율을 높이고 있어.\n2. 중국 11월 경유 수출은 80만t 미만, 휘발유는 100만t 미만 전망이 나왔어.\n3. 러시아 랴잔 정유시설은 피격 정황이 확인됐지만 실제 손실은 아직 미확인이야.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 4Q27 $74/bbl — 중동 물류 제약 완화 전제.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl — 중동 공급 회복이 기본 시나리오야.\n\n오피넷 11/5 $/Bbl\nWTI 90.52(+2.40, NYMEX 선물)\n브렌트 98.29(+3.67, ICE 선물)\n두바이 92.85(-8.04, 현물 평가·추정값)\n\n변동은 같은 출처의 11/4 값과 비교했어.\n\nEIA에 따르면 1~8월 미국 가솔린 수율 평균은 45% 미만이었고 매월 5년 범위 저점 아래였어. 반면 중간유분 수율은 매월 5년 평균 위, 항공유는 3월 이후 12% 이상이야.\n\n해석: 높은 중간유분 마진이 총 가동률보다 제품 구성을 더 크게 바꾸고 있어.\nhttps://www.eia.gov/todayinenergy/detail.php?id=68424\n\n중국은 10월 말 상업 경유 재고가 1,110만t으로 민간 집계의 2011년 이후 최저였어. 수출 쿼터는 늘었지만 국내 재고와 낮은 정제 생산이 실제 출하를 막는 모습이야. 아시아 경유 공급에는 지지 요인이지만 11월 수치는 아직 잠정 전망이야.\nhttps://www.reuters.com/business/energy/chinas-november-diesel-exports-ease-amid-thin-domestic-stocks-sources-say-2026-11-05/\n\n랴잔은 Reuters의 영상 위치 분석과 지역 당국의 산업시설 화재 발표로 피격 정황이 확인됐어. 다만 34만 b/d는 정격 처리능력일 뿐 실제 손실이 아니야.\n\n아시아 HSFO 크랙은 주초 +$5.34/bbl에서 목요일 -$2.29/bbl로 급락했지만, 유럽→아시아 운임은 여전히 보충 물량을 제약해.\n\n유럽 납사는 10월 CIF NWE 평균 $926.14/t, 10/30 $1,005/t이었어. ARA 재고는 10/29 27만t으로 34개월 저점권이었고, 10월 지중해→아시아 이동은 8카고·36.47만t이야.\n\n해석: 단기에는 낮은 재고와 아시아향 차익거래가 지지하지만, 겨울 화학 수요 둔화는 상단을 제한할 수 있어.\nhttps://www.spglobal.com/energy/en/news-research/latest-news/refined-products/110226-european-naphtha-price-climbs-to-multi-month-highs-in-unstable-market",
+      "parts": [
+        "2026.11.06 에너지 브리핑\n\n1. 미국 정유사는 가솔린보다 중간유분·항공유 수율을 높이고 있어.\n2. 중국 11월 경유 수출은 80만t 미만, 휘발유는 100만t 미만 전망이 나왔어.\n3. 러시아 랴잔 정유시설은 피격 정황이 확인됐지만 실제 손실은 아직 미확인이야.",
+        "\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 4Q27 $74/bbl — 중동 물류 제약 완화 전제.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl — 중동 공급 회복이 기본 시나리오야.",
+        "\n\n오피넷 11/5 $/Bbl\nWTI 90.52(+2.40, NYMEX 선물)\n브렌트 98.29(+3.67, ICE 선물)\n두바이 92.85(-8.04, 현물 평가·추정값)\n\n변동은 같은 출처의 11/4 값과 비교했어.",
+        "\n\nEIA에 따르면 1~8월 미국 가솔린 수율 평균은 45% 미만이었고 매월 5년 범위 저점 아래였어. 반면 중간유분 수율은 매월 5년 평균 위, 항공유는 3월 이후 12% 이상이야.\n\n해석: 높은 중간유분 마진이 총 가동률보다 제품 구성을 더 크게 바꾸고 있어.\nhttps://www.eia.gov/todayinenergy/detail.php?id=68424",
+        "\n\n중국은 10월 말 상업 경유 재고가 1,110만t으로 민간 집계의 2011년 이후 최저였어. 수출 쿼터는 늘었지만 국내 재고와 낮은 정제 생산이 실제 출하를 막는 모습이야. 아시아 경유 공급에는 지지 요인이지만 11월 수치는 아직 잠정 전망이야.\nhttps://www.reuters.com/business/energy/chinas-november-diesel-exports-ease-amid-thin-domestic-stocks-sources-say-2026-11-05/",
+        "\n\n랴잔은 Reuters의 영상 위치 분석과 지역 당국의 산업시설 화재 발표로 피격 정황이 확인됐어. 다만 34만 b/d는 정격 처리능력일 뿐 실제 손실이 아니야.\n\n아시아 HSFO 크랙은 주초 +$5.34/bbl에서 목요일 -$2.29/bbl로 급락했지만, 유럽→아시아 운임은 여전히 보충 물량을 제약해.",
+        "\n\n유럽 납사는 10월 CIF NWE 평균 $926.14/t, 10/30 $1,005/t이었어. ARA 재고는 10/29 27만t으로 34개월 저점권이었고, 10월 지중해→아시아 이동은 8카고·36.47만t이야.\n\n해석: 단기에는 낮은 재고와 아시아향 차익거래가 지지하지만, 겨울 화학 수요 둔화는 상단을 제한할 수 있어.\nhttps://www.spglobal.com/energy/en/news-research/latest-news/refined-products/110226-european-naphtha-price-climbs-to-multi-month-highs-in-unstable-market"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/135c2bbf770924d1e45f53dc9e8c02ffa10d03f5/social-publisher/media/energy-47111913b3e9af9cc86067ba553b96079dcd599f9040743f8ae01e08441aeba7.jpg",
+        "sha256": "6dce246ad531821ab84340f38c22ad792cbe806124a60e256a8c85f951771a26",
+        "size": 408685
+      }
     }
   ]
 }
