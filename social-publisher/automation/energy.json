@@ -342,6 +342,26 @@
         "sha256": "6dce246ad531821ab84340f38c22ad792cbe806124a60e256a8c85f951771a26",
         "size": 408685
       }
+    },
+    {
+      "dedup_key": "energy:7e96a1098e4c8059af2edfd7230dda2d2b00430aa404230645470dec630d083f",
+      "created_at": "2026-11-07T09:40:00+09:00",
+      "not_before": "2026-11-07T09:45:00+09:00",
+      "expires_at": "2026-11-07T09:50:00+09:00",
+      "topic": "원자재",
+      "text": "11/7 에너지 시장 브리핑\n\n1. 원유 운임 급등으로 미국 걸프 정유사의 중질유 원가 우위가 커졌어.\n2. 세계 원유 수급은 공급잉여 신호가 나왔지만 중동 정제품 수출 회복은 뒤처졌어.\n3. 일본 정유 가동률은 83.0%에서 84.2%로 올랐어.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 4Q27 $74/bbl.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl.\n\n11/6 기준 국제유가야. 모두 미국달러/배럴이고 실시간 가격은 아니야.\n\nWTI 90.83 (+0.31, NYMEX 선물)\n브렌트유 98.32 (+0.03, ICE 선물)\n두바이유 96.30 (+3.45, 싱가포르 현물 평가·추정값)\n\n오피넷의 11/5 같은 정의와 비교했어. 계약월·정산 여부는 공개 표에 없어 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n운임이 정유 경쟁력을 갈랐어. 미국 걸프→아시아 원유 운임은 1년 전 약 $5/bbl에서 $30~35/bbl로 뛰었어. 미국 걸프 설비의 70% 이상은 중질유 처리에 맞춰져 있어 캐나다·베네수엘라산 할인 확대의 수혜가 커졌고, 미국 정제마진은 3분기에 두 배 이상 올랐어.\n\n해석: 미국산 제품의 수출 경쟁력은 높아질 수 있지만 아시아 정유사는 원료·보험·운임 부담이 커졌어.\nhttps://www.reuters.com/business/energy/soaring-freight-rates-give-us-refiners-edge-crude-discounts-widen-2026-11-06/\n\n원유와 제품은 회복 속도가 달라. J.P. Morgan은 세계 석유시장이 9월 110만 b/d 공급잉여로 돌아서고 10월엔 140만 b/d로 확대됐다고 추정했어.\n\n10월 걸프 원유·콘덴세이트 수출은 1,400만 b/d, 전쟁 전의 약 86%까지 회복했지만 정제품은 310만 b/d로 정상 수준의 절반을 조금 넘었어.\n\n해석: 원유 약세와 제품 크랙 강세가 함께 나타날 수 있어.\nhttps://www.reuters.com/business/energy/high-oil-prices-curb-demand-fresh-signs-glut-appear-2026-11-06/\n\n늦게 확인한 일본 주간 자료야. 10/31 종료 주간 원유 처리량은 266만8,484kl로 전주보다 2만3,830kl 늘었고, 상압증류설비 실제 가동률은 83.0%에서 84.2%로 올랐어.\n\n제품재고는 PAJ가 2026년 3월 하순부터 공개를 중단해 추정하지 않았어. 처리량 회복만으로 가솔린·납사 재고가 충분하다고 볼 수는 없어.\nhttps://stats.paj.gr.jp/jp/index\n\n전망 원문\nhttps://www.eia.gov/outlooks/steo/report/global_oil.php\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers",
+      "parts": [
+        "11/7 에너지 시장 브리핑\n\n1. 원유 운임 급등으로 미국 걸프 정유사의 중질유 원가 우위가 커졌어.\n2. 세계 원유 수급은 공급잉여 신호가 나왔지만 중동 정제품 수출 회복은 뒤처졌어.\n3. 일본 정유 가동률은 83.0%에서 84.2%로 올랐어.\n\n주요 기관 유가 전망\nEIA(10/6, 최신 확인본): 4Q26 Brent 현물 평균 $105/bbl, 4Q27 $74/bbl.\nGoldman Sachs(10/16, 최신 확인본): 2026년 12월 Brent $90/bbl, 2027년 평균 $80/bbl.\n\n",
+        "11/6 기준 국제유가야. 모두 미국달러/배럴이고 실시간 가격은 아니야.\n\nWTI 90.83 (+0.31, NYMEX 선물)\n브렌트유 98.32 (+0.03, ICE 선물)\n두바이유 96.30 (+3.45, 싱가포르 현물 평가·추정값)\n\n오피넷의 11/5 같은 정의와 비교했어. 계약월·정산 여부는 공개 표에 없어 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "운임이 정유 경쟁력을 갈랐어. 미국 걸프→아시아 원유 운임은 1년 전 약 $5/bbl에서 $30~35/bbl로 뛰었어. 미국 걸프 설비의 70% 이상은 중질유 처리에 맞춰져 있어 캐나다·베네수엘라산 할인 확대의 수혜가 커졌고, 미국 정제마진은 3분기에 두 배 이상 올랐어.\n\n해석: 미국산 제품의 수출 경쟁력은 높아질 수 있지만 아시아 정유사는 원료·보험·운임 부담이 커졌어.\nhttps://www.reuters.com/business/energy/soaring-freight-rates-give-us-refiners-edge-crude-discounts-widen-2026-11-06/\n\n",
+        "원유와 제품은 회복 속도가 달라. J.P. Morgan은 세계 석유시장이 9월 110만 b/d 공급잉여로 돌아서고 10월엔 140만 b/d로 확대됐다고 추정했어.\n\n10월 걸프 원유·콘덴세이트 수출은 1,400만 b/d, 전쟁 전의 약 86%까지 회복했지만 정제품은 310만 b/d로 정상 수준의 절반을 조금 넘었어.\n\n해석: 원유 약세와 제품 크랙 강세가 함께 나타날 수 있어.\nhttps://www.reuters.com/business/energy/high-oil-prices-curb-demand-fresh-signs-glut-appear-2026-11-06/\n\n",
+        "늦게 확인한 일본 주간 자료야. 10/31 종료 주간 원유 처리량은 266만8,484kl로 전주보다 2만3,830kl 늘었고, 상압증류설비 실제 가동률은 83.0%에서 84.2%로 올랐어.\n\n제품재고는 PAJ가 2026년 3월 하순부터 공개를 중단해 추정하지 않았어. 처리량 회복만으로 가솔린·납사 재고가 충분하다고 볼 수는 없어.\nhttps://stats.paj.gr.jp/jp/index\n\n전망 원문\nhttps://www.eia.gov/outlooks/steo/report/global_oil.php\nhttps://www.goldmansachs.com/insights/articles/will-oil-prices-decline-as-middle-east-supply-recovers"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/e590c0b6be32a11709ab11ef45df454b7afbb1c3/social-publisher/media/energy-7e96a1098e4c8059af2edfd7230dda2d2b00430aa404230645470dec630d083f.jpg",
+        "sha256": "b54a57f2e527125c9a36e866422610570347ca4a8902c804051fc729ea28d7c9",
+        "size": 309819
+      }
     }
   ]
 }
