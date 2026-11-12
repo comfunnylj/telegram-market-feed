@@ -362,6 +362,27 @@
         "sha256": "b54a57f2e527125c9a36e866422610570347ca4a8902c804051fc729ea28d7c9",
         "size": 309819
       }
+    },
+    {
+      "dedup_key": "energy:bf19d45de080ebc3258ede01066298d2a58c9e98764837848535be01b1df6e75",
+      "created_at": "2026-11-12T09:41:47+09:00",
+      "not_before": "2026-11-12T09:46:47+09:00",
+      "expires_at": "2026-11-12T09:51:47+09:00",
+      "topic": "원자재",
+      "text": "11/12 에너지 시장 브리핑\n\n1. 러시아 정제 차질이 9개 주요 정유소로 확대됐어.\n2. 미국행 러시아산 디젤 첫 화물은 연안에서 대기 중이야.\n3. 아시아 장거리 원유 운임은 10월 고점보다 약 50% 내렸어.\n4. 일본 실제 CDU 가동률은 84.2%→83.7%로 낮아졌어.\n\n5. PX-납사 스프레드는 손익분기선 아래로 밀렸다 하루 뒤 반등했어.\n6. EIA는 2027년 미국 정유 투입을 16.5백만 b/d로 낮춰 봤어.\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 평균 Brent $85.78, WTI $80.54/bbl.\nGoldman Sachs(11/2): 2026년 12월 Brent $105, WTI $94/bbl; 2027년 평균은 $88, $78이야. 둘 다 기관 전망이야.\n\n11/11 오피넷 $/Bbl 기준이야. 실시간 가격은 아니야.\n\nWTI $86.53(+$0.49, NYMEX 선물)\n브렌트유 $92.76(+$1.27, ICE 선물)\n두바이유 $89.00(+$1.18, 싱가포르 현물 평가·추정값)\n\n같은 출처의 11/10 값과 비교했어. 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어.\nhttps://www.opinet.co.kr/gloptotSelect.do\n\n러시아는 35개 주요 정유소 중 9곳이 영향을 받았어. 영향받은 명목 1차 정제능력은 30%, 300,000t/d였지만 실제 원유 처리 감소는 최대 200,000t/d로 추정됐어. 정격능력과 실제 손실을 같은 숫자로 보면 안 돼.\n\n최소 6개 지역에선 연료 부족도 다시 나타났어.\nhttps://www.reuters.com/business/energy/recent-ukrainian-attacks-have-reduced-russias-oil-processing-capacity-by-30-2026-11-10/\n\n미국이 허용한 러시아산 디젤의 첫 화물은 목적지를 정하지 못했어. 11월 계획은 500,000t이지만 법률·금융·블렌딩 문제가 실제 유입을 막고 있어.\n\n한편 장거리 유조선 운임 하락으로 아프리카·브라질산 원유의 중국 도착비용은 $5~10/bbl 낮아졌어. 해석: 아시아 정유사의 원료 선택지는 넓어졌지만 미국 경유 공급 완화는 더딜 수 있어.\nhttps://www.reuters.com/business/energy/asia-buys-up-african-brazilian-oil-shipping-costs-fall-2026-11-11/\n\n일본 11/7 종료주 원유 처리량은 2,554,625kl로 113,859kl 줄었고 실제 CDU 가동률은 83.7%였어.\n\n늦게 확인한 OPIS 자료에선 PX-납사 스프레드가 11/4 $286.75/t에서 11/5 $325.25/t로 반등했어. PX 가동률 82.7%, PTA 69.7%라 납사 하락만으로 다운스트림 회복을 단정하긴 어려워.\nhttps://www.eia.gov/outlooks/steo/report/petro_prod.php\nhttps://www.opis.com/resources/energy-market-news-from-opis/asia-px-naphtha-spread-narrows-in-november-amid-plunging-energy-prices/",
+      "parts": [
+        "11/12 에너지 시장 브리핑\n\n1. 러시아 정제 차질이 9개 주요 정유소로 확대됐어.\n2. 미국행 러시아산 디젤 첫 화물은 연안에서 대기 중이야.\n3. 아시아 장거리 원유 운임은 10월 고점보다 약 50% 내렸어.\n4. 일본 실제 CDU 가동률은 84.2%→83.7%로 낮아졌어.",
+        "\n\n5. PX-납사 스프레드는 손익분기선 아래로 밀렸다 하루 뒤 반등했어.\n6. EIA는 2027년 미국 정유 투입을 16.5백만 b/d로 낮춰 봤어.\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 평균 Brent $85.78, WTI $80.54/bbl.\nGoldman Sachs(11/2): 2026년 12월 Brent $105, WTI $94/bbl; 2027년 평균은 $88, $78이야. 둘 다 기관 전망이야.",
+        "\n\n11/11 오피넷 $/Bbl 기준이야. 실시간 가격은 아니야.\n\nWTI $86.53(+$0.49, NYMEX 선물)\n브렌트유 $92.76(+$1.27, ICE 선물)\n두바이유 $89.00(+$1.18, 싱가포르 현물 평가·추정값)\n\n같은 출처의 11/10 값과 비교했어. 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어.\nhttps://www.opinet.co.kr/gloptotSelect.do",
+        "\n\n러시아는 35개 주요 정유소 중 9곳이 영향을 받았어. 영향받은 명목 1차 정제능력은 30%, 300,000t/d였지만 실제 원유 처리 감소는 최대 200,000t/d로 추정됐어. 정격능력과 실제 손실을 같은 숫자로 보면 안 돼.\n\n최소 6개 지역에선 연료 부족도 다시 나타났어.\nhttps://www.reuters.com/business/energy/recent-ukrainian-attacks-have-reduced-russias-oil-processing-capacity-by-30-2026-11-10/",
+        "\n\n미국이 허용한 러시아산 디젤의 첫 화물은 목적지를 정하지 못했어. 11월 계획은 500,000t이지만 법률·금융·블렌딩 문제가 실제 유입을 막고 있어.\n\n한편 장거리 유조선 운임 하락으로 아프리카·브라질산 원유의 중국 도착비용은 $5~10/bbl 낮아졌어. 해석: 아시아 정유사의 원료 선택지는 넓어졌지만 미국 경유 공급 완화는 더딜 수 있어.\nhttps://www.reuters.com/business/energy/asia-buys-up-african-brazilian-oil-shipping-costs-fall-2026-11-11/",
+        "\n\n일본 11/7 종료주 원유 처리량은 2,554,625kl로 113,859kl 줄었고 실제 CDU 가동률은 83.7%였어.\n\n늦게 확인한 OPIS 자료에선 PX-납사 스프레드가 11/4 $286.75/t에서 11/5 $325.25/t로 반등했어. PX 가동률 82.7%, PTA 69.7%라 납사 하락만으로 다운스트림 회복을 단정하긴 어려워.\nhttps://www.eia.gov/outlooks/steo/report/petro_prod.php\nhttps://www.opis.com/resources/energy-market-news-from-opis/asia-px-naphtha-spread-narrows-in-november-amid-plunging-energy-prices/"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/4d1007ce362737c428e0eda23762f2c97b14911e/social-publisher/media/energy-bf19d45de080ebc3258ede01066298d2a58c9e98764837848535be01b1df6e75.jpg",
+        "sha256": "a591510f65955d4990e64aa7d7549fa49bea15635fddc99c9e6e092c66dcb9ba",
+        "size": 405307
+      }
     }
   ]
 }
