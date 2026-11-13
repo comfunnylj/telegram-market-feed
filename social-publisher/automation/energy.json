@@ -383,6 +383,27 @@
         "sha256": "a591510f65955d4990e64aa7d7549fa49bea15635fddc99c9e6e092c66dcb9ba",
         "size": 405307
       }
+    },
+    {
+      "dedup_key": "energy:b98db1febd2e0eb7855c35f5eb1370c4cfd88feea94aecbb42c728a1e6091fc5",
+      "created_at": "2026-11-13T09:43:15+09:00",
+      "not_before": "2026-11-13T09:48:15+09:00",
+      "expires_at": "2026-11-13T09:53:15+09:00",
+      "topic": "원자재",
+      "text": "11/13 에너지 시장 브리핑\n\n1. 미국 정유 가동률은 94.5%→95.2%로 올랐어.\n2. 가솔린 재고는 180만 배럴, 중간유분은 400만 배럴 늘었어.\n3. 정유 원유 투입은 32.2만 b/d 증가했지만 가솔린 생산·수요·수출은 모두 줄었어.\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 평균 Brent $85.78, WTI $80.54/bbl — 중동 공급 회복과 재고 증가 전제야.\nGoldman Sachs(11/2, 최신 확인본): 2026년 12월 Brent $105, WTI $94/bbl; 2027년 평균 $88, $78이야. 전망 변경 없음으로 확인했고, 둘 다 기관 견해야.\n\n11/11 오피넷 $/Bbl 기준이야. 실시간 가격은 아니야.\n\nWTI $86.53(+$0.49, NYMEX 선물)\n브렌트유 $92.76(+$1.27, ICE 선물)\n두바이유 $89.00(+$1.18, 싱가포르 현물 평가·추정값)\n\n같은 출처의 11/10 값과 비교했어. 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\nEIA의 11/6 종료 주간 표를 보면 정유 원유 투입은 16.725→17.047백만 b/d로 늘었어. 상업 원유 재고도 409.8→414.4백만 배럴로 460만 배럴 증가했어.\n\n가동률 상승이 바로 제품 부족을 뜻하진 않아. 가솔린 재고는 209.0→210.8백만 배럴, 중간유분은 99.3→103.3백만 배럴이야.\nhttps://www.eia.gov/petroleum/supply/weekly/\n\n가솔린 생산은 9.704→9.626백만 b/d, 제품공급량은 8.808→8.767백만 b/d, 수출은 1.017→0.862백만 b/d로 모두 줄었어. 중간유분 제품공급량도 4.439→3.411백만 b/d, 수출은 1.341→1.198백만 b/d로 감소했어.\n\n해석: 가동 확대보다 수요·수출 약화가 재고 증가를 더 크게 만든 주간이야. 특히 중간유분의 완화 신호가 강해.\n\n납사는 게시일과 정의를 함께 확인한 신규 공식 수급 자료가 없어 이번 글에 숫자를 억지로 넣지 않았어.\n\nJones Act 면제 연장 가능성은 백악관 결정 전이고, Ust-Luga 피격의 제품 출하 차질도 물량·기간이 확인되지 않았어. 둘 다 공급 변화로 확정하지 않았어.\n\n전망 원문\nhttps://www.eia.gov/outlooks/steo/\nhttps://www.zawya.com/en/capital-markets/commodities/goldman-raises-oil-price-forecasts-on-middle-east-conflict-qou29z6f",
+      "parts": [
+        "11/13 에너지 시장 브리핑\n\n1. 미국 정유 가동률은 94.5%→95.2%로 올랐어.\n2. 가솔린 재고는 180만 배럴, 중간유분은 400만 배럴 늘었어.\n3. 정유 원유 투입은 32.2만 b/d 증가했지만 가솔린 생산·수요·수출은 모두 줄었어.",
+        "\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 평균 Brent $85.78, WTI $80.54/bbl — 중동 공급 회복과 재고 증가 전제야.\nGoldman Sachs(11/2, 최신 확인본): 2026년 12월 Brent $105, WTI $94/bbl; 2027년 평균 $88, $78이야. 전망 변경 없음으로 확인했고, 둘 다 기관 견해야.",
+        "\n\n11/11 오피넷 $/Bbl 기준이야. 실시간 가격은 아니야.\n\nWTI $86.53(+$0.49, NYMEX 선물)\n브렌트유 $92.76(+$1.27, ICE 선물)\n두바이유 $89.00(+$1.18, 싱가포르 현물 평가·추정값)\n\n같은 출처의 11/10 값과 비교했어. 계약월·정산 여부는 공개표에서 확인되지 않아 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do",
+        "\n\nEIA의 11/6 종료 주간 표를 보면 정유 원유 투입은 16.725→17.047백만 b/d로 늘었어. 상업 원유 재고도 409.8→414.4백만 배럴로 460만 배럴 증가했어.\n\n가동률 상승이 바로 제품 부족을 뜻하진 않아. 가솔린 재고는 209.0→210.8백만 배럴, 중간유분은 99.3→103.3백만 배럴이야.\nhttps://www.eia.gov/petroleum/supply/weekly/",
+        "\n\n가솔린 생산은 9.704→9.626백만 b/d, 제품공급량은 8.808→8.767백만 b/d, 수출은 1.017→0.862백만 b/d로 모두 줄었어. 중간유분 제품공급량도 4.439→3.411백만 b/d, 수출은 1.341→1.198백만 b/d로 감소했어.\n\n해석: 가동 확대보다 수요·수출 약화가 재고 증가를 더 크게 만든 주간이야. 특히 중간유분의 완화 신호가 강해.",
+        "\n\n납사는 게시일과 정의를 함께 확인한 신규 공식 수급 자료가 없어 이번 글에 숫자를 억지로 넣지 않았어.\n\nJones Act 면제 연장 가능성은 백악관 결정 전이고, Ust-Luga 피격의 제품 출하 차질도 물량·기간이 확인되지 않았어. 둘 다 공급 변화로 확정하지 않았어.\n\n전망 원문\nhttps://www.eia.gov/outlooks/steo/\nhttps://www.zawya.com/en/capital-markets/commodities/goldman-raises-oil-price-forecasts-on-middle-east-conflict-qou29z6f"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/f9b0da2465153d99b88ee011eb0698882b1f8dcb/social-publisher/media/energy-b98db1febd2e0eb7855c35f5eb1370c4cfd88feea94aecbb42c728a1e6091fc5.jpg",
+        "sha256": "7fd7a5e674cddadcc2af3b83698e7b498bd9560ea6f1025ce8fe1347d3cd1cae",
+        "size": 287253
+      }
     }
   ]
 }
