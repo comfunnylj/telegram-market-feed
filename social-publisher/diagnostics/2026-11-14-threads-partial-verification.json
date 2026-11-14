@@ -1,0 +1,414 @@
+{
+  "version": "2026-11-14.1",
+  "jobs": [
+    {
+      "key": "morning:2026-11-07",
+      "job_id": "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+      "status": "published",
+      "root_preserved": true,
+      "second_post_preserved": true,
+      "parts": [
+        {
+          "index": 1,
+          "status": "published",
+          "container_id": "18126230662935413",
+          "id": "17980930559920349",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfaykb-gUoB",
+          "topic_tag": "미국주식",
+          "parent_id": null,
+          "verified_at": 1794677636.7521842
+        },
+        {
+          "index": 2,
+          "status": "published",
+          "container_id": "18126230686935413",
+          "id": "17924140071451820",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfaymPSgXm0",
+          "topic_tag": null,
+          "parent_id": "17980930559920349",
+          "verified_at": 1794677637.3186615
+        },
+        {
+          "index": 3,
+          "status": "published",
+          "container_id": "18127214305935413",
+          "id": "18447883228133890",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfuu_7LAbLP",
+          "topic_tag": null,
+          "parent_id": "17924140071451820",
+          "verified_at": 1794677638.1185253
+        },
+        {
+          "index": 4,
+          "status": "published",
+          "container_id": "18127214311935413",
+          "id": "17981151143925267",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvB-cAacf",
+          "topic_tag": null,
+          "parent_id": "18447883228133890",
+          "verified_at": 1794677639.2810907
+        },
+        {
+          "index": 5,
+          "status": "published",
+          "container_id": "18127214323935413",
+          "id": "18156013408544702",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvES0gTmD",
+          "topic_tag": null,
+          "parent_id": "17981151143925267",
+          "verified_at": 1794677640.7352462
+        },
+        {
+          "index": 6,
+          "status": "published",
+          "container_id": "18127214341935413",
+          "id": "18115238243612669",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvFgogUVg",
+          "topic_tag": null,
+          "parent_id": "18156013408544702",
+          "verified_at": 1794677641.8158956
+        }
+      ]
+    },
+    {
+      "key": "morning:2026-11-12",
+      "job_id": "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+      "status": "published",
+      "root_preserved": true,
+      "second_post_preserved": true,
+      "parts": [
+        {
+          "index": 1,
+          "status": "published",
+          "container_id": "18126865309935413",
+          "id": "17915618643558760",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfnqi0hARU9",
+          "topic_tag": "미국주식",
+          "parent_id": null,
+          "verified_at": 1794677648.2663393
+        },
+        {
+          "index": 2,
+          "status": "published",
+          "container_id": "18126865342935413",
+          "id": "18498451507109004",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfnqketAbsw",
+          "topic_tag": null,
+          "parent_id": "17915618643558760",
+          "verified_at": 1794677649.1364741
+        },
+        {
+          "index": 3,
+          "status": "published",
+          "container_id": "18127214365935413",
+          "id": "18111418613625771",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvKAUgdyU",
+          "topic_tag": null,
+          "parent_id": "18498451507109004",
+          "verified_at": 1794677650.6028707
+        },
+        {
+          "index": 4,
+          "status": "published",
+          "container_id": "18127214380935413",
+          "id": "17890207056485173",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvMBeAbHv",
+          "topic_tag": null,
+          "parent_id": "18111418613625771",
+          "verified_at": 1794677651.9291654
+        },
+        {
+          "index": 5,
+          "status": "published",
+          "container_id": "18127214392935413",
+          "id": "17991555579095772",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvNMnAaC6",
+          "topic_tag": null,
+          "parent_id": "17890207056485173",
+          "verified_at": 1794677652.9454377
+        },
+        {
+          "index": 6,
+          "status": "published",
+          "container_id": "18127214410935413",
+          "id": "18131242799489148",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvPI_gVpc",
+          "topic_tag": null,
+          "parent_id": "17991555579095772",
+          "verified_at": 1794677654.2176063
+        }
+      ]
+    },
+    {
+      "key": "morning:2026-11-13",
+      "job_id": "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+      "status": "published",
+      "root_preserved": true,
+      "second_post_preserved": true,
+      "parts": [
+        {
+          "index": 1,
+          "status": "published",
+          "container_id": "18126992995935413",
+          "id": "18438990187199814",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfqPVmlgdN6",
+          "topic_tag": "미국주식",
+          "parent_id": null,
+          "verified_at": 1794677660.350274
+        },
+        {
+          "index": 2,
+          "status": "published",
+          "container_id": "18126993025935413",
+          "id": "17915624799512045",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfqPXVFAY5L",
+          "topic_tag": null,
+          "parent_id": "18438990187199814",
+          "verified_at": 1794677661.0113268
+        },
+        {
+          "index": 3,
+          "status": "published",
+          "container_id": "18127214455935413",
+          "id": "18026556428946528",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvV96gYOe",
+          "topic_tag": null,
+          "parent_id": "17915624799512045",
+          "verified_at": 1794677662.0133958
+        },
+        {
+          "index": 4,
+          "status": "published",
+          "container_id": "18127214464935413",
+          "id": "18000280311043094",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvXPuAS8G",
+          "topic_tag": null,
+          "parent_id": "18026556428946528",
+          "verified_at": 1794677663.2724319
+        },
+        {
+          "index": 5,
+          "status": "published",
+          "container_id": "18127214482935413",
+          "id": "18385222039237991",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvZEOgZ13",
+          "topic_tag": null,
+          "parent_id": "18000280311043094",
+          "verified_at": 1794677664.4548373
+        },
+        {
+          "index": 6,
+          "status": "published",
+          "container_id": "18127214806935413",
+          "id": "17928220656441024",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfuva9ngRr8",
+          "topic_tag": null,
+          "parent_id": "18385222039237991",
+          "verified_at": 1794677665.4424174
+        }
+      ]
+    },
+    {
+      "key": "morning:2026-11-14",
+      "job_id": "77248b2f-645e-5e45-a88c-20fee31137a4",
+      "status": "published",
+      "root_preserved": true,
+      "second_post_preserved": true,
+      "parts": [
+        {
+          "index": 1,
+          "status": "published",
+          "container_id": "18127114630935413",
+          "id": "18049110260831859",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfs0IjcgY9q",
+          "topic_tag": "미국주식",
+          "parent_id": null,
+          "verified_at": 1794677671.0398498
+        },
+        {
+          "index": 2,
+          "status": "published",
+          "container_id": "18127114675935413",
+          "id": "17946862575362213",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfs0KKRAS8r",
+          "topic_tag": null,
+          "parent_id": "18049110260831859",
+          "verified_at": 1794677671.825858
+        },
+        {
+          "index": 3,
+          "status": "published",
+          "container_id": "18127214872935413",
+          "id": "17912755857588728",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvfH-gWI2",
+          "topic_tag": null,
+          "parent_id": "17946862575362213",
+          "verified_at": 1794677673.1700375
+        },
+        {
+          "index": 4,
+          "status": "published",
+          "container_id": "18127214878935413",
+          "id": "18118649591042343",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvgV4gTdR",
+          "topic_tag": null,
+          "parent_id": "17912755857588728",
+          "verified_at": 1794677674.005621
+        },
+        {
+          "index": 5,
+          "status": "published",
+          "container_id": "18127214887935413",
+          "id": "18403013314206922",
+          "permalink": "https://www.threads.com/@genie_carrot/post/Dfuvhsjgc5a",
+          "topic_tag": null,
+          "parent_id": "18118649591042343",
+          "verified_at": 1794677675.5640864
+        },
+        {
+          "index": 6,
+          "status": "published",
+          "container_id": "18127214905935413",
+          "id": "17981840799140604",
+          "permalink": "https://www.threads.com/@genie_carrot/post/DfuvjCGAcWu",
+          "topic_tag": null,
+          "parent_id": "18403013314206922",
+          "verified_at": 1794677676.941312
+        }
+      ]
+    }
+  ],
+  "all_verified": true,
+  "health": {
+    "status": "healthy",
+    "runtime": {
+      "version": "2026-11-14.1",
+      "uid": 1001,
+      "gid": 1001,
+      "hashes": {
+        "worker.py": "1d4910181476b4f8bfca9464600a012f53bee877f163900bd87ae82459d9e518",
+        "recovery.py": "a87aab8505dd97724180b18e3c282a469a5c80a2467ded52e8e96629bab9decf",
+        "durable.py": "efcd3ea89866f0c823afa77b2c2a89f2debe524f843f6194aa5bccc68fd59eae"
+      }
+    },
+    "exclusive_lock_held": true,
+    "fresh_bridge": true,
+    "bridge_id": "sp-oracle-genie-carrot-v1",
+    "control_enabled": true,
+    "all_24_parts_verified": true,
+    "recent_errors": false,
+    "journal": {
+      "events": 208,
+      "publish_requests_by_part": [
+        [
+          "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+          3,
+          1
+        ],
+        [
+          "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+          4,
+          1
+        ],
+        [
+          "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+          5,
+          1
+        ],
+        [
+          "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+          6,
+          1
+        ],
+        [
+          "77248b2f-645e-5e45-a88c-20fee31137a4",
+          3,
+          1
+        ],
+        [
+          "77248b2f-645e-5e45-a88c-20fee31137a4",
+          4,
+          1
+        ],
+        [
+          "77248b2f-645e-5e45-a88c-20fee31137a4",
+          5,
+          1
+        ],
+        [
+          "77248b2f-645e-5e45-a88c-20fee31137a4",
+          6,
+          1
+        ],
+        [
+          "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+          3,
+          1
+        ],
+        [
+          "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+          4,
+          1
+        ],
+        [
+          "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+          5,
+          1
+        ],
+        [
+          "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+          6,
+          1
+        ],
+        [
+          "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+          3,
+          1
+        ],
+        [
+          "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+          4,
+          1
+        ],
+        [
+          "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+          5,
+          1
+        ],
+        [
+          "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+          6,
+          1
+        ]
+      ],
+      "publish_responses": [
+        [
+          200,
+          16
+        ]
+      ]
+    }
+  },
+  "deployment": {
+    "status": "deployed_verified",
+    "version": "2026-11-14.1",
+    "backup": "/home/ubuntu/social-publisher/backups/partial-20261114-1794677003939875664",
+    "installed_hashes": {
+      "worker.py": "1d4910181476b4f8bfca9464600a012f53bee877f163900bd87ae82459d9e518",
+      "recovery.py": "a87aab8505dd97724180b18e3c282a469a5c80a2467ded52e8e96629bab9decf",
+      "durable.py": "efcd3ea89866f0c823afa77b2c2a89f2debe524f843f6194aa5bccc68fd59eae"
+    },
+    "preservation": {
+      "other_jobs_unchanged": true,
+      "environment_unchanged": true,
+      "user_unchanged": true,
+      "restart_policy_unchanged": true,
+      "command_unchanged": true
+    },
+    "other_job_count": 74
+  },
+  "diagnosis_run": "43619604638",
+  "repair_run": "43620813263",
+  "verification_run": "43621700214",
+  "regression_run": "43621700216"
+}

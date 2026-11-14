@@ -125,7 +125,7 @@ def main():
         run('rename',NAME,old_name);renamed=True
         run(*clone_args(snapshot,old_name));run('start',NAME);new_started=True
         STAGE='health'
-        for _ in range(60):
+        for _ in range(420):
             if run('inspect','--format','{{.State.Running}}',NAME)=='true':
                 logs=subprocess.run(['docker','logs',NAME],capture_output=True,text=True)
                 if 'Social Publisher worker ready' in logs.stdout:

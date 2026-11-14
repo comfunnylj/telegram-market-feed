@@ -1,5 +1,64 @@
 # Social Publisher automation delivery protocol v1
 
+## Current Oracle recovery policy 2026-11-14
+
+Runtime publisher recovery version: `2026-11-14.1`. This section supersedes older
+statements below that the server patch is not deployed or that a fresh retry key
+is the normal recovery route. Historical incident records retain their original
+facts, but do not authorize new keys or silent historical backfills.
+
+The November partial-thread incident was a server verification bug: Meta removed
+leading `\n\n` from replies, but the October verifier normalized trailing ASCII
+whitespace only. The reply was already published; the verifier raised before
+saving its permalink and before attempting later parts. Compare returned and
+approved text after stripping ASCII space/tab/CR/LF from BOTH boundaries only.
+Internal characters, spaces, paragraphs, numbers, URLs and Unicode whitespace
+remain significant. Never modify accepted `parts`, `text` or their concatenation.
+
+Protected persistence:
+- `/data/history/<job_id>.json`: atomic, fsynced checkpoints with checkpoint_seq.
+- `/data/schedule.sqlite3`, `jobs.result`: progress checkpoint on every stage while
+  the same job is running; final status only after every part is verified.
+- `/data/schedule.sqlite3`, `publisher_api_events`: append-only HTTP transaction
+  events with job/key/part, parent/container/post IDs, HTTP/error codes, request
+  start/end and publish-attempt flag. Tokens and authorization headers are excluded.
+- Publish write-ahead is persisted before the public POST. A returned post ID is
+  persisted before verification. A missing permalink retains the ID and uses
+  bounded GET retries plus the exact authenticated parent feed.
+
+A worker restart preserves durable progress. Newly checkpointed jobs left as
+`needs_review` can reconcile/resume under the existing exclusive worker lock.
+Published IDs are verified and skipped. Ambiguous outcomes are queried, never
+blindly resent. The complete account-owned feed must show a unique matching ID
+under the expected parent before it is adopted. Permanent authentication,
+policy or genuine content/topic mismatches require operator action. Recovery
+remains bounded to three attempts with backoff. Legacy failed jobs are not
+silently backfilled by installing a new verifier.
+
+For authorized existing partial jobs, expiry is not rewritten. An operator must
+explicitly name and approve same-ID continuation of an already-started thread.
+Never create a new retry key or publish an expired unstarted job as a workaround.
+The November plan is limited to November 7, 12, 13 and 14 morning jobs and preserves
+their existing root and second-post IDs. Other task/outbox/control values are unchanged.
+
+Maintenance workflow: `.github/workflows/repair-threads-partial-20261114.yml`.
+Default `verify` is read-only and issues no publication requests. Explicit manual
+`deploy` performs compatibility checks, consistent backups, graceful worker stop,
+same-ID continuation, image replacement and health checks. It retains runtime user,
+environment, mounts, limits and restart policy; other SNS containers are untouched.
+Do not restore an old DB during code rollback, since that could replay public posts.
+The previous stopped container and private backups are retained on Oracle.
+
+A transient GitHub HTTP 500 during the initial bridge poll is distinct from a
+Threads publish failure. Keep `poll_seconds=180` and wait for the actual background
+worker's next successful poll; do not toggle control or fake the public heartbeat.
+The health gate allows two poll intervals plus startup margin.
+
+Offline CI: `.github/workflows/threads-recovery-regression.yml` runs 29 mock-based
+regressions on recovery source changes, without SSH secrets or public test posts.
+Full incident table, actual deployment evidence and all 24 verified permalinks:
+`social-publisher/diagnostics/2026-11-14_Social-Publisher_Threads-Partial-Publishing_Incident.md`.
+
 Use this delivery protocol only after control.json enabled=true and the Oracle read-only probe is verified. Existing writing/fact-checking rules remain in force. Do not invoke Metricool after cutover. No SSH key or Threads token belongs in this repository.
 
 Repository: comfunnylj/telegram-market-feed, branch main.
@@ -136,7 +195,7 @@ Permanent requirements for *future* Threads carousel attempts through this integ
 3. Confirm live Oracle Bridge account, version 0.4+, task `realestate`, and `capabilities.carousel` / `max_images` **before** queue submission.
 4. Use a stable dedup key; publish request is immutable after accepted. Verify that the exact image count, official topic, all parts, and a single job entry reached the outbox.
 5. If `publishing_unknown` occurs, **do not** claim failure or auto-resubmit. First check the private server history `/home/ubuntu/social-publisher/data/history/<request-id>.json` and Meta authenticated account timeline for an already-published root. This read-only reconciliation requires authorized server access and cannot be replaced by public receipt data alone.
-6. When the user expressly authorizes another attempt after reconciliation, use a **new** stable recovery key. Do not overwrite or erase the original uncertain job; preserve a separate status file and audit IDs.
+6. Historical October 23 recovery used a separate explicitly authorized retry key. Current operation must instead use the authenticated same-job reconciliation/resume mechanism described above. Do not create a fresh retry key for ambiguous or partial outcomes; preserve original history and IDs.
 7. Report success only on `published`, each part `published` with an actual permalink, the correct root official topic tag, and expected image_count. The receipt's requested image_count is not independent proof of client-side rendered images; inspect the live post when possible.
 8. Avoid claiming a definitive failure cause unless server-side Meta error and the publishing-stage transaction are available. Scaling to 1080px is a defensive preflight measure, not a verified universal fix for `publishing_unknown`.
 
@@ -146,7 +205,7 @@ Auditable recovery sources:
 - `social-publisher/diagnostics/recover-myeonmok9-20261023.py` — concrete image/receipt/retry gate.
 - `social-publisher/diagnostics/diagnose-myeonmok9-unknown.py` — read-only server diagnosis (run only inside authorized Oracle container).
 
-Server-side future fix, **not yet deployed**: persist Meta child/parent container IDs and upstream status/errors before publishing; implement reconciliation by container status and account timeline when publish response is lost, rather than immediately terminal `publishing_unknown`. Update Oracle software only with proper server access, backups, and tests.
+Historical October 23 status (subsequently superseded by the deployed recovery versions above): persist Meta child/parent container IDs and upstream status/errors before publishing; implement reconciliation by container status and account timeline when publish response is lost, rather than immediately terminal `publishing_unknown`. Update Oracle software only with proper server access, backups, and tests.
 
 
 ## Shared REAL ESTATE Threads pre-submit gate (2026-10-23)
@@ -163,7 +222,7 @@ MANDATORY before adding any future `realestate` job to the live outbox. This cod
 8. Declare success only if Oracle reports each part `published`, each permalink is present, image count matches, and the root official topic is correct. The count in the receipt is not proof of end-user image rendering. If possible inspect the live Threads post directly.
 9. The pre-submit code must be invoked by EACH FUTURE publishing script/workflow **before** its outbox write; the GitHub regression workflow runs on source changes but cannot stop an outbox already consumed by Oracle.
 
-Server-side work STILL required to eliminate the blind spot: persist Meta carousel child IDs, root creation ID, publish attempt timestamp, and redacted HTTP code/error to protected Oracle history; for ambiguous responses, GET the saved container status using official Threads API fields `id,status,error_message`, compare the authenticated feed, and resume only definitively unposted parts using saved IDs. This requires SSH access, backup and tested Oracle deployment. It has NOT been done merely by adding this preflight module.
+Historical server-side requirements, now implemented in the deployed recovery path above: persist Meta carousel child IDs, root creation ID, publish attempt timestamp, and redacted HTTP code/error to protected Oracle history; for ambiguous responses, GET the saved container status using official Threads API fields `id,status,error_message`, compare the authenticated feed, and resume only definitively unposted parts using saved IDs. This requires SSH access, backup and tested Oracle deployment. The preflight module alone does not implement these functions; the separate Oracle worker patch does.
 
 
 ## Automatic failure diagnosis and safe recovery (2026-10-24)
@@ -177,3 +236,4 @@ For every publishing attempt, perform a bounded read-only reconciliation wheneve
 5. Recheck the receipt after any eligible retry. Report success only when every part has an actual public permalink and the root's official topic_tag is verified. Report partial or unresolved status otherwise. Preserve existing tasks, outboxes, schedules, and control flags.
 
 This section adds automatic diagnosis and conditional safe recovery; it does NOT assert that the Oracle server currently implements an idempotent retry endpoint, and it does not override the immutable-key or unknown-state safety rules.
+

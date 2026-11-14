@@ -1,4 +1,26 @@
-# Oracle Threads recovery — October 24, 2026
+# Oracle Threads durable recovery operations
+
+Current runtime version: `2026-11-14.1`. See
+[`../diagnostics/2026-11-14_Social-Publisher_Threads-Partial-Publishing_Incident.md`](../diagnostics/2026-11-14_Social-Publisher_Threads-Partial-Publishing_Incident.md)
+for the four-job incident matrix, concrete cause, deployed code differences,
+29 regression tests, public permalinks and actual health evidence.
+
+The current verifier accepts only boundary ASCII whitespace normalization. It
+preserves the immutable original payload and compares every internal character.
+`durable.py` fsyncs history checkpoints, updates the running job's DB result,
+and persists credential-free API events in `publisher_api_events`. The worker
+can reconcile interrupted new-version checkpoints without generating new keys.
+Unknown publication outcomes are never treated as unposted merely because the
+permalink is missing. Parent linkage and actual Meta IDs remain mandatory.
+
+Deployment and read-only verification entrypoints are in `november/`.
+The workflow defaults to verification; live deployment requires the explicit
+manual `deploy` operation. Rollback changes executable containers only, never
+restores a stale database. Default regression CI has no server credentials.
+The previously documented October 24/26 directories below are historical
+incident entrypoints and must not be rerun blindly for later dates.
+
+## Historical October 24 record
 
 ## Verified incident result
 
@@ -94,3 +116,4 @@ same-job `run_recovery.py` only with the existing worker stopped and its lock fr
 `audit_live.py` and `verify_live.py` are read-only diagnostic entrypoints.
 Baseline `core.py` and `scheduler.py` are offline test fixtures, not blindly
 installed replacements for live files.
+
