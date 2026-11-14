@@ -1,4 +1,4 @@
-name: Diagnose and repair Threads partial publication November 14
+name: Repair and verify Threads partial publication November 14
 on:
   push:
     paths:
@@ -18,20 +18,34 @@ jobs:
       ORACLE_HOST_KEYS: ${{ secrets.SOCIAL_PUBLISHER_KNOWN_HOSTS || secrets.ORACLE_KNOWN_HOSTS }}
     steps:
       - uses: actions/checkout@v4
-      - name: Read-only audit of live code private history and Meta posts
+      - name: Run offline publication crash recovery and duplicate prevention regression tests
+        run: python3 -m unittest discover -s social-publisher/oracle-recovery -p 'test_*.py' -v
+      - name: Compile the reviewed source before deploying
+        run: python3 -m compileall -q social-publisher/oracle-recovery
+      - name: Back up Oracle and deploy the tested repair for four original jobs
         shell: bash
         run: |
           set -euo pipefail
           install -d -m 700 "$RUNNER_TEMP/sp-ssh"
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
           python3 social-publisher/diagnostics/prepare-oracle-ssh.py
-          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-partial-20261114-audit'
-          cat social-publisher/oracle-recovery/november/audit_remote.py | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; cat > /home/ubuntu/sp-partial-20261114-audit/audit_remote.py'
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-partial-20261114-audit/audit_remote.py' | tee oracle-audit.txt
+          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-partial-20261114'
+          tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-partial-20261114 -xf -'
+          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-partial-20261114/november/deploy_partial.py' | tee oracle-deployment.txt
+      - name: Verify actual Meta posts official topic chain private API journal and live worker health
+        shell: bash
+        run: |
+          set -euo pipefail
+          install -d -m 700 "$RUNNER_TEMP/sp-ssh"
+          trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o ServerAliveInterval=30 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-partial-20261114/november/health_remote.py' | tee oracle-verification.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: threads-partial-20261114-audit
-          path: oracle-audit.txt
+          name: threads-partial-20261114-deployment-evidence
+          path: |
+            oracle-deployment.txt
+            oracle-verification.txt
           retention-days: 14

@@ -36,7 +36,7 @@ def main():
                 record = {'job_id':identifier,'status':'expired','parts':[]}
             else:
                 record = publisher.send(payload['text'],payload['topic'],payload['parts'],payload.get('image'),
-                                        scheduled=True,images=payload.get('images'),job_id=identifier)
+                                        scheduled=True,images=payload.get('images'),job_id=identifier,automation=meta)
             if meta:
                 record['automation'] = meta
             record['schedule_id'] = identifier
@@ -61,3 +61,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

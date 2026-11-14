@@ -43,7 +43,15 @@ class RecoveryTests(unittest.TestCase):
         if 'fields=id,status' in path:
             return {'id': ident, 'status': 'FINISHED'}
         if '/threads?' in path or '/replies?' in path:
-            return {'data': []}
+            previous = path.split('/')[1] if '/replies?' in path else None
+            hits=[]
+            for pid,txt in self.post_text.items():
+                container=self.containers.get(pid[1:],{})
+                if container.get('reply_to_id')==previous:
+                    hits.append({'id':pid,'text':txt,'username':'genie_carrot',
+                        'permalink':'https://www.threads.com/@genie_carrot/post/'+pid,
+                        'topic_tag':self.post_topics.get(pid),'timestamp':r.dt.datetime.now(r.dt.timezone.utc).isoformat()})
+            return {'data':hits}
         raise AssertionError(path)
 
     def send(self, **kwargs):
@@ -86,7 +94,7 @@ class RecoveryTests(unittest.TestCase):
                 raise TimeoutError('accepted, response lost')
             return self.api(t, p, d)
         hit = {'id': 'pc1', 'text': self.parts[0], 'username': 'genie_carrot'}
-        with self.patched(api), patch.object(r, 'own_matches', return_value=([hit], True)):
+        with self.patched(api):
             result = self.send()
         self.assertEqual(result['status'], 'published')
         self.assertEqual(sum(p.endswith('/threads_publish') for p, d in self.calls), 2)
@@ -207,9 +215,11 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(result['status'], 'published')
         self.assertEqual(len([1 for p,d in self.calls if p.endswith('/threads_publish')]), 2)
 
-    def test_only_trailing_ascii_whitespace_is_normalized(self):
+    def test_only_boundary_ascii_whitespace_is_normalized(self):
         self.assertTrue(r.text_matches('body', 'body\n\n'))
-        self.assertFalse(r.text_matches(' body', 'body'))
+        self.assertTrue(r.text_matches(' body', 'body'))
+        self.assertTrue(r.text_matches('body', '\n\nbody\n'))
+        self.assertFalse(r.text_matches('\u00a0body', 'body'))
         self.assertFalse(r.text_matches('a b', 'a  b'))
         self.assertFalse(r.text_matches('a\nb', 'a b'))
         self.assertFalse(r.text_matches(None, 'body'))
@@ -217,3 +227,4 @@ class RecoveryTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

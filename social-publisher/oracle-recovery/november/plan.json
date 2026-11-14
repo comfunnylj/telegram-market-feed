@@ -1,0 +1,52 @@
+{
+  "incidents": [
+    {
+      "key": "morning:2026-11-07",
+      "job_id": "04a9d40f-ec90-545c-a2af-6a6ff5e1aa44",
+      "parts_sha256": "6786f5ee96e310089e55a2fe264f3eb015acca6d1d95ec2b19693094adff73f2",
+      "topic": "미국주식",
+      "part_count": 6,
+      "retained_ids": {
+        "1": "17980930559920349",
+        "2": "17924140071451820"
+      },
+      "expired_partial_resume_authorized": true
+    },
+    {
+      "key": "morning:2026-11-12",
+      "job_id": "b6aa3682-f834-5779-aa71-8de839fe4e5d",
+      "parts_sha256": "629abf9e755c59a414e3fc4738ffb6291dc9d95362f50fbca1cadb6c0dcf7345",
+      "topic": "미국주식",
+      "part_count": 6,
+      "retained_ids": {
+        "1": "17915618643558760",
+        "2": "18498451507109004"
+      },
+      "expired_partial_resume_authorized": true
+    },
+    {
+      "key": "morning:2026-11-13",
+      "job_id": "860bd75a-ed80-5577-a48d-3fd5c4a8af43",
+      "parts_sha256": "84ceac160b69557f5d833dbdb5fe6836ba566a0239f5bb67bbf5dbcdb1e0ce75",
+      "topic": "미국주식",
+      "part_count": 6,
+      "retained_ids": {
+        "1": "18438990187199814",
+        "2": "17915624799512045"
+      },
+      "expired_partial_resume_authorized": true
+    },
+    {
+      "key": "morning:2026-11-14",
+      "job_id": "77248b2f-645e-5e45-a88c-20fee31137a4",
+      "parts_sha256": "bcd71f97c4ff8983992435c6b50a967d299b2ebcbfa50c3525841b91b40a54f8",
+      "topic": "미국주식",
+      "part_count": 6,
+      "retained_ids": {
+        "1": "18049110260831859",
+        "2": "17946862575362213"
+      },
+      "expired_partial_resume_authorized": true
+    }
+  ]
+}
