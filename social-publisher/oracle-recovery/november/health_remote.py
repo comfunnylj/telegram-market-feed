@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import subprocess
+import sqlite3
 import time
 
 root=Path(__file__).resolve().parent
@@ -30,9 +31,15 @@ all_logs=subprocess.run(['docker','logs',name],capture_output=True,text=True)
 assert 'Social Publisher worker ready' in all_logs.stdout
 assert not any(x in logs.stdout+logs.stderr for x in ['Traceback','PermissionError','recovery check error','status export error'])
 data=Path(next(m['Source'] for m in snapshot['Mounts'] if m['Destination']=='/data'))
-health=json.loads((data/'bridge-health.json').read_text())
-assert health['enabled'] and health['last_error'] is None and not health['task_errors']
-assert time.time()-health['last_success_at']<360
+# A transient GitHub error on startup must not be mistaken for a bad rollout.
+# Preserve poll_seconds=180; wait for the actual background worker to retry.
+for _ in range(420):
+    health=json.loads((data/'bridge-health.json').read_text())
+    if (health.get('enabled') and health.get('last_error') is None and not health.get('task_errors')
+            and health.get('last_success_at') and time.time()-health['last_success_at']<360):
+        break
+    time.sleep(1)
+else:raise RuntimeError('Actual worker bridge did not recover within two poll intervals')
 status_dir=Path(next(m['Source'] for m in snapshot['Mounts'] if m['Destination']=='/status'))
 receipt=json.loads((status_dir/'status.json').read_text())
 plan=json.loads((root/'plan.json').read_text());target_ids={x['job_id'] for x in plan['incidents']}
@@ -52,3 +59,19 @@ assert all(part>=3 for jid,part,count in journal['publish_requests_by_part'] if 
 print('HEALTH_RESULT '+json.dumps({'status':'healthy','runtime':runtime,'exclusive_lock_held':True,
     'fresh_bridge':True,'bridge_id':health['bridge_id'],'control_enabled':health['enabled'],
     'all_24_parts_verified':True,'recent_errors':False,'journal':journal},ensure_ascii=False),flush=True)
+
+# Recheck the original consistent backup after the initially transient health failure.
+backups=sorted((data.parent/'backups').glob('partial-20261114-*'),key=lambda p:p.stat().st_mtime)
+backup=backups[-1];before_snapshot=json.loads((backup/'container.json').read_text())
+def rows(path):
+    c=sqlite3.connect(path.as_uri()+'?mode=ro',uri=True)
+    result={r[0]:r for r in c.execute('SELECT id,due,status,payload,result,created FROM jobs ORDER BY id')};c.close();return result
+before=rows(backup/'schedule.sqlite3');after=rows(data/'schedule.sqlite3')
+env=lambda v:dict(s.split('=',1) for s in v['Config']['Env'])
+preservation={'other_jobs_unchanged':{k:v for k,v in before.items() if k not in target_ids}=={k:v for k,v in after.items() if k not in target_ids},
+    'environment_unchanged':env(snapshot)==env(before_snapshot),'user_unchanged':snapshot['Config']['User']==before_snapshot['Config']['User'],
+    'restart_policy_unchanged':snapshot['HostConfig']['RestartPolicy']==before_snapshot['HostConfig']['RestartPolicy'],
+    'command_unchanged':snapshot['Config']['Cmd']==before_snapshot['Config']['Cmd'] and snapshot['Config'].get('Entrypoint')==before_snapshot['Config'].get('Entrypoint')}
+assert all(preservation.values())
+print('DEPLOYMENT_RESULT '+json.dumps({'status':'deployed_verified','version':runtime['version'],'backup':str(backup),
+    'installed_hashes':runtime['hashes'],'preservation':preservation,'other_job_count':len(before)-len(target_ids)},ensure_ascii=False),flush=True)

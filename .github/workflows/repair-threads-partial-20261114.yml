@@ -1,9 +1,18 @@
-name: Repair and verify Threads partial publication November 14
+name: Maintain and verify Threads partial publication November 14
 on:
   push:
     paths:
       - '.github/workflows/repair-threads-partial-20261114.yml'
   workflow_dispatch:
+    inputs:
+      operation:
+        description: Verification is read-only; deploy runs the backed-up same-job repair
+        required: true
+        default: verify
+        type: choice
+        options:
+          - verify
+          - deploy
 permissions:
   contents: read
 concurrency:
@@ -22,17 +31,25 @@ jobs:
         run: python3 -m unittest discover -s social-publisher/oracle-recovery -p 'test_*.py' -v
       - name: Compile the reviewed source before deploying
         run: python3 -m compileall -q social-publisher/oracle-recovery
-      - name: Back up Oracle and deploy the tested repair for four original jobs
+      - name: Stage public maintenance scripts without changing running code or private data
         shell: bash
         run: |
           set -euo pipefail
           install -d -m 700 "$RUNNER_TEMP/sp-ssh"
           trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
           python3 social-publisher/diagnostics/prepare-oracle-ssh.py
-          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
+          SSH_ARGS=(-i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts")
           ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; mkdir -p /home/ubuntu/sp-partial-20261114'
           tar -C social-publisher/oracle-recovery --exclude='__pycache__' -cf - . | ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'umask 077; tar -C /home/ubuntu/sp-partial-20261114 -xf -'
-          ssh "${SSH_ARGS[@]}" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-partial-20261114/november/deploy_partial.py' | tee oracle-deployment.txt
+      - name: Back up Oracle and deploy the tested repair for four original jobs
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.operation == 'deploy' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          install -d -m 700 "$RUNNER_TEMP/sp-ssh"
+          trap 'rm -rf "$RUNNER_TEMP/sp-ssh"' EXIT
+          python3 social-publisher/diagnostics/prepare-oracle-ssh.py
+          ssh -i "$RUNNER_TEMP/sp-ssh/key" -o BatchMode=yes -o ConnectTimeout=20 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/sp-ssh/known_hosts" ubuntu@161.33.141.193 'sudo -n python3 /home/ubuntu/sp-partial-20261114/november/deploy_partial.py' | tee oracle-deployment.txt
       - name: Verify actual Meta posts official topic chain private API journal and live worker health
         shell: bash
         run: |

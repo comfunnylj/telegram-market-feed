@@ -1,0 +1,20 @@
+name: Threads durable recovery regression
+on:
+  push:
+    paths:
+      - 'social-publisher/oracle-recovery/**'
+      - '.github/workflows/threads-recovery-regression.yml'
+  pull_request:
+    paths:
+      - 'social-publisher/oracle-recovery/**'
+      - '.github/workflows/threads-recovery-regression.yml'
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s social-publisher/oracle-recovery -p 'test_*.py' -v
+      - run: python3 -m compileall -q social-publisher/oracle-recovery
