@@ -444,6 +444,27 @@
         "sha256": "7d7243d51671a80ae024e0a74ee94fdda492d34858dfe11eb5b7b58ad96d745c",
         "size": 278291
       }
+    },
+    {
+      "dedup_key": "energy:1ec8b6d73ba4ffabbe12f51c0d7ebac088c1b3e25bfd5e4074819452fcdd6b20",
+      "created_at": "2026-11-22T09:41:07+09:00",
+      "not_before": "2026-11-22T09:46:07+09:00",
+      "expires_at": "2026-11-22T09:51:07+09:00",
+      "topic": "원자재",
+      "text": "11/22, 에너지 시장 한눈에\n\n1. S-OIL 샤힌 프로젝트 준공 발표\n2. 상업 가동은 2027년 초 목표\n3. 싱가포르 휘발유·납사 약세, 중간유분 강세\n4. IEA 장기 시나리오: 가솔린 감소·납사 증가\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 Brent 평균 $86/bbl\nGoldman Sachs(11/18): 2027년 Brent 평균 $88/bbl, 12월 초 약 $78\nMorgan Stanley(11/17): 2027년 말 Brent 약 $75 방향\n\n모두 기관의 최신 공개 전망이야. 서로 평균·연말 목표와 대상 시점이 달라 같은 기준처럼 비교하면 안 돼.\n\n11/20 실제 유가($/bbl)\nWTI 83.98(+0.77, NYMEX 선물)\n브렌트유 92.57(+0.59, ICE 선물)\n두바이유 87.41(-1.20, 현물 평가·추정값)\n\n오피넷 일별 미화 표 기준이야. 계약월·정산 여부는 표에 없어 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\nS-OIL은 샤힌 프로젝트 완공을 공식 발표했어. 다만 회사의 3분기 자료를 함께 보면 주요 설비는 기계적 준공 후 시운전 중이고, 가동 목표는 2027년 초야.\n\n추가 능력은 석유화학 제품 약 315만 톤/년, 에틸렌 약 180만 톤/년이야. 안정 가동 뒤 국내 나프타·정유 부산물의 석화 원료 전환과 에틸렌 공급이 커질 수 있지만, 지금 생산이 늘었다는 뜻은 아니야.\n\n11/20 싱가포르 평가($/bbl)는 95RON 휘발유 96.16(-1.07), 92RON 92.68(-2.29), 납사 86.24(-0.61)였어. 반면 등유는 141.64(+2.53), 0.001% 경유는 141.28(+1.76)로 올랐어.\n\n휘발유·납사와 중간유분의 상대 신호가 갈린 하루야. 제품 절대가격만 확인했고 개별 정제마진은 계산하지 않았어.\nhttps://www.opinet.co.kr/glopopdSelect.do\n\nIEA World Energy Outlook 2026의 현 정책 시나리오는 2035년까지 정제품 수요가 약 86mb/d로 대체로 정체한다고 봐. 가솔린은 0.8mb/d 줄고, 납사·LPG·등유는 각각 약 1~2mb/d 늘어나는 그림이야.\n\n또 PAJ는 과거 재고와 가동률 계열을 정정했다고 공지했어. 수정 수치를 확보하지 못해 방향은 적지 않았어.\n\n출처\nhttps://www.s-oil.com/en/relation/NewsView.aspx?BoardDataIndex=15638\nhttps://www.iea.org/reports/world-energy-outlook-2026\n#에너지",
+      "parts": [
+        "11/22, 에너지 시장 한눈에\n\n1. S-OIL 샤힌 프로젝트 준공 발표\n2. 상업 가동은 2027년 초 목표\n3. 싱가포르 휘발유·납사 약세, 중간유분 강세\n4. IEA 장기 시나리오: 가솔린 감소·납사 증가\n\n주요 기관 유가 전망\nEIA(11/10): 2027년 Brent 평균 $86/bbl\n",
+        "Goldman Sachs(11/18): 2027년 Brent 평균 $88/bbl, 12월 초 약 $78\nMorgan Stanley(11/17): 2027년 말 Brent 약 $75 방향\n\n모두 기관의 최신 공개 전망이야. 서로 평균·연말 목표와 대상 시점이 달라 같은 기준처럼 비교하면 안 돼.\n\n",
+        "11/20 실제 유가($/bbl)\nWTI 83.98(+0.77, NYMEX 선물)\n브렌트유 92.57(+0.59, ICE 선물)\n두바이유 87.41(-1.20, 현물 평가·추정값)\n\n오피넷 일별 미화 표 기준이야. 계약월·정산 여부는 표에 없어 추정하지 않았어.\nhttps://www.opinet.co.kr/glopcoilSelect.do\n\n",
+        "S-OIL은 샤힌 프로젝트 완공을 공식 발표했어. 다만 회사의 3분기 자료를 함께 보면 주요 설비는 기계적 준공 후 시운전 중이고, 가동 목표는 2027년 초야.\n\n추가 능력은 석유화학 제품 약 315만 톤/년, 에틸렌 약 180만 톤/년이야. 안정 가동 뒤 국내 나프타·정유 부산물의 석화 원료 전환과 에틸렌 공급이 커질 수 있지만, 지금 생산이 늘었다는 뜻은 아니야.\n\n",
+        "11/20 싱가포르 평가($/bbl)는 95RON 휘발유 96.16(-1.07), 92RON 92.68(-2.29), 납사 86.24(-0.61)였어. 반면 등유는 141.64(+2.53), 0.001% 경유는 141.28(+1.76)로 올랐어.\n\n휘발유·납사와 중간유분의 상대 신호가 갈린 하루야. 제품 절대가격만 확인했고 개별 정제마진은 계산하지 않았어.\nhttps://www.opinet.co.kr/glopopdSelect.do\n\n",
+        "IEA World Energy Outlook 2026의 현 정책 시나리오는 2035년까지 정제품 수요가 약 86mb/d로 대체로 정체한다고 봐. 가솔린은 0.8mb/d 줄고, 납사·LPG·등유는 각각 약 1~2mb/d 늘어나는 그림이야.\n\n또 PAJ는 과거 재고와 가동률 계열을 정정했다고 공지했어. 수정 수치를 확보하지 못해 방향은 적지 않았어.\n\n출처\nhttps://www.s-oil.com/en/relation/NewsView.aspx?BoardDataIndex=15638\nhttps://www.iea.org/reports/world-energy-outlook-2026\n#에너지"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/8f9772d8d305ba57681efca4b7d9cd0d1035f307/social-publisher/media/energy-674a7d3ef41b2a54912840b26a4e7fa58ee38c7f81c8c2993e96a20d8daa04dd.jpg",
+        "sha256": "3d37dfb0c417538d617a9e248924d9519f1c3e6877de17d5bb8764f62775b951",
+        "size": 225229
+      }
     }
   ]
 }
