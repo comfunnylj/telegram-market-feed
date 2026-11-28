@@ -486,6 +486,28 @@
         "sha256": "5cc1639263e5f36e832094326c7b81363436ce812a26ec166c11969c505939c3",
         "size": 428202
       }
+    },
+    {
+      "dedup_key": "energy:fdaadbbbcbddec3c32a0b5012ddf20f465a29bc790eb1406d40def1be774c04e",
+      "created_at": "2026-11-28T09:50:05.617+09:00",
+      "not_before": "2026-11-28T09:55:05.617+09:00",
+      "expires_at": "2026-11-28T10:00:05.617+09:00",
+      "topic": "원자재",
+      "text": "11/28 에너지 시장 브리핑\n\n1. 태국 Phra Khanong 정유소는 화재 뒤 전 생산설비를 멈췄어.\n2. 사우디 Jazan은 발사체 충돌 뒤 일부 공정이 일시 정지됐어.\n3. 2027년 2분기 세계 경유 수지가 적자로 돌아설 수 있다는 전망이 나왔어.\n4. Baltic 청정제품 운임은 노선별로 크게 갈렸어.\n\n주요 기관 유가 전망(요약 마지막)\n\nEIA(11/10, 최신 확인본): 2027년 Brent 현물 평균 $85.78/bbl, WTI 현물 평균 $80.54.\nGoldman Sachs(11/18): 2027년 Brent 평균 $88, 12월 초 약 $78.\nJ.P. Morgan PB(11/6): 2027년 말 Brent $72~78, WTI $69~75.\n\n평균과 연말 범위가 서로 달라. 모두 기관 견해야.\n\n원유 기준값(오피넷)\n\nWTI $83.68/bbl(+1.63, NYMEX 선물, 11/25)\nBrent $96.57/bbl(+1.96, ICE 선물, 11/26)\nDubai $87.00/bbl(+2.81, 싱가포르 현물 평가·추정값, 11/26)\n\n동일 출처·정의의 직전 유효 관측과 비교했어. 계약월·정산 여부는 확인되지 않아 추정하지 않았고, 실시간 가격도 아니야.\n\nBangchak은 11/26 화재 직후 전 생산설비를 정지했어. 예비 조사에선 수첨분해설비 열교환기 파열이 확인됐고 재가동 시점은 아직 없어. 정격능력을 실제 생산손실로 바꾸진 않았어.\n\nhttps://www.bangchak.co.th/en/newsroom/bangchak-news/2063/fire-incident-at-bangchak-phra-khanong-refinery-situation-report-no-4-november-27-2026\n\n사우디 에너지부는 Jazan 정유소에 발사체가 충돌해 불이 났고 일부 공정이 일시 정지됐다고 밝혔어. 불은 꺼졌지만 피해와 안전 점검 결과가 나올 때까지 공급 영향은 확정할 수 없어.\n\nhttps://spa.gov.sa/en/w2737172\n\nReuters가 인용한 전망에선 2027년 2분기 세계 경유 수지가 적자로 전환될 수 있어. 러시아 수출은 약 80만→20만 b/d로 줄었고, ARA 가스오일 재고는 전년보다 19% 낮아. 유지보수까지 겹치면 중간유분 마진 지지 요인이야.\n\nhttps://www.reuters.com/business/energy/global-diesel-market-run-into-deficit-second-quarter-2027-2026-11-27/\n\nBaltic Week 48에서 TC14는 WS336으로 101포인트 올랐고 TC2는 WS153으로 25포인트 내렸어. 대서양 MR 운임 방향이 갈렸다는 뜻이야. 브라질 ANP 11월 보고서는 9월 공급·10월 가격 자료로, 늦게 확인한 공식 월간 자료야.\n\nhttps://www.balticexchange.com/en/data-services/WeeklyRoundup/tanker/news/2026/tanker-report-week-48.html\n\n가격: https://www.opinet.co.kr/glopcoilSelect.do\n#에너지시장",
+      "parts": [
+        "11/28 에너지 시장 브리핑\n\n1. 태국 Phra Khanong 정유소는 화재 뒤 전 생산설비를 멈췄어.\n2. 사우디 Jazan은 발사체 충돌 뒤 일부 공정이 일시 정지됐어.\n3. 2027년 2분기 세계 경유 수지가 적자로 돌아설 수 있다는 전망이 나왔어.\n4. Baltic 청정제품 운임은 노선별로 크게 갈렸어.",
+        "\n\n주요 기관 유가 전망(요약 마지막)\n\nEIA(11/10, 최신 확인본): 2027년 Brent 현물 평균 $85.78/bbl, WTI 현물 평균 $80.54.\nGoldman Sachs(11/18): 2027년 Brent 평균 $88, 12월 초 약 $78.\nJ.P. Morgan PB(11/6): 2027년 말 Brent $72~78, WTI $69~75.\n\n평균과 연말 범위가 서로 달라. 모두 기관 견해야.",
+        "\n\n원유 기준값(오피넷)\n\nWTI $83.68/bbl(+1.63, NYMEX 선물, 11/25)\nBrent $96.57/bbl(+1.96, ICE 선물, 11/26)\nDubai $87.00/bbl(+2.81, 싱가포르 현물 평가·추정값, 11/26)\n\n동일 출처·정의의 직전 유효 관측과 비교했어. 계약월·정산 여부는 확인되지 않아 추정하지 않았고, 실시간 가격도 아니야.",
+        "\n\nBangchak은 11/26 화재 직후 전 생산설비를 정지했어. 예비 조사에선 수첨분해설비 열교환기 파열이 확인됐고 재가동 시점은 아직 없어. 정격능력을 실제 생산손실로 바꾸진 않았어.\n\nhttps://www.bangchak.co.th/en/newsroom/bangchak-news/2063/fire-incident-at-bangchak-phra-khanong-refinery-situation-report-no-4-november-27-2026",
+        "\n\n사우디 에너지부는 Jazan 정유소에 발사체가 충돌해 불이 났고 일부 공정이 일시 정지됐다고 밝혔어. 불은 꺼졌지만 피해와 안전 점검 결과가 나올 때까지 공급 영향은 확정할 수 없어.\n\nhttps://spa.gov.sa/en/w2737172",
+        "\n\nReuters가 인용한 전망에선 2027년 2분기 세계 경유 수지가 적자로 전환될 수 있어. 러시아 수출은 약 80만→20만 b/d로 줄었고, ARA 가스오일 재고는 전년보다 19% 낮아. 유지보수까지 겹치면 중간유분 마진 지지 요인이야.\n\nhttps://www.reuters.com/business/energy/global-diesel-market-run-into-deficit-second-quarter-2027-2026-11-27/",
+        "\n\nBaltic Week 48에서 TC14는 WS336으로 101포인트 올랐고 TC2는 WS153으로 25포인트 내렸어. 대서양 MR 운임 방향이 갈렸다는 뜻이야. 브라질 ANP 11월 보고서는 9월 공급·10월 가격 자료로, 늦게 확인한 공식 월간 자료야.\n\nhttps://www.balticexchange.com/en/data-services/WeeklyRoundup/tanker/news/2026/tanker-report-week-48.html\n\n가격: https://www.opinet.co.kr/glopcoilSelect.do\n#에너지시장"
+      ],
+      "image": {
+        "url": "https://raw.githubusercontent.com/comfunnylj/telegram-market-feed/0393d39bcf7004f245841a472c41a7b74aee3cb4/social-publisher/media/energy-fdaadbbbcbddec3c32a0b5012ddf20f465a29bc790eb1406d40def1be774c04e.jpg",
+        "sha256": "109374916c0230d1c11bd17d0fcd1b7657e23e7a88f19bcb5f815e4794353f53",
+        "size": 339399
+      }
     }
   ]
 }
